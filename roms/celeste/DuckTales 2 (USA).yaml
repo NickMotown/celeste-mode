@@ -1,0 +1,339 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 7098M (mcbobx, best ending), on DuckTales 2 (USA), replayed in FCEUX 2.6.6.
+variables:
+  0x0022: Pad
+  0x008B: Area
+  0x0097: ScreenX
+  0x009A: ScreenY
+  0x00B9: BossHealth
+  0x00C7: Event
+  0x00C8: Stage
+  0x00CE: Lives
+  0x00CF: Health
+name: DuckTales 2 (USA)
+rom: nes/DuckTales 2 (USA).nes
+hit:
+  - "Health decreased"
+  - "Lives decreased"
+lives: Lives
+input: Pad
+mode: checkpoints
+checkpoints:
+  - name: Niagara start
+    when: "Stage == 0x00 && ScreenX == 0x00 && ScreenY == 0x03 && Area == 0x0C && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Niagara 2
+    when: "Stage == 0x00 && Area changed && ScreenX == 0x00 && ScreenY == 0x03 && Area == 0x00"
+    wait: 0
+  - name: Niagara 7
+    when: "Stage == 0x00 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x04 && Area == 0x02"
+    wait: 0
+  - name: Niagara 8
+    when: "Stage == 0x00 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x04 && Area == 0x02"
+    levels: easy
+  - name: Niagara 10
+    when: "Stage == 0x00 && Area changed && ScreenX == 0x01 && ScreenY == 0x04 && Area == 0x0A"
+    wait: 0
+  - name: Niagara 11
+    when: "Stage == 0x00 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x04 && Area == 0x0A"
+    levels: easy medium
+  - name: Niagara 12
+    when: "Stage == 0x00 && ScreenX changed && ScreenX == 0x04 && ScreenY == 0x04 && Area == 0x02"
+    levels: easy
+  - name: Niagara 15
+    when: "Stage == 0x00 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x05 && Area == 0x04"
+    wait: 0
+  - name: Niagara 16
+    when: "Stage == 0x00 && ScreenX changed && ScreenX == 0x04 && ScreenY == 0x05 && Area == 0x04"
+    levels: easy medium
+  - name: Niagara 17
+    when: "Stage == 0x00 && Area changed && ScreenX == 0x05 && ScreenY == 0x05 && Area == 0x02"
+    wait: 0
+  - name: Niagara 19
+    when: "Stage == 0x00 && ScreenX changed && ScreenX == 0x07 && ScreenY == 0x04 && Area == 0x02"
+    levels: easy
+  - name: Niagara 22
+    when: "Stage == 0x00 && ScreenY changed && ScreenX == 0x07 && ScreenY == 0x02 && Area == 0x06"
+    wait: 0
+  - name: Niagara 24
+    when: "Stage == 0x00 && ScreenX changed && ScreenX == 0x06 && ScreenY == 0x01 && Area == 0x06"
+    levels: easy
+  - name: Niagara 26
+    when: "Stage == 0x00 && ScreenX changed && ScreenX == 0x04 && ScreenY == 0x01 && Area == 0x06"
+  - name: Niagara 28
+    when: "Stage == 0x00 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x00 && Area == 0x06"
+    levels: easy
+  - name: Niagara 32
+    when: "Stage == 0x00 && ScreenY changed && ScreenX == 0x01 && ScreenY == 0x01 && Area == 0x00"
+    wait: 0
+  - name: Niagara 34
+    when: "Stage == 0x00 && ScreenY changed && ScreenX == 0x01 && ScreenY == 0x02 && Area == 0x08"
+    wait: 0
+  - name: Niagara 36
+    when: "Stage == 0x00 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x02 && Area == 0x08"
+    levels: easy medium
+  - name: Niagara boss room
+    when: "Stage == 0x00 && Area changed && ScreenX == 0x05 && ScreenY == 0x02 && Area == 0x0C"
+    wait: 0
+    no_rewind: easy
+  - name: Niagara boss 75%
+    when: "Stage == 0x00 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x03 && BossHealth was != 0xFF && BossHealth <= 0x03"
+    levels: medium
+  - name: Niagara boss 50%
+    when: "Stage == 0x00 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x02 && BossHealth was != 0xFF && BossHealth <= 0x02"
+    levels: medium hard
+  - name: Niagara boss 25%
+    when: "Stage == 0x00 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
+    levels: medium
+  - name: Bermuda start
+    when: "Stage == 0x01 && ScreenX == 0x00 && ScreenY == 0x02 && Area == 0x00 && Event was 0x02 && Event == 0x00"
+    start: yes
+  - name: Bermuda 3
+    when: "Stage == 0x01 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x02 && Area == 0x00"
+    levels: easy
+  - name: Bermuda 5
+    when: "Stage == 0x01 && ScreenY changed && ScreenX == 0x01 && ScreenY == 0x03 && Area == 0x02"
+    wait: 0
+  - name: Bermuda 8
+    when: "Stage == 0x01 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x04 && Area == 0x02"
+    levels: easy
+  - name: Bermuda 12
+    when: "Stage == 0x01 && ScreenY changed && ScreenX == 0x01 && ScreenY == 0x05 && Area == 0x04"
+    wait: 0
+  - name: Bermuda 13
+    when: "Stage == 0x01 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x05 && Area == 0x04"
+    levels: easy
+  - name: Bermuda 14
+    when: "Stage == 0x01 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x05 && Area == 0x04"
+    levels: easy medium
+  - name: Bermuda 18
+    when: "Stage == 0x01 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x04 && Area == 0x06"
+    wait: 0
+  - name: Bermuda 20
+    when: "Stage == 0x01 && ScreenX changed && ScreenX == 0x07 && ScreenY == 0x04 && Area == 0x06"
+    levels: easy medium
+  - name: Bermuda 21
+    when: "Stage == 0x01 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x03 && Area == 0x06"
+  - name: Bermuda 25
+    when: "Stage == 0x01 && ScreenY changed && ScreenX == 0x07 && ScreenY == 0x02 && Area == 0x04"
+    wait: 0
+  - name: Bermuda 28
+    when: "Stage == 0x01 && ScreenY changed && ScreenX == 0x07 && ScreenY == 0x00 && Area == 0x08"
+    wait: 0
+  - name: Bermuda 29
+    when: "Stage == 0x01 && ScreenX changed && ScreenX == 0x06 && ScreenY == 0x00 && Area == 0x08"
+    levels: easy
+  - name: Bermuda 32
+    when: "Stage == 0x01 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x01 && Area == 0x02"
+    wait: 0
+  - name: Bermuda boss room
+    when: "Stage == 0x01 && Area changed && ScreenX == 0x06 && ScreenY == 0x02 && Area == 0x0C"
+    wait: 0
+    no_rewind: easy
+  - name: Bermuda boss 75%
+    when: "Stage == 0x01 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x03 && BossHealth was != 0xFF && BossHealth <= 0x03"
+    levels: medium
+  - name: Bermuda boss 50%
+    when: "Stage == 0x01 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x02 && BossHealth was != 0xFF && BossHealth <= 0x02"
+    levels: medium hard
+  - name: Bermuda boss 25%
+    when: "Stage == 0x01 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
+    levels: medium
+  - name: Egypt start
+    when: "Stage == 0x02 && ScreenX == 0x00 && ScreenY == 0x03 && Area == 0x00 && Event was 0x02 && Event == 0x00"
+    start: yes
+  - name: Egypt 6
+    when: "Stage == 0x02 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x04 && Area == 0x0A"
+    wait: 0
+  - name: Egypt 10
+    when: "Stage == 0x02 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x05 && Area == 0x00"
+    wait: 0
+  - name: Egypt 13
+    when: "Stage == 0x02 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x05 && Area == 0x06"
+    wait: 0
+  - name: Egypt 14
+    when: "Stage == 0x02 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x05 && Area == 0x06"
+    levels: easy medium
+  - name: Egypt 15
+    when: "Stage == 0x02 && ScreenX changed && ScreenX == 0x06 && ScreenY == 0x05 && Area == 0x00"
+  - name: Egypt 18
+    when: "Stage == 0x02 && ScreenY changed && ScreenX == 0x07 && ScreenY == 0x04 && Area == 0x0A"
+    wait: 0
+  - name: Egypt 21
+    when: "Stage == 0x02 && ScreenY changed && ScreenX == 0x07 && ScreenY == 0x02 && Area == 0x02"
+    wait: 0
+  - name: Egypt 25
+    when: "Stage == 0x02 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x01 && Area == 0x00"
+    wait: 0
+  - name: Egypt 27
+    when: "Stage == 0x02 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x00 && Area == 0x04"
+    wait: 0
+  - name: Egypt 28
+    when: "Stage == 0x02 && ScreenX changed && ScreenX == 0x06 && ScreenY == 0x00 && Area == 0x04"
+    levels: easy
+  - name: Egypt boss room
+    when: "Stage == 0x02 && Area changed && ScreenX == 0x07 && ScreenY == 0x00 && Area == 0x0C"
+    wait: 0
+    no_rewind: easy
+  - name: Egypt boss 75%
+    when: "Stage == 0x02 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x03 && BossHealth was != 0xFF && BossHealth <= 0x03"
+    levels: medium
+  - name: Egypt boss 50%
+    when: "Stage == 0x02 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x02 && BossHealth was != 0xFF && BossHealth <= 0x02"
+    levels: medium hard
+  - name: Egypt boss 25%
+    when: "Stage == 0x02 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
+    levels: medium
+  - name: Mu start
+    when: "Stage == 0x03 && ScreenX == 0x00 && ScreenY == 0x01 && Area == 0x06 && Event was 0x02 && Event == 0x00"
+    start: yes
+  - name: Mu 4
+    when: "Stage == 0x03 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x01 && Area == 0x04"
+    wait: 0
+  - name: Mu 7
+    when: "Stage == 0x03 && ScreenX changed && ScreenX == 0x05 && ScreenY == 0x01 && Area == 0x04"
+    levels: easy
+  - name: Mu 9
+    when: "Stage == 0x03 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x00 && Area == 0x02"
+    wait: 0
+  - name: Mu 10
+    when: "Stage == 0x03 && Area changed && ScreenX == 0x05 && ScreenY == 0x00 && Area == 0x04"
+    wait: 0
+  - name: Mu 12
+    when: "Stage == 0x03 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x02 && Area == 0x06"
+    wait: 0
+  - name: Mu 16
+    when: "Stage == 0x03 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x03 && Area == 0x00"
+    wait: 0
+  - name: Mu 20
+    when: "Stage == 0x03 && ScreenY changed && ScreenX == 0x01 && ScreenY == 0x04 && Area == 0x04"
+    wait: 0
+  - name: Mu 21
+    when: "Stage == 0x03 && ScreenX changed && ScreenX == 0x00 && ScreenY == 0x04 && Area == 0x04"
+    levels: easy
+  - name: Mu 22
+    when: "Stage == 0x03 && Area changed && ScreenX == 0x00 && ScreenY == 0x04 && Area == 0x0C"
+    wait: 0
+  - name: Mu 26
+    when: "Stage == 0x03 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x05 && Area == 0x08"
+    wait: 0
+  - name: Mu 27
+    when: "Stage == 0x03 && ScreenX changed && ScreenX == 0x04 && ScreenY == 0x05 && Area == 0x08"
+  - name: Mu 28
+    when: "Stage == 0x03 && ScreenX changed && ScreenX == 0x05 && ScreenY == 0x05 && Area == 0x08"
+  - name: Mu 29
+    when: "Stage == 0x03 && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x04 && Area == 0x0C"
+    wait: 0
+  - name: Mu 31
+    when: "Stage == 0x03 && ScreenX changed && ScreenX == 0x05 && ScreenY == 0x04 && Area == 0x04"
+    levels: easy
+  - name: Mu boss room
+    when: "Stage == 0x03 && Area changed && ScreenX == 0x04 && ScreenY == 0x03 && Area == 0x0C"
+    wait: 0
+    no_rewind: easy
+  - name: Mu boss 75%
+    when: "Stage == 0x03 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x03 && BossHealth was != 0xFF && BossHealth <= 0x03"
+    levels: medium
+  - name: Mu boss 50%
+    when: "Stage == 0x03 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x02 && BossHealth was != 0xFF && BossHealth <= 0x02"
+    levels: medium hard
+  - name: Mu boss 25%
+    when: "Stage == 0x03 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
+    levels: medium
+  - name: Scotland start
+    when: "Stage == 0x04 && ScreenX == 0x00 && ScreenY == 0x04 && Area == 0x02 && Event was 0x02 && Event == 0x00"
+    start: yes
+  - name: Scotland 4
+    when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x03 && Area == 0x02"
+    levels: easy
+  - name: Scotland 7
+    when: "Stage == 0x04 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x04 && Area == 0x06"
+    wait: 0
+  - name: Scotland 10
+    when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x06 && ScreenY == 0x04 && Area == 0x06"
+    levels: easy
+  - name: Scotland 11
+    when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x07 && ScreenY == 0x04 && Area == 0x06"
+    levels: easy
+  - name: Scotland 14
+    when: "Stage == 0x04 && ScreenY changed && ScreenX == 0x07 && ScreenY == 0x02 && Area == 0x02"
+    wait: 0
+  - name: Scotland 15
+    when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x06 && ScreenY == 0x02 && Area == 0x02"
+    levels: easy
+  - name: Scotland 17
+    when: "Stage == 0x04 && Area changed && ScreenX == 0x05 && ScreenY == 0x02 && Area == 0x04"
+    wait: 0
+  - name: Scotland 21
+    when: "Stage == 0x04 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x01 && Area == 0x00"
+    wait: 0
+  - name: Scotland 23
+    when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x05 && ScreenY == 0x01 && Area == 0x00"
+    levels: easy
+  - name: Scotland 24
+    when: "Stage == 0x04 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x00 && Area == 0x00"
+    levels: easy medium
+  - name: Scotland 27
+    when: "Stage == 0x04 && ScreenY changed && ScreenX == 0x07 && ScreenY == 0x01 && Area == 0x00"
+  - name: Scotland 28
+    when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x06 && ScreenY == 0x01 && Area == 0x00"
+    levels: easy
+  - name: Scotland 29
+    when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x04 && ScreenY == 0x00 && Area == 0x00"
+  - name: Scotland 31
+    when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00 && Area == 0x00"
+    levels: easy medium
+  - name: Scotland boss room
+    when: "Stage == 0x04 && Area changed && ScreenX == 0x00 && ScreenY == 0x01 && Area == 0x0C"
+    wait: 0
+    no_rewind: easy
+  - name: Scotland boss 75%
+    when: "Stage == 0x04 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x03 && BossHealth was != 0xFF && BossHealth <= 0x03"
+    levels: medium
+  - name: Scotland boss 50%
+    when: "Stage == 0x04 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x02 && BossHealth was != 0xFF && BossHealth <= 0x02"
+    levels: medium hard
+  - name: Scotland boss 25%
+    when: "Stage == 0x04 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
+    levels: medium
+  - name: Scotland 2 start
+    when: "Stage == 0x05 && ScreenX == 0x00 && ScreenY == 0x01 && Area == 0x02 && Event was 0x02 && Event == 0x00"
+    start: yes
+  - name: Scotland 2 4
+    when: "Stage == 0x05 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x01 && Area == 0x02"
+    levels: easy medium
+  - name: Scotland 2 8
+    when: "Stage == 0x05 && ScreenY changed && ScreenX == 0x05 && ScreenY == 0x02 && Area == 0x00"
+    wait: 0
+  - name: Scotland 2 12
+    when: "Stage == 0x05 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x03 && Area == 0x04"
+    wait: 0
+  - name: Scotland 2 16
+    when: "Stage == 0x05 && ScreenY changed && ScreenX == 0x01 && ScreenY == 0x04 && Area == 0x00"
+    wait: 0
+  - name: Scotland 2 18
+    when: "Stage == 0x05 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x04 && Area == 0x00"
+    levels: easy
+  - name: Scotland 2 boss room
+    when: "Stage == 0x05 && Area changed && ScreenX == 0x04 && ScreenY == 0x04 && Area == 0x0C"
+    wait: 0
+    no_rewind: easy
+  - name: Scotland 2 boss 75%
+    when: "Stage == 0x05 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x03 && BossHealth was != 0xFF && BossHealth <= 0x03"
+    levels: medium
+  - name: Scotland 2 boss 50%
+    when: "Stage == 0x05 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x02 && BossHealth was != 0xFF && BossHealth <= 0x02"
+    levels: medium hard
+  - name: Scotland 2 boss 25%
+    when: "Stage == 0x05 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
+    levels: medium
+  - name: Bermuda 2 start
+    when: "Stage == 0x06 && ScreenX == 0x00 && ScreenY == 0x02 && Area == 0x00 && Event was 0x02 && Event == 0x00"
+    start: yes
+  - name: Bermuda 2 6
+    when: "Stage == 0x06 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x01 && Area == 0x02"
+    wait: 0
+  - name: Bermuda 2 boss room
+    when: "Stage == 0x06 && ScreenX changed && ScreenX == 0x04 && ScreenY == 0x01 && Area == 0x02"
+    wait: 0
+    no_rewind: easy

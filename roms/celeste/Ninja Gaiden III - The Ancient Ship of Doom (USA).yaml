@@ -1,0 +1,396 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 7309M (FourLi39 & Rum, damageless), on Ninja Gaiden III (USA), replayed in FCEUX 2.6.6.
+variables:
+  0x0012: Pad
+  0x005F: Area
+  0x0070: Progress
+  0x0085: Screen
+  0x00A7: Health
+  0x00A8: BossHealth
+  0x00C4: Lives
+name: Ninja Gaiden III - The Ancient Ship of Doom (USA)
+rom: nes/Ninja Gaiden III - The Ancient Ship of Doom (USA).nes
+hit:
+  - "Health decreased"
+  - "Lives decreased"
+lives: Lives
+input: Pad
+mode: checkpoints
+checkpoints:
+  - name: Area 1 start
+    when: "Area == 0x01 && Screen == 0x04 && Area changed"
+    start: yes
+  - name: Area 1 4
+    when: "Area == 0x01 && Screen changed && Screen == 0x00"
+  - name: Area 2 start
+    when: "Area == 0x02 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 3 start
+    when: "Area == 0x03 && Screen == 0x01 && Area changed"
+    start: yes
+  - name: Area 3 boss room
+    when: "Area == 0x03 && Screen changed && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 3 boss 75%
+    when: "Area == 0x03 && BossHealth was > 0x0C && BossHealth was != 0xFF && BossHealth <= 0x0C"
+    levels: medium
+  - name: Area 3 boss 50%
+    when: "Area == 0x03 && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
+    levels: medium hard
+  - name: Area 3 boss 25%
+    when: "Area == 0x03 && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
+    levels: medium
+  - name: Area 4 start
+    when: "Area == 0x04 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 4 4
+    when: "Area == 0x04 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Area 4 7
+    when: "Area == 0x04 && Screen changed && Screen == 0x06"
+    levels: easy
+  - name: Area 5 start
+    when: "Area == 0x05 && Screen == 0x08 && Area changed"
+    start: yes
+  - name: Area 6 start
+    when: "Area == 0x06 && Screen == 0x01 && Area changed"
+    start: yes
+  - name: Area 7 start
+    when: "Area == 0x07 && Screen == 0x01 && Area changed"
+    start: yes
+  - name: Area 7 3
+    when: "Area == 0x07 && Screen changed && Screen == 0x03"
+  - name: Area 7 4
+    when: "Area == 0x07 && Screen changed && Screen == 0x02"
+  - name: Area 7 5
+    when: "Area == 0x07 && Screen changed && Screen == 0x00"
+    levels: easy medium
+  - name: Area 8 start
+    when: "Area == 0x08 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 9 start
+    when: "Area == 0x09 && Screen == 0x01 && Area changed"
+    start: yes
+  - name: Area 9 boss room
+    when: "Area == 0x09 && Screen changed && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 9 boss 75%
+    when: "Area == 0x09 && BossHealth was > 0x0C && BossHealth was != 0xFF && BossHealth <= 0x0C"
+    levels: medium
+  - name: Area 9 boss 50%
+    when: "Area == 0x09 && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
+    levels: medium hard
+  - name: Area 9 boss 25%
+    when: "Area == 0x09 && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
+    levels: medium
+  - name: Area 10 start
+    when: "Area == 0x0A && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 10 6
+    when: "Area == 0x0A && Screen changed && Screen == 0x06"
+    levels: easy
+  - name: Area 10 7
+    when: "Area == 0x0A && Screen changed && Screen == 0x05"
+    levels: easy medium
+  - name: Area 10 10
+    when: "Area == 0x0A && Screen changed && Screen == 0x02"
+  - name: Area 10 11
+    when: "Area == 0x0A && Screen changed && Screen == 0x01"
+    levels: easy
+  - name: Area 11 start
+    when: "Area == 0x0B && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 11 2
+    when: "Area == 0x0B && Screen changed && Screen == 0x01"
+    levels: easy medium
+  - name: Area 11 3
+    when: "Area == 0x0B && Screen changed && Screen == 0x02"
+  - name: Area 12 start
+    when: "Area == 0x0C && Screen == 0x02 && Area changed"
+    start: yes
+  - name: Area 12 3
+    when: "Area == 0x0C && Screen changed && Screen == 0x00"
+    levels: easy
+  - name: Area 13 start
+    when: "Area == 0x0D && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 13 4
+    when: "Area == 0x0D && Screen changed && Screen == 0x01"
+  - name: Area 14 start
+    when: "Area == 0x0E && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 15 start
+    when: "Area == 0x0F && Screen == 0x02 && Area changed"
+    start: yes
+  - name: Area 15 boss room
+    when: "Area == 0x0F && Screen changed && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 15 boss 75%
+    when: "Area == 0x0F && BossHealth was > 0x0C && BossHealth was != 0xFF && BossHealth <= 0x0C"
+    levels: medium
+  - name: Area 15 boss 50%
+    when: "Area == 0x0F && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
+    levels: medium hard
+  - name: Area 15 boss 25%
+    when: "Area == 0x0F && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
+    levels: medium
+  - name: Area 16 start
+    when: "Area == 0x10 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 16 3
+    when: "Area == 0x10 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Area 16 4
+    when: "Area == 0x10 && Screen changed && Screen == 0x03"
+  - name: Area 16 5
+    when: "Area == 0x10 && Screen changed && Screen == 0x04"
+  - name: Area 16 6
+    when: "Area == 0x10 && Screen changed && Screen == 0x05"
+    levels: easy
+  - name: Area 16 7
+    when: "Area == 0x10 && Screen changed && Screen == 0x06"
+  - name: Area 16 8
+    when: "Area == 0x10 && Screen changed && Screen == 0x07"
+  - name: Area 16 9
+    when: "Area == 0x10 && Screen changed && Screen == 0x08"
+    levels: easy medium
+  - name: Area 17 start
+    when: "Area == 0x11 && Screen == 0x0A && Area changed"
+    start: yes
+  - name: Area 17 4
+    when: "Area == 0x11 && Screen changed && Screen == 0x01"
+    levels: easy
+  - name: Area 17 5
+    when: "Area == 0x11 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Area 18 start
+    when: "Area == 0x12 && Screen == 0x04 && Area changed"
+    start: yes
+  - name: Area 18 4
+    when: "Area == 0x12 && Screen changed && Screen == 0x00"
+  - name: Area 19 start
+    when: "Area == 0x13 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 19 5
+    when: "Area == 0x13 && Screen changed && Screen == 0x01"
+    levels: easy medium
+  - name: Area 20 start
+    when: "Area == 0x14 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 20 boss room
+    when: "Area == 0x14 && Screen changed && Screen == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Area 20 boss 75%
+    when: "Area == 0x14 && BossHealth was > 0x0C && BossHealth was != 0xFF && BossHealth <= 0x0C"
+    levels: medium
+  - name: Area 20 boss 50%
+    when: "Area == 0x14 && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
+    levels: medium hard
+  - name: Area 20 boss 25%
+    when: "Area == 0x14 && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
+    levels: medium
+  - name: Area 21 start
+    when: "Area == 0x15 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 21 3
+    when: "Area == 0x15 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Area 22 start
+    when: "Area == 0x16 && Screen == 0x03 && Area changed"
+    start: yes
+  - name: Area 23 start
+    when: "Area == 0x17 && Screen == 0xFF && Area changed"
+    start: yes
+  - name: Area 23 4
+    when: "Area == 0x17 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Area 24 start
+    when: "Area == 0x18 && Screen == 0x03 && Area changed"
+    start: yes
+  - name: Area 24 4
+    when: "Area == 0x18 && Screen changed && Screen == 0x01"
+    levels: easy
+  - name: Area 24 5
+    when: "Area == 0x18 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Area 25 start
+    when: "Area == 0x19 && Screen == 0x03 && Area changed"
+    start: yes
+  - name: Area 25 4
+    when: "Area == 0x19 && Screen changed && Screen == 0x00"
+  - name: Area 26 start
+    when: "Area == 0x1A && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 27 start
+    when: "Area == 0x1B && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 28 start
+    when: "Area == 0x1C && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 29 start
+    when: "Area == 0x1D && Screen == 0x02 && Area changed"
+    start: yes
+  - name: Area 29 boss room
+    when: "Area == 0x1D && Screen changed && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 29 boss 75%
+    when: "Area == 0x1D && BossHealth was > 0x0C && BossHealth was != 0xFF && BossHealth <= 0x0C"
+    levels: medium
+  - name: Area 29 boss 50%
+    when: "Area == 0x1D && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
+    levels: medium hard
+  - name: Area 29 boss 25%
+    when: "Area == 0x1D && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
+    levels: medium
+  - name: Area 30 start
+    when: "Area == 0x1E && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 30 3
+    when: "Area == 0x1E && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Area 31 start
+    when: "Area == 0x1F && Screen == 0x03 && Area changed"
+    start: yes
+  - name: Area 32 start
+    when: "Area == 0x20 && Screen == 0x01 && Area changed"
+    start: yes
+  - name: Area 32 4
+    when: "Area == 0x20 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Area 33 start
+    when: "Area == 0x21 && Screen == 0x05 && Area changed"
+    start: yes
+  - name: Area 33 4
+    when: "Area == 0x21 && Screen changed && Screen == 0x01"
+  - name: Area 33 5
+    when: "Area == 0x21 && Screen changed && Screen == 0x00"
+  - name: Area 34 start
+    when: "Area == 0x22 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 34 3
+    when: "Area == 0x22 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Area 34 4
+    when: "Area == 0x22 && Screen changed && Screen == 0x03"
+    levels: easy
+  - name: Area 35 start
+    when: "Area == 0x23 && Screen == 0x04 && Area changed"
+    start: yes
+  - name: Area 35 boss room
+    when: "Area == 0x23 && Screen changed && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 35 boss 75%
+    when: "Area == 0x23 && BossHealth was > 0x0C && BossHealth was != 0xFF && BossHealth <= 0x0C"
+    levels: medium
+  - name: Area 35 boss 50%
+    when: "Area == 0x23 && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
+    levels: medium hard
+  - name: Area 35 boss 25%
+    when: "Area == 0x23 && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
+    levels: medium
+  - name: Area 36 start
+    when: "Area == 0x24 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 36 6
+    when: "Area == 0x24 && Screen changed && Screen == 0x04"
+    levels: easy
+  - name: Area 36 8
+    when: "Area == 0x24 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Area 37 start
+    when: "Area == 0x25 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 38 start
+    when: "Area == 0x26 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 38 5
+    when: "Area == 0x26 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Area 38 6
+    when: "Area == 0x26 && Screen changed && Screen == 0x01"
+    levels: easy medium
+  - name: Area 39 start
+    when: "Area == 0x27 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 40 start
+    when: "Area == 0x28 && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 40 3
+    when: "Area == 0x28 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Area 41 start
+    when: "Area == 0x29 && Screen == 0x03 && Area changed"
+    start: yes
+  - name: Area 41 4
+    when: "Area == 0x29 && Screen changed && Screen == 0x00"
+  - name: Area 42 start
+    when: "Area == 0x2A && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 42 3
+    when: "Area == 0x2A && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Area 43 start
+    when: "Area == 0x2B && Screen == 0x05 && Area changed"
+    start: yes
+  - name: Area 43 4
+    when: "Area == 0x2B && Screen changed && Screen == 0x00"
+  - name: Area 44 start
+    when: "Area == 0x2C && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 44 3
+    when: "Area == 0x2C && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Area 45 start
+    when: "Area == 0x2D && Screen == 0x04 && Area changed"
+    start: yes
+  - name: Area 45 boss room
+    when: "Area == 0x2D && Screen changed && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 45 boss 75%
+    when: "Area == 0x2D && BossHealth was > 0x0C && BossHealth was != 0xFF && BossHealth <= 0x0C"
+    levels: medium
+  - name: Area 45 boss 50%
+    when: "Area == 0x2D && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
+    levels: medium hard
+  - name: Area 45 boss 25%
+    when: "Area == 0x2D && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
+    levels: medium
+  - name: Area 46 start
+    when: "Area == 0x2E && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 46 boss room
+    when: "Area == 0x2E && Screen changed && Screen == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Area 46 boss 75%
+    when: "Area == 0x2E && BossHealth was > 0x0C && BossHealth was != 0xFF && BossHealth <= 0x0C"
+    levels: medium
+  - name: Area 46 boss 50%
+    when: "Area == 0x2E && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
+    levels: medium hard
+  - name: Area 46 boss 25%
+    when: "Area == 0x2E && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
+    levels: medium
+  - name: Area 47 start
+    when: "Area == 0x2F && Screen == 0x00 && Area changed"
+    start: yes
+  - name: Area 47 boss room
+    when: "Area == 0x2F && Screen changed && Screen == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Area 47 boss 75%
+    when: "Area == 0x2F && BossHealth was > 0x0C && BossHealth was != 0xFF && BossHealth <= 0x0C"
+    levels: medium
+  - name: Area 47 boss 50%
+    when: "Area == 0x2F && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
+    levels: medium hard
+  - name: Area 47 boss 25%
+    when: "Area == 0x2F && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
+    levels: medium

@@ -1,0 +1,411 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 4739M (DreamYao, J.Y & aiqiyou), on Darkwing Duck (USA), replayed in FCEUX 2.6.6.
+variables:
+  0x0016: Pad
+  0x0022: Screen
+  0x0027: Section
+  0x0031: Level
+  0x0050: State
+  0x00D9: Music
+  0x00EE: BossHits
+name: Darkwing Duck (USA)
+rom: nes/Darkwing Duck (USA).nes
+hit:
+  - "State changed && State == 0x06"
+  - "0x0050 changed && 0x0050 == 0x07"
+death:
+  - "0x0050 changed && 0x0050 == 0x07"
+input: Pad
+input_bits: right left down up start select b a
+mode: checkpoints
+checkpoints:
+  - name: Liquidator start
+    when: "Level == 0x02 && Screen == 0x00 && State was 0x09 && State != 0x09"
+    start: yes
+  - name: Liquidator 2
+    when: "Level == 0x02 && Screen changed && Screen == 0x01"
+  - name: Liquidator 3
+    when: "Level == 0x02 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Liquidator 5
+    when: "Level == 0x02 && Screen changed && Screen == 0x24"
+  - name: Liquidator 6
+    when: "Level == 0x02 && Screen changed && Screen == 0x25"
+    levels: easy medium
+  - name: Liquidator 7
+    when: "Level == 0x02 && Screen changed && Screen == 0x26"
+  - name: Liquidator 8
+    when: "Level == 0x02 && Screen changed && Screen == 0x27"
+    levels: easy
+  - name: Liquidator 10
+    when: "Level == 0x02 && Screen changed && Screen == 0x39"
+  - name: Liquidator 11
+    when: "Level == 0x02 && Screen changed && Screen == 0x3A"
+  - name: Liquidator 12
+    when: "Level == 0x02 && Screen changed && Screen == 0x3B"
+    levels: easy medium
+  - name: Liquidator 13
+    when: "Level == 0x02 && Screen changed && Screen == 0x3C"
+  - name: Liquidator 14
+    when: "Level == 0x02 && Screen changed && Screen == 0x3D"
+    levels: easy medium
+  - name: Liquidator 15
+    when: "Level == 0x02 && Screen changed && Screen == 0x3E"
+  - name: Liquidator 16
+    when: "Level == 0x02 && Screen changed && Screen == 0x3F"
+    levels: easy
+  - name: Liquidator 17
+    when: "Level == 0x02 && Screen changed && Screen == 0x40"
+  - name: Liquidator 18
+    when: "Level == 0x02 && Screen changed && Screen == 0x41"
+    levels: easy
+  - name: Liquidator boss room
+    when: "Level == 0x02 && Screen changed && Screen == 0x31"
+    wait: 0
+    no_rewind: easy
+  - name: Liquidator boss 75%
+    when: "Level == 0x02 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x04 && BossHits >= 0x04"
+    levels: medium
+  - name: Liquidator boss 50%
+    when: "Level == 0x02 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x08 && BossHits >= 0x08"
+    levels: medium hard
+  - name: Liquidator boss 25%
+    when: "Level == 0x02 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
+    levels: medium
+  - name: Quackerjack start
+    when: "Level == 0x00 && Screen == 0x33 && State was 0x09 && State != 0x09"
+    start: yes
+  - name: Quackerjack 2
+    when: "Level == 0x00 && Screen changed && Screen == 0x34"
+    levels: easy medium
+  - name: Quackerjack 3
+    when: "Level == 0x00 && Screen changed && Screen == 0x35"
+    levels: easy
+  - name: Quackerjack 4
+    when: "Level == 0x00 && Screen changed && Screen == 0x36"
+  - name: Quackerjack 6
+    when: "Level == 0x00 && Screen changed && Screen == 0x38"
+    levels: easy medium
+  - name: Quackerjack 7
+    when: "Level == 0x00 && Screen changed && Screen == 0x27"
+    levels: easy
+  - name: Quackerjack 8
+    when: "Level == 0x00 && Screen changed && Screen == 0x16"
+  - name: Quackerjack 9
+    when: "Level == 0x00 && Screen changed && Screen == 0x17"
+    levels: easy
+  - name: Quackerjack 10
+    when: "Level == 0x00 && Screen changed && Screen == 0x18"
+  - name: Quackerjack 11
+    when: "Level == 0x00 && Screen changed && Screen == 0x19"
+    levels: easy medium
+  - name: Quackerjack 12
+    when: "Level == 0x00 && Screen changed && Screen == 0x1A"
+  - name: Quackerjack 13
+    when: "Level == 0x00 && Screen changed && Screen == 0x1B"
+    levels: easy
+  - name: Quackerjack 15
+    when: "Level == 0x00 && Screen changed && Screen == 0x2D"
+  - name: Quackerjack 16
+    when: "Level == 0x00 && Screen changed && Screen == 0x2E"
+  - name: Quackerjack 17
+    when: "Level == 0x00 && Screen changed && Screen == 0x2F"
+    levels: easy
+  - name: Quackerjack 18
+    when: "Level == 0x00 && Screen changed && Screen == 0x30"
+    levels: easy medium
+  - name: Quackerjack boss room
+    when: "Level == 0x00 && Screen changed && Screen == 0x20"
+    wait: 0
+    no_rewind: easy
+  - name: Quackerjack boss 75%
+    when: "Level == 0x00 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x04 && BossHits >= 0x04"
+    levels: medium
+  - name: Quackerjack boss 50%
+    when: "Level == 0x00 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x08 && BossHits >= 0x08"
+    levels: medium hard
+  - name: Quackerjack boss 25%
+    when: "Level == 0x00 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
+    levels: medium
+  - name: Wolfduck start
+    when: "Level == 0x01 && Screen == 0x33 && State was 0x09 && State != 0x09"
+    start: yes
+  - name: Wolfduck 2
+    when: "Level == 0x01 && Screen changed && Screen == 0x34"
+    levels: easy
+  - name: Wolfduck 3
+    when: "Level == 0x01 && Screen changed && Screen == 0x35"
+    levels: easy medium
+  - name: Wolfduck 4
+    when: "Level == 0x01 && Screen changed && Screen == 0x36"
+  - name: Wolfduck 6
+    when: "Level == 0x01 && Screen changed && Screen == 0x26"
+    levels: easy
+  - name: Wolfduck 7
+    when: "Level == 0x01 && Screen changed && Screen == 0x15"
+  - name: Wolfduck 8
+    when: "Level == 0x01 && Screen changed && Screen == 0x16"
+    levels: easy medium
+  - name: Wolfduck 10
+    when: "Level == 0x01 && Screen changed && Screen == 0x28"
+  - name: Wolfduck 11
+    when: "Level == 0x01 && Screen changed && Screen == 0x29"
+    levels: easy
+  - name: Wolfduck 12
+    when: "Level == 0x01 && Screen changed && Screen == 0x2A"
+  - name: Wolfduck 14
+    when: "Level == 0x01 && Screen changed && Screen == 0x2C"
+    levels: easy medium
+  - name: Wolfduck 15
+    when: "Level == 0x01 && Screen changed && Screen == 0x2D"
+    levels: easy
+  - name: Wolfduck 16
+    when: "Level == 0x01 && Screen changed && Screen == 0x2E"
+  - name: Wolfduck 18
+    when: "Level == 0x01 && Screen changed && Screen == 0x30"
+    levels: easy medium
+  - name: Wolfduck boss room
+    when: "Level == 0x01 && Screen changed && Screen == 0x20"
+    wait: 0
+    no_rewind: easy
+  - name: Wolfduck boss 75%
+    when: "Level == 0x01 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x04 && BossHits >= 0x04"
+    levels: medium
+  - name: Wolfduck boss 50%
+    when: "Level == 0x01 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x08 && BossHits >= 0x08"
+    levels: medium hard
+  - name: Wolfduck boss 25%
+    when: "Level == 0x01 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
+    levels: medium
+  - name: Bushroot start
+    when: "Level == 0x04 && Screen == 0x00 && State was 0x09 && State != 0x09"
+    start: yes
+  - name: Bushroot 2
+    when: "Level == 0x04 && Screen changed && Screen == 0x01"
+    levels: easy
+  - name: Bushroot 3
+    when: "Level == 0x04 && Screen changed && Screen == 0x02"
+  - name: Bushroot 4
+    when: "Level == 0x04 && Screen changed && Screen == 0x03"
+    levels: easy
+  - name: Bushroot 5
+    when: "Level == 0x04 && Screen changed && Screen == 0x04"
+    levels: easy
+  - name: Bushroot 6
+    when: "Level == 0x04 && Screen changed && Screen == 0x05"
+  - name: Bushroot 7
+    when: "Level == 0x04 && Screen changed && Screen == 0x06"
+    levels: easy
+  - name: Bushroot 8
+    when: "Level == 0x04 && Screen changed && Screen == 0x07"
+    levels: easy medium
+  - name: Bushroot 9
+    when: "Level == 0x04 && Screen changed && Screen == 0x08"
+  - name: Bushroot 10
+    when: "Level == 0x04 && Screen changed && Screen == 0x09"
+    levels: easy
+  - name: Bushroot 11
+    when: "Level == 0x04 && Screen changed && Screen == 0x0A"
+  - name: Bushroot 12
+    when: "Level == 0x04 && Screen changed && Screen == 0x0B"
+    levels: easy medium
+  - name: Bushroot 13
+    when: "Level == 0x04 && Screen changed && Screen == 0x0C"
+  - name: Bushroot 14
+    when: "Level == 0x04 && Screen changed && Screen == 0x0D"
+    levels: easy
+  - name: Bushroot 17
+    when: "Level == 0x04 && Screen changed && Screen == 0x34"
+  - name: Bushroot 18
+    when: "Level == 0x04 && Screen changed && Screen == 0x35"
+    levels: easy
+  - name: Bushroot 19
+    when: "Level == 0x04 && Screen changed && Screen == 0x36"
+    levels: easy medium
+  - name: Bushroot boss room
+    when: "Level == 0x04 && Screen changed && Screen == 0x11"
+    wait: 0
+    no_rewind: easy
+  - name: Bushroot boss 75%
+    when: "Level == 0x04 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x04 && BossHits >= 0x04"
+    levels: medium
+  - name: Bushroot boss 50%
+    when: "Level == 0x04 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x08 && BossHits >= 0x08"
+    levels: medium hard
+  - name: Bushroot boss 25%
+    when: "Level == 0x04 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
+    levels: medium
+  - name: Megavolt start
+    when: "Level == 0x05 && Screen == 0x00 && State was 0x09 && State != 0x09"
+    start: yes
+  - name: Megavolt 2
+    when: "Level == 0x05 && Screen changed && Screen == 0x01"
+    levels: easy medium
+  - name: Megavolt 3
+    when: "Level == 0x05 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Megavolt 4
+    when: "Level == 0x05 && Screen changed && Screen == 0x03"
+  - name: Megavolt 6
+    when: "Level == 0x05 && Screen changed && Screen == 0x17"
+    levels: easy medium
+  - name: Megavolt 7
+    when: "Level == 0x05 && Screen changed && Screen == 0x18"
+  - name: Megavolt 8
+    when: "Level == 0x05 && Screen changed && Screen == 0x19"
+    levels: easy medium
+  - name: Megavolt 9
+    when: "Level == 0x05 && Screen changed && Screen == 0x1A"
+    levels: easy
+  - name: Megavolt 10
+    when: "Level == 0x05 && Screen changed && Screen == 0x1B"
+  - name: Megavolt 11
+    when: "Level == 0x05 && Screen changed && Screen == 0x1C"
+    levels: easy medium
+  - name: Megavolt 12
+    when: "Level == 0x05 && Screen changed && Screen == 0x1D"
+  - name: Megavolt 13
+    when: "Level == 0x05 && Screen changed && Screen == 0x1E"
+    levels: easy
+  - name: Megavolt 14
+    when: "Level == 0x05 && Screen changed && Screen == 0x1F"
+    levels: easy
+  - name: Megavolt 15
+    when: "Level == 0x05 && Screen changed && Screen == 0x20"
+  - name: Megavolt 16
+    when: "Level == 0x05 && Screen changed && Screen == 0x21"
+    levels: easy medium
+  - name: Megavolt 17
+    when: "Level == 0x05 && Screen changed && Screen == 0x22"
+    levels: easy
+  - name: Megavolt 19
+    when: "Level == 0x05 && Screen changed && Screen == 0x10"
+  - name: Megavolt 20
+    when: "Level == 0x05 && Screen changed && Screen == 0x11"
+    levels: easy
+  - name: Megavolt boss room
+    when: "Level == 0x05 && Screen changed && Screen == 0x37"
+    wait: 0
+    no_rewind: easy
+  - name: Megavolt boss 75%
+    when: "Level == 0x05 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x04 && BossHits >= 0x04"
+    levels: medium
+  - name: Megavolt boss 50%
+    when: "Level == 0x05 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x08 && BossHits >= 0x08"
+    levels: medium hard
+  - name: Megavolt boss 25%
+    when: "Level == 0x05 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
+    levels: medium
+  - name: Moliarty start
+    when: "Level == 0x03 && Screen == 0x6E && State was 0x09 && State != 0x09"
+    start: yes
+  - name: Moliarty 2
+    when: "Level == 0x03 && Screen changed && Screen == 0x6F"
+    levels: easy
+  - name: Moliarty 4
+    when: "Level == 0x03 && Screen changed && Screen == 0x66"
+  - name: Moliarty 5
+    when: "Level == 0x03 && Screen changed && Screen == 0x5C"
+    levels: easy
+  - name: Moliarty 6
+    when: "Level == 0x03 && Screen changed && Screen == 0x52"
+    levels: easy medium
+  - name: Moliarty 7
+    when: "Level == 0x03 && Screen changed && Screen == 0x48"
+  - name: Moliarty 8
+    when: "Level == 0x03 && Screen changed && Screen == 0x3E"
+    levels: easy
+  - name: Moliarty 9
+    when: "Level == 0x03 && Screen changed && Screen == 0x3F"
+  - name: Moliarty 10
+    when: "Level == 0x03 && Screen changed && Screen == 0x40"
+    levels: easy
+  - name: Moliarty 12
+    when: "Level == 0x03 && Screen changed && Screen == 0x4B"
+  - name: Moliarty 13
+    when: "Level == 0x03 && Screen changed && Screen == 0x4C"
+  - name: Moliarty 14
+    when: "Level == 0x03 && Screen changed && Screen == 0x43"
+    levels: easy medium
+  - name: Moliarty 15
+    when: "Level == 0x03 && Screen changed && Screen == 0x39"
+    levels: easy
+  - name: Moliarty 16
+    when: "Level == 0x03 && Screen changed && Screen == 0x2F"
+  - name: Moliarty 17
+    when: "Level == 0x03 && Screen changed && Screen == 0x25"
+    levels: easy medium
+  - name: Moliarty 18
+    when: "Level == 0x03 && Screen changed && Screen == 0x1B"
+  - name: Moliarty 19
+    when: "Level == 0x03 && Screen changed && Screen == 0x11"
+    levels: easy medium
+  - name: Moliarty 20
+    when: "Level == 0x03 && Screen changed && Screen == 0x12"
+    levels: easy
+  - name: Moliarty boss room
+    when: "Level == 0x03 && Screen changed && Screen == 0x08"
+    wait: 0
+    no_rewind: easy
+  - name: Moliarty boss 75%
+    when: "Level == 0x03 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x04 && BossHits >= 0x04"
+    levels: medium
+  - name: Moliarty boss 50%
+    when: "Level == 0x03 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x08 && BossHits >= 0x08"
+    levels: medium hard
+  - name: Moliarty boss 25%
+    when: "Level == 0x03 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
+    levels: medium
+  - name: Steelbeak start
+    when: "Level == 0x06 && Screen == 0x00 && State was 0x09 && State != 0x09"
+    start: yes
+  - name: Steelbeak 2
+    when: "Level == 0x06 && Screen changed && Screen == 0x01"
+    levels: easy
+  - name: Steelbeak 3
+    when: "Level == 0x06 && Screen changed && Screen == 0x02"
+  - name: Steelbeak 4
+    when: "Level == 0x06 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Steelbeak 6
+    when: "Level == 0x06 && Screen changed && Screen == 0x17"
+  - name: Steelbeak 7
+    when: "Level == 0x06 && Screen changed && Screen == 0x18"
+  - name: Steelbeak 8
+    when: "Level == 0x06 && Screen changed && Screen == 0x19"
+    levels: easy medium
+  - name: Steelbeak 9
+    when: "Level == 0x06 && Screen changed && Screen == 0x1A"
+  - name: Steelbeak 11
+    when: "Level == 0x06 && Screen changed && Screen == 0x2E"
+  - name: Steelbeak 12
+    when: "Level == 0x06 && Screen changed && Screen == 0x2F"
+    levels: easy medium
+  - name: Steelbeak 13
+    when: "Level == 0x06 && Screen changed && Screen == 0x30"
+  - name: Steelbeak 14
+    when: "Level == 0x06 && Screen changed && Screen == 0x31"
+    levels: easy
+  - name: Steelbeak 16
+    when: "Level == 0x06 && Screen changed && Screen == 0x33"
+  - name: Steelbeak 17
+    when: "Level == 0x06 && Screen changed && Screen == 0x34"
+    levels: easy
+  - name: Steelbeak 18
+    when: "Level == 0x06 && Screen changed && Screen == 0x35"
+  - name: Steelbeak 19
+    when: "Level == 0x06 && Screen changed && Screen == 0x36"
+    levels: easy
+  - name: Steelbeak boss room
+    when: "Level == 0x06 && Screen changed && Screen == 0x0C"
+    wait: 0
+    no_rewind: easy
+  - name: Steelbeak boss 75%
+    when: "Level == 0x06 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x04 && BossHits >= 0x04"
+    levels: medium
+  - name: Steelbeak boss 50%
+    when: "Level == 0x06 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x08 && BossHits >= 0x08"
+    levels: medium hard
+  - name: Steelbeak boss 25%
+    when: "Level == 0x06 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
+    levels: medium

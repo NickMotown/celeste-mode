@@ -1,0 +1,226 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 1816M (aglar, 1 player), on Chip 'n Dale Rescue Rangers (USA), replayed in FCEUX 2.6.6.
+variables:
+  0x0016: Pad
+  0x002C: InZone
+  0x0031: Zone
+  0x005E: Hit
+  0x006E: Region
+  0x00FD: Screen
+  0x04D0: Alive
+name: Chip 'n Dale Rescue Rangers (USA)
+rom: nes/Chip 'n Dale Rescue Rangers (USA).nes
+hit:
+  - "Hit changed && Hit == 0x3B"
+input: Pad
+mode: checkpoints
+checkpoints:
+  - name: Zone A start
+    when: "Zone == 0x00 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    start: yes
+  - name: Zone A 3
+    when: "Zone == 0x00 && Screen changed && Screen == 0x02 && Region == 0x00"
+    levels: easy
+  - name: Zone A 4
+    when: "Zone == 0x00 && Screen changed && Screen == 0x03 && Region == 0x00"
+    levels: easy
+  - name: Zone A 6
+    when: "Zone == 0x00 && Screen changed && Screen == 0x05 && Region == 0x00"
+  - name: Zone A 9
+    when: "Zone == 0x00 && Screen changed && Screen == 0x00 && Region == 0x01"
+    wait: 0
+  - name: Zone A 11
+    when: "Zone == 0x00 && Screen changed && Screen == 0x02 && Region == 0x01"
+    levels: easy
+  - name: Zone A 16
+    when: "Zone == 0x00 && Screen changed && Screen == 0x06 && Region == 0x02"
+    wait: 0
+  - name: Zone A 18
+    when: "Zone == 0x00 && Screen changed && Screen == 0x04 && Region == 0x18"
+    wait: 0
+  - name: Zone C start
+    when: "Zone == 0x02 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    start: yes
+  - name: Zone C 3
+    when: "Zone == 0x02 && Screen changed && Screen == 0x02 && Region == 0x00"
+    levels: easy
+  - name: Zone C 7
+    when: "Zone == 0x02 && Screen changed && Screen == 0x00 && Region == 0x04"
+    wait: 0
+  - name: Zone C 9
+    when: "Zone == 0x02 && Screen changed && Screen == 0x02 && Region == 0x04"
+    levels: easy
+  - name: Zone C 10
+    when: "Zone == 0x02 && Screen changed && Screen == 0x03 && Region == 0x04"
+  - name: Zone C 11
+    when: "Zone == 0x02 && Screen changed && Screen == 0x05 && Region == 0x04"
+    levels: easy
+  - name: Zone C 15
+    when: "Zone == 0x02 && Screen changed && Screen == 0x00 && Region == 0x05"
+    wait: 0
+  - name: Zone C 18
+    when: "Zone == 0x02 && Screen changed && Screen == 0x03 && Region == 0x05"
+    levels: easy medium
+  - name: Zone C 20
+    when: "Zone == 0x02 && Screen changed && Screen == 0x05 && Region == 0x05"
+    levels: easy
+  - name: Zone C 22
+    when: "Zone == 0x02 && Region changed && Screen == 0x07 && Region == 0x06"
+    wait: 0
+  - name: Zone E start
+    when: "Zone == 0x04 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    start: yes
+  - name: Zone E 3
+    when: "Zone == 0x04 && Screen changed && Screen == 0x02 && Region == 0x00"
+    levels: easy
+  - name: Zone E 5
+    when: "Zone == 0x04 && Screen changed && Screen == 0x04 && Region == 0x00"
+    levels: easy medium
+  - name: Zone E 10
+    when: "Zone == 0x04 && Screen changed && Screen == 0x00 && Region == 0x08"
+    wait: 0
+  - name: Zone E 12
+    when: "Zone == 0x04 && Screen changed && Screen == 0x02 && Region == 0x08"
+    levels: easy
+  - name: Zone E 14
+    when: "Zone == 0x04 && Screen changed && Screen == 0x04 && Region == 0x08"
+  - name: Zone E 15
+    when: "Zone == 0x04 && Screen changed && Screen == 0x05 && Region == 0x08"
+    levels: easy
+  - name: Zone E 16
+    when: "Zone == 0x04 && Screen changed && Screen == 0x06 && Region == 0x08"
+    levels: easy
+  - name: Zone E 18
+    when: "Zone == 0x04 && Screen changed && Screen == 0x00 && Region == 0x09"
+    wait: 0
+  - name: Zone E 21
+    when: "Zone == 0x04 && Screen changed && Screen == 0x03 && Region == 0x09"
+    levels: easy medium
+  - name: Zone E 22
+    when: "Zone == 0x04 && Screen changed && Screen == 0x04 && Region == 0x09"
+    levels: easy
+  - name: Zone E 26
+    when: "Zone == 0x04 && Screen changed && Screen == 0x00 && Region == 0x0A"
+    wait: 0
+  - name: Zone G start
+    when: "Zone == 0x06 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    start: yes
+  - name: Zone G 2
+    when: "Zone == 0x06 && Screen changed && Screen == 0x01 && Region == 0x00"
+    levels: easy
+  - name: Zone G 4
+    when: "Zone == 0x06 && Screen changed && Screen == 0x03 && Region == 0x00"
+    levels: easy medium
+  - name: Zone G 10
+    when: "Zone == 0x06 && Screen changed && Screen == 0x01 && Region == 0x0E"
+    wait: 0
+  - name: Zone G 11
+    when: "Zone == 0x06 && Region changed && Screen == 0x01 && Region == 0x19"
+    wait: 0
+  - name: Zone H start
+    when: "Zone == 0x07 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    start: yes
+  - name: Zone H 5
+    when: "Zone == 0x07 && Screen changed && Screen == 0x04 && Region == 0x00"
+    levels: easy medium
+  - name: Zone H 10
+    when: "Zone == 0x07 && Screen changed && Screen == 0x00 && Region == 0x0F"
+    wait: 0
+  - name: Zone H 11
+    when: "Zone == 0x07 && Screen changed && Screen == 0x01 && Region == 0x0F"
+    levels: easy
+  - name: Zone H 13
+    when: "Zone == 0x07 && Screen changed && Screen == 0x03 && Region == 0x0F"
+  - name: Zone H 16
+    when: "Zone == 0x07 && Screen changed && Screen == 0x06 && Region == 0x0F"
+    levels: easy
+  - name: Zone H 18
+    when: "Zone == 0x07 && Screen changed && Screen == 0x00 && Region == 0x10"
+    wait: 0
+  - name: Zone H 20
+    when: "Zone == 0x07 && Screen changed && Screen == 0x02 && Region == 0x10"
+    levels: easy
+  - name: Zone H 22
+    when: "Zone == 0x07 && Screen changed && Screen == 0x04 && Region == 0x10"
+    levels: easy medium
+  - name: Zone H 25
+    when: "Zone == 0x07 && Region changed && Screen == 0x07 && Region == 0x11"
+    wait: 0
+  - name: Zone I start
+    when: "Zone == 0x08 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    start: yes
+  - name: Zone I 3
+    when: "Zone == 0x08 && Screen changed && Screen == 0x02 && Region == 0x00"
+    levels: easy
+  - name: Zone I 5
+    when: "Zone == 0x08 && Screen changed && Screen == 0x04 && Region == 0x00"
+  - name: Zone I 6
+    when: "Zone == 0x08 && Screen changed && Screen == 0x05 && Region == 0x00"
+    levels: easy medium
+  - name: Zone I 10
+    when: "Zone == 0x08 && Screen changed && Screen == 0x00 && Region == 0x17"
+    wait: 0
+  - name: Zone I 13
+    when: "Zone == 0x08 && Screen changed && Screen == 0x03 && Region == 0x17"
+    levels: easy
+  - name: Zone I 17
+    when: "Zone == 0x08 && Region changed && Screen == 0x06 && Region == 0x19"
+    wait: 0
+  - name: Zone J start
+    when: "Zone == 0x09 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    start: yes
+  - name: Zone J 3
+    when: "Zone == 0x09 && Screen changed && Screen == 0x02 && Region == 0x00"
+    levels: easy medium
+  - name: Zone J 5
+    when: "Zone == 0x09 && Screen changed && Screen == 0x04 && Region == 0x00"
+  - name: Zone J 6
+    when: "Zone == 0x09 && Screen changed && Screen == 0x05 && Region == 0x00"
+    levels: easy
+  - name: Zone J 7
+    when: "Zone == 0x09 && Screen changed && Screen == 0x06 && Region == 0x00"
+    levels: easy medium
+  - name: Zone J 10
+    when: "Zone == 0x09 && Screen changed && Screen == 0x05 && Region == 0x12"
+    wait: 0
+  - name: Zone J 12
+    when: "Zone == 0x09 && Screen changed && Screen == 0x00 && Region == 0x13"
+    wait: 0
+  - name: Zone J 14
+    when: "Zone == 0x09 && Screen changed && Screen == 0x02 && Region == 0x13"
+    levels: easy
+  - name: Zone J 15
+    when: "Zone == 0x09 && Screen changed && Screen == 0x03 && Region == 0x13"
+    levels: easy medium
+  - name: Zone J 19
+    when: "Zone == 0x09 && Region changed && Screen == 0x07 && Region == 0x14"
+    wait: 0
+  - name: Zone K start
+    when: "Zone == 0x0A && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    start: yes
+  - name: Zone K 5
+    when: "Zone == 0x0A && Screen changed && Screen == 0x04 && Region == 0x00"
+    levels: easy
+  - name: Zone K 9
+    when: "Zone == 0x0A && Region changed && Screen == 0x07 && Region == 0x15"
+    wait: 0
+  - name: Zone K 12
+    when: "Zone == 0x0A && Screen changed && Screen == 0x04 && Region == 0x15"
+    levels: easy medium
+  - name: Zone K 14
+    when: "Zone == 0x0A && Screen changed && Screen == 0x02 && Region == 0x15"
+    levels: easy
+  - name: Zone K 16
+    when: "Zone == 0x0A && Screen changed && Screen == 0x00 && Region == 0x15"
+  - name: Zone K 17
+    when: "Zone == 0x0A && Region changed && Screen == 0x07 && Region == 0x16"
+    wait: 0
+  - name: Zone B start
+    when: "Zone == 0x01 && InZone was 0x00 && InZone != 0x00"
+    start: yes
+  - name: Zone D start
+    when: "Zone == 0x03 && InZone was 0x00 && InZone != 0x00"
+    start: yes
+  - name: Zone F start
+    when: "Zone == 0x05 && InZone was 0x00 && InZone != 0x00"
+    start: yes

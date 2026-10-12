@@ -1,0 +1,517 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 9518S (glitchless, Yoshikiller109 & Evllnk2565), on Rockman (Japan) (En), header-less MD5 8d5a61f42d92ee61d05083263a11fca1, replayed in FCEUX 2.6.6.
+variables:
+  0x0014: Pad
+  0x001B: Screen
+  0x002C: Footing
+  0x0031: Stage
+  0x0059: PlayState
+  0x006A: Health
+  0x00A6: Lives
+  0x0400: Sprite
+  0x0480: PlayerX
+  0x055E: Song
+  0x057C: BossMusic
+  0x0600: PlayerY
+  0x06C1: BossHealth
+name: Mega Man (USA)
+rom: nes/Mega Man (USA).nes
+hit:
+  - "Health decreased"
+  - "PlayerY was >= 0xC0 && PlayerY == 0xF8 && PlayState == 0x05"
+  - "Lives decreased"
+lives: Lives
+input: Pad
+input_bits: a b select start up down left right
+patches:
+  - name: all weapons and Wily (title or game over)
+    button: select
+    when: "Stage == 0x0A"
+    patch: "set 0x005D to 0xFE; set 0x006B to 0x1C; set 0x006C to 0x1C; set 0x006D to 0x1C; set 0x006E to 0x1C; set 0x006F to 0x1C; set 0x0070 to 0x1C; set 0x0071 to 0x1C"
+  - name: all weapons and Wily (stage select)
+    button: select
+    when: "0x0036 == 0xBD"
+    patch: "set 0x005D to 0xFE; set 0x006B to 0x1C; set 0x006C to 0x1C; set 0x006D to 0x1C; set 0x006E to 0x1C; set 0x006F to 0x1C; set 0x0070 to 0x1C; set 0x0071 to 0x1C"
+keep:
+  - 0x00E0-0x00EF
+  - 0x00F1-0x00F7
+  - 0x0500-0x057F
+song: Song
+mode: checkpoints
+checkpoints:
+  - name: Guts Man start
+    when: "Stage == 0x05 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Guts Man 2
+    when: "Stage == 0x05 && Screen changed && Screen == 0x01"
+    levels: easy
+  - name: Guts Man 5
+    when: "Stage == 0x05 && Screen changed && Screen == 0x04"
+    levels: easy medium
+    patch: "set PlayerX to PlayerX + 0x18"
+  - name: Guts Man 8
+    when: "Stage == 0x05 && Screen changed && Screen == 0x07"
+    levels: easy
+  - name: Guts Man 9
+    when: "Stage == 0x05 && Screen changed && Screen == 0x08"
+    levels: easy medium
+  - name: Guts Man 10
+    when: "Stage == 0x05 && Screen changed && Screen == 0x09"
+    levels: easy
+  - name: Guts Man 11
+    when: "Stage == 0x05 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Guts Man 14
+    when: "Stage == 0x05 && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Guts Man corridor
+    when: "Stage == 0x05 && Screen changed && Screen == 0x0F"
+    wait: 0
+  - name: Guts Man boss room
+    when: "Stage == 0x05 && Screen changed && Screen == 0x12"
+    wait: 0
+    no_rewind: easy
+  - name: Guts Man boss 75%
+    when: "Stage == 0x05 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Guts Man boss 50%
+    when: "Stage == 0x05 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Guts Man boss 25%
+    when: "Stage == 0x05 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Cut Man start
+    when: "Stage == 0x00 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Cut Man 3
+    when: "Stage == 0x00 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Cut Man 5
+    when: "Stage == 0x00 && Screen changed && Screen == 0x04"
+    wait: 0
+  - name: Cut Man 6
+    when: "Stage == 0x00 && Screen changed && Screen == 0x05"
+    wait: 0
+  - name: Cut Man 7
+    when: "Stage == 0x00 && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Cut Man 8
+    when: "Stage == 0x00 && Screen changed && Screen == 0x07"
+    wait: 0
+  - name: Cut Man 9
+    when: "Stage == 0x00 && Screen changed && Screen == 0x08"
+    levels: easy
+  - name: Cut Man 11
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Cut Man 12
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Cut Man 13
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0C"
+    wait: 0
+  - name: Cut Man 14
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Cut Man 17
+    when: "Stage == 0x00 && Screen changed && Screen == 0x10"
+    wait: 0
+  - name: Cut Man 18
+    when: "Stage == 0x00 && Screen changed && Screen == 0x11"
+    wait: 0
+  - name: Cut Man 19
+    when: "Stage == 0x00 && Screen changed && Screen == 0x12"
+    wait: 0
+  - name: Cut Man corridor
+    when: "Stage == 0x00 && Screen changed && Screen == 0x14"
+    wait: 0
+  - name: Cut Man boss room
+    when: "Stage == 0x00 && Screen changed && Screen == 0x17"
+    wait: 0
+    no_rewind: easy
+  - name: Cut Man boss 75%
+    when: "Stage == 0x00 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Cut Man boss 50%
+    when: "Stage == 0x00 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Cut Man boss 25%
+    when: "Stage == 0x00 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Elec Man start
+    when: "Stage == 0x04 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Elec Man 2
+    when: "Stage == 0x04 && Screen changed && Screen == 0x01"
+    wait: 0
+  - name: Elec Man 3
+    when: "Stage == 0x04 && Screen changed && Screen == 0x02"
+    wait: 0
+  - name: Elec Man 4
+    when: "Stage == 0x04 && Screen changed && Screen == 0x03"
+    wait: 0
+  - name: Elec Man 5
+    when: "Stage == 0x04 && Screen changed && Screen == 0x04"
+    wait: 0
+  - name: Elec Man 6
+    when: "Stage == 0x04 && Screen changed && Screen == 0x05"
+    wait: 0
+  - name: Elec Man 7
+    when: "Stage == 0x04 && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Elec Man 8
+    when: "Stage == 0x04 && Screen changed && Screen == 0x07"
+    wait: 0
+  - name: Elec Man 10
+    when: "Stage == 0x04 && Screen changed && Screen == 0x09"
+    wait: 0
+  - name: Elec Man 11
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Elec Man 12
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Elec Man 13
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0C"
+    wait: 0
+  - name: Elec Man 14
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Elec Man 15
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Elec Man 16
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0F"
+    wait: 0
+  - name: Elec Man 17
+    when: "Stage == 0x04 && Screen changed && Screen == 0x10"
+    wait: 0
+  - name: Elec Man 19
+    when: "Stage == 0x04 && Screen changed && Screen == 0x12"
+    wait: 0
+  - name: Elec Man 20
+    when: "Stage == 0x04 && Screen changed && Screen == 0x13"
+    wait: 0
+  - name: Elec Man corridor
+    when: "Stage == 0x04 && Screen changed && Screen == 0x14"
+    wait: 0
+  - name: Elec Man 22
+    when: "Stage == 0x04 && Screen changed && Screen == 0x15"
+    wait: 0
+  - name: Elec Man 23
+    when: "Stage == 0x04 && Screen changed && Screen == 0x16"
+    wait: 0
+  - name: Elec Man boss room
+    when: "Stage == 0x04 && Screen changed && Screen == 0x17"
+    wait: 0
+    no_rewind: easy
+  - name: Elec Man boss 75%
+    when: "Stage == 0x04 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Elec Man boss 50%
+    when: "Stage == 0x04 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Elec Man boss 25%
+    when: "Stage == 0x04 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Ice Man start
+    when: "Stage == 0x01 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Ice Man 4
+    when: "Stage == 0x01 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Ice Man 8
+    when: "Stage == 0x01 && Screen changed && Screen == 0x07"
+    levels: easy
+  - name: Ice Man 11
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Ice Man 12
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Ice Man 13
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0C"
+    levels: easy medium
+  - name: Ice Man 16
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0F"
+    levels: easy
+  - name: Ice Man 18
+    when: "Stage == 0x01 && Screen changed && Screen == 0x11"
+    wait: 0
+  - name: Ice Man 19
+    when: "Stage == 0x01 && Screen changed && Screen == 0x12"
+    wait: 0
+  - name: Ice Man corridor
+    when: "Stage == 0x01 && Screen changed && Screen == 0x14"
+    wait: 0
+  - name: Ice Man boss room
+    when: "Stage == 0x01 && Screen changed && Screen == 0x17"
+    wait: 0
+    no_rewind: easy
+  - name: Ice Man boss 75%
+    when: "Stage == 0x01 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Ice Man boss 50%
+    when: "Stage == 0x01 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Ice Man boss 25%
+    when: "Stage == 0x01 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Fire Man start
+    when: "Stage == 0x03 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Fire Man 2
+    when: "Stage == 0x03 && Screen changed && Screen == 0x01"
+    levels: easy medium
+  - name: Fire Man 4
+    when: "Stage == 0x03 && Screen changed && Screen == 0x03"
+    wait: 0
+  - name: Fire Man 5
+    when: "Stage == 0x03 && Screen changed && Screen == 0x04"
+    wait: 0
+  - name: Fire Man 6
+    when: "Stage == 0x03 && Screen changed && Screen == 0x05"
+    levels: easy
+  - name: Fire Man 8
+    when: "Stage == 0x03 && Screen changed && Screen == 0x07"
+    wait: 0
+  - name: Fire Man 9
+    when: "Stage == 0x03 && Screen changed && Screen == 0x08"
+    wait: 0
+  - name: Fire Man 10
+    when: "Stage == 0x03 && Screen changed && Screen == 0x09"
+    levels: easy
+  - name: Fire Man 12
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Fire Man 13
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0C"
+    wait: 0
+  - name: Fire Man 14
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0D"
+    levels: easy
+  - name: Fire Man 15
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0E"
+    levels: easy medium
+  - name: Fire Man corridor
+    when: "Stage == 0x03 && Screen changed && Screen == 0x10"
+    wait: 0
+  - name: Fire Man boss room
+    when: "Stage == 0x03 && Screen changed && Screen == 0x13"
+    wait: 0
+    no_rewind: easy
+  - name: Fire Man boss 75%
+    when: "Stage == 0x03 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Fire Man boss 50%
+    when: "Stage == 0x03 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Fire Man boss 25%
+    when: "Stage == 0x03 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Bomb Man start
+    when: "Stage == 0x02 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Bomb Man 3
+    when: "Stage == 0x02 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Bomb Man 5
+    when: "Stage == 0x02 && Screen changed && Screen == 0x04"
+    levels: easy medium
+  - name: Bomb Man 8
+    when: "Stage == 0x02 && Screen changed && Screen == 0x07"
+    wait: 0
+  - name: Bomb Man 9
+    when: "Stage == 0x02 && Screen changed && Screen == 0x08"
+    wait: 0
+  - name: Bomb Man 12
+    when: "Stage == 0x02 && Screen changed && Screen == 0x0B"
+    levels: easy
+  - name: Bomb Man 15
+    when: "Stage == 0x02 && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Bomb Man 16
+    when: "Stage == 0x02 && Screen changed && Screen == 0x0F"
+    wait: 0
+  - name: Bomb Man 18
+    when: "Stage == 0x02 && Screen changed && Screen == 0x11"
+    levels: easy
+  - name: Bomb Man corridor
+    when: "Stage == 0x02 && Screen changed && Screen == 0x14"
+    wait: 0
+  - name: Bomb Man boss room
+    when: "Stage == 0x02 && Screen changed && Screen == 0x17"
+    wait: 0
+    no_rewind: easy
+  - name: Bomb Man boss 75%
+    when: "Stage == 0x02 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Bomb Man boss 50%
+    when: "Stage == 0x02 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Bomb Man boss 25%
+    when: "Stage == 0x02 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Wily 1 start
+    when: "Stage == 0x06 && Screen == 0x18 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Wily 1 4
+    when: "Stage == 0x06 && Screen changed && Screen == 0x1B"
+    levels: easy
+  - name: Wily 1 5
+    when: "Stage == 0x06 && Screen changed && Screen == 0x1C"
+    levels: easy medium
+  - name: Wily 1 6
+    when: "Stage == 0x06 && Screen changed && Screen == 0x1D"
+    levels: easy
+  - name: Wily 1 8
+    when: "Stage == 0x06 && Screen changed && Screen == 0x1F"
+    wait: 0
+  - name: Wily 1 9
+    when: "Stage == 0x06 && Screen changed && Screen == 0x20"
+    wait: 0
+  - name: Wily 1 11
+    when: "Stage == 0x06 && Screen changed && Screen == 0x22"
+    wait: 0
+  - name: Wily 1 12
+    when: "Stage == 0x06 && Screen changed && Screen == 0x23"
+    wait: 0
+  - name: Wily 1 14
+    when: "Stage == 0x06 && Screen changed && Screen == 0x25"
+    wait: 0
+  - name: Wily 1 15
+    when: "Stage == 0x06 && Screen changed && Screen == 0x26"
+    wait: 0
+  - name: Wily 1 boss room
+    when: "Stage == 0x06 && Screen changed && Screen == 0x27"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 1 boss 75%
+    when: "Stage == 0x06 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 1 boss 50%
+    when: "Stage == 0x06 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 1 boss 25%
+    when: "Stage == 0x06 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Wily 2 start
+    when: "Stage == 0x07 && Screen == 0x18 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Wily 2 3
+    when: "Stage == 0x07 && Screen changed && Screen == 0x1A"
+    levels: easy
+  - name: Wily 2 5
+    when: "Stage == 0x07 && Screen changed && Screen == 0x1C"
+    wait: 0
+  - name: Wily 2 6
+    when: "Stage == 0x07 && Screen changed && Screen == 0x1D"
+    wait: 0
+  - name: Wily 2 9
+    when: "Stage == 0x07 && Screen changed && Screen == 0x20"
+    wait: 0
+  - name: Wily 2 10
+    when: "Stage == 0x07 && Screen changed && Screen == 0x21"
+    wait: 0
+  - name: Wily 2 13
+    when: "Stage == 0x07 && Screen changed && Screen == 0x24"
+    wait: 0
+  - name: Wily 2 14
+    when: "Stage == 0x07 && Screen changed && Screen == 0x25"
+    wait: 0
+  - name: Wily 2 15
+    when: "Stage == 0x07 && Screen changed && Screen == 0x26"
+    wait: 0
+  - name: Wily 2 16
+    when: "Stage == 0x07 && Screen changed && Screen == 0x27"
+    wait: 0
+  - name: Wily 2 17
+    when: "Stage == 0x07 && Screen changed && Screen == 0x28"
+    wait: 0
+  - name: Wily 2 boss room
+    when: "Stage == 0x07 && Screen changed && Screen == 0x29"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 2 boss 75%
+    when: "Stage == 0x07 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 2 boss 50%
+    when: "Stage == 0x07 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 2 boss 25%
+    when: "Stage == 0x07 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Wily 3 start
+    when: "Stage == 0x08 && Screen == 0x18 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Wily 3 2
+    when: "Stage == 0x08 && Screen changed && Screen == 0x19"
+    wait: 0
+  - name: Wily 3 3
+    when: "Stage == 0x08 && Screen changed && Screen == 0x1A"
+    wait: 0
+  - name: Wily 3 4
+    when: "Stage == 0x08 && Screen changed && Screen == 0x1B"
+    wait: 0
+  - name: Wily 3 5
+    when: "Stage == 0x08 && Screen changed && Screen == 0x1C"
+    wait: 0
+  - name: Wily 3 15
+    when: "Stage == 0x08 && Screen changed && Screen == 0x26"
+    levels: easy
+  - name: Wily 3 boss room
+    when: "Stage == 0x08 && Screen changed && Screen == 0x2F"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 3 boss 75%
+    when: "Stage == 0x08 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 3 boss 50%
+    when: "Stage == 0x08 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 3 boss 25%
+    when: "Stage == 0x08 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Wily 4 start
+    when: "Stage == 0x09 && Screen == 0x14 && Sprite was 0x14 && Sprite != 0x14"
+    start: yes
+  - name: Wily 4 2
+    when: "Stage == 0x09 && Screen changed && Screen == 0x15"
+    wait: 0
+  - name: Wily 4 3
+    when: "Stage == 0x09 && Screen changed && Screen == 0x16"
+    wait: 0
+  - name: Wily 4 4
+    when: "Stage == 0x09 && Screen changed && Screen == 0x17"
+    levels: easy
+  - name: Wily 4 6
+    when: "Stage == 0x09 && Screen changed && Screen == 0x19"
+    levels: easy medium
+  - name: Wily 4 10
+    when: "Stage == 0x09 && Screen changed && Screen == 0x1D"
+    wait: 0
+  - name: Wily 4 11
+    when: "Stage == 0x09 && Screen changed && Screen == 0x1E"
+    wait: 0
+  - name: Wily 4 12
+    when: "Stage == 0x09 && Screen changed && Screen == 0x1F"
+    wait: 0
+  - name: Wily 4 13
+    when: "Stage == 0x09 && Screen changed && Screen == 0x20"
+    wait: 0
+  - name: Wily 4 14
+    when: "Stage == 0x09 && Screen changed && Screen == 0x21"
+    wait: 0
+  - name: Wily 4 boss room
+    when: "Stage == 0x09 && Screen changed && Screen == 0x23"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 4 boss 75%
+    when: "Stage == 0x09 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 4 boss 50%
+    when: "Stage == 0x09 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 4 boss 25%
+    when: "Stage == 0x09 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium

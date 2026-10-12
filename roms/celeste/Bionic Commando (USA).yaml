@@ -1,0 +1,285 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 6228M (Zed_Shift, all items), on Bionic Commando (USA), BizHawk .bk2 replayed in FCEUX 2.6.6, input 1 frame later.
+variables:
+  0x004A: Lives
+  0x004C: Room
+  0x004D: Area
+  0x0065: Mode
+  0x00A9: Screen
+  0x00D1: BossRoom
+  0x0647: PlayerState
+  0x0779: Health
+name: Bionic Commando (USA)
+rom: nes/Bionic Commando (USA).nes
+hit:
+  - "PlayerState changed && PlayerState == 0x02"
+  - "PlayerState changed && PlayerState == 0x03"
+  - "Health decreased"
+  - "Lives decreased"
+lives: Lives
+mode: checkpoints
+checkpoints:
+  - name: Area 1 start
+    when: "Area == 0x01 && Room == 0x00 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 1 5
+    when: "Area == 0x01 && Screen changed && Room == 0x28 && Screen == 0x01"
+    levels: easy medium
+  - name: Area 1 9
+    when: "Area == 0x01 && Screen changed && Room == 0x00 && Screen == 0x03"
+  - name: Area 1 12
+    when: "Area == 0x01 && Screen changed && Room == 0x47 && Screen == 0x00"
+    levels: easy medium
+  - name: Area 1 13
+    when: "Area == 0x01 && Screen changed && Room == 0x47 && Screen == 0x03"
+  - name: Area 1 15
+    when: "Area == 0x01 && Screen changed && Room == 0x47 && Screen == 0x01"
+    levels: easy
+  - name: Area 1 boss room
+    when: "Area == 0x01 && Screen changed && Room == 0x16 && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 1 18
+    when: "Area == 0x01 && Screen changed && Room == 0x16 && Screen == 0x02"
+  - name: Neutral area 1 start
+    when: "Area == 0x0D && Room == 0x0C && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Neutral area 1 2
+    when: "Area == 0x0D && Screen changed && Room == 0x0C && Screen == 0x02"
+    levels: easy
+  - name: Neutral area 1 6
+    when: "Area == 0x0D && Screen changed && Room == 0x38 && Screen == 0x01"
+    levels: easy medium
+  - name: Area 4 start
+    when: "Area == 0x04 && Room == 0x03 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 4 2
+    when: "Area == 0x04 && Screen changed && Room == 0x03 && Screen == 0x02"
+    levels: easy medium
+  - name: Area 4 8
+    when: "Area == 0x04 && Screen changed && Room == 0x2B && Screen == 0x01"
+  - name: Area 4 11
+    when: "Area == 0x04 && Screen changed && Room == 0x03 && Screen == 0x00"
+    levels: easy
+  - name: Area 4 12
+    when: "Area == 0x04 && Screen changed && Room == 0x03 && Screen == 0x06"
+  - name: Area 4 boss room
+    when: "Area == 0x04 && Screen changed && Room == 0x18 && Screen == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Area 4 17
+    when: "Area == 0x04 && Screen changed && Room == 0x18 && Screen == 0x02"
+  - name: Area 5 start
+    when: "Area == 0x05 && Room == 0x04 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 5 2
+    when: "Area == 0x05 && Screen changed && Room == 0x04 && Screen == 0x02"
+    levels: easy medium
+  - name: Area 5 6
+    when: "Area == 0x05 && Room changed && Room == 0x4A && Screen == 0x01"
+  - name: Area 5 9
+    when: "Area == 0x05 && Room changed && Room == 0x2D && Screen == 0x01"
+    levels: easy
+  - name: Area 5 11
+    when: "Area == 0x05 && Room changed && Room == 0x4B && Screen == 0x01"
+  - name: Area 5 boss room
+    when: "Area == 0x05 && Screen changed && Room == 0x19 && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 5 16
+    when: "Area == 0x05 && Screen changed && Room == 0x19 && Screen == 0x02"
+  - name: Area 2 start
+    when: "Area == 0x02 && Room == 0x01 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 2 5
+    when: "Area == 0x02 && Screen changed && Room == 0x48 && Screen == 0x02"
+    levels: easy
+  - name: Area 2 6
+    when: "Area == 0x02 && Screen changed && Room == 0x48 && Screen == 0x04"
+  - name: Area 2 boss room
+    when: "Area == 0x02 && Screen changed && Room == 0x17 && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 3 start
+    when: "Area == 0x03 && Room == 0x02 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 3 2
+    when: "Area == 0x03 && Screen changed && Room == 0x02 && Screen == 0x02"
+    levels: easy
+  - name: Area 3 3
+    when: "Area == 0x03 && Screen changed && Room == 0x02 && Screen == 0x03"
+    levels: easy medium
+  - name: Area 3 6
+    when: "Area == 0x03 && Screen changed && Room == 0x49 && Screen == 0x01"
+  - name: Area 3 7
+    when: "Area == 0x03 && Screen changed && Room == 0x49 && Screen == 0x02"
+    levels: easy
+  - name: Area 3 boss room
+    when: "Area == 0x03 && Screen changed && Room == 0x1F && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 6 start
+    when: "Area == 0x06 && Room == 0x05 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 6 2
+    when: "Area == 0x06 && Screen changed && Room == 0x05 && Screen == 0x02"
+    levels: easy
+  - name: Area 6 4
+    when: "Area == 0x06 && Screen changed && Room == 0x05 && Screen == 0x04"
+  - name: Area 6 6
+    when: "Area == 0x06 && Screen changed && Room == 0x05 && Screen == 0x06"
+    levels: easy medium
+  - name: Area 6 10
+    when: "Area == 0x06 && Screen changed && Room == 0x4C && Screen == 0x01"
+    levels: easy
+  - name: Area 6 11
+    when: "Area == 0x06 && Screen changed && Room == 0x4C && Screen == 0x02"
+  - name: Area 6 12
+    when: "Area == 0x06 && Screen changed && Room == 0x4C && Screen == 0x03"
+    levels: easy
+  - name: Area 6 13
+    when: "Area == 0x06 && Screen changed && Room == 0x4C && Screen == 0x04"
+    levels: easy medium
+  - name: Area 6 boss room
+    when: "Area == 0x06 && Screen changed && Room == 0x1A && Screen == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Neutral area 2 start
+    when: "Area == 0x0E && Room == 0x0D && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Neutral area 2 3
+    when: "Area == 0x0E && Screen changed && Room == 0x39 && Screen == 0x00"
+    levels: easy
+  - name: Area 8 start
+    when: "Area == 0x08 && Room == 0x07 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 8 2
+    when: "Area == 0x08 && Room changed && Room == 0x4E && Screen == 0x01"
+    levels: easy medium
+  - name: Area 8 boss room
+    when: "Area == 0x08 && Screen changed && Room == 0x20 && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 9 start
+    when: "Area == 0x09 && Room == 0x08 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 9 2
+    when: "Area == 0x09 && Screen changed && Room == 0x08 && Screen == 0x02"
+    levels: easy
+  - name: Area 9 3
+    when: "Area == 0x09 && Screen changed && Room == 0x08 && Screen == 0x03"
+  - name: Area 9 4
+    when: "Area == 0x09 && Screen changed && Room == 0x08 && Screen == 0x04"
+    levels: easy
+  - name: Area 9 5
+    when: "Area == 0x09 && Screen changed && Room == 0x08 && Screen == 0x05"
+    wait: 0
+  - name: Area 9 6
+    when: "Area == 0x09 && Screen changed && Room == 0x08 && Screen == 0x06"
+    levels: easy
+  - name: Area 9 boss room
+    when: "Area == 0x09 && Screen changed && Room == 0x1C && Screen == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Area 9 10
+    when: "Area == 0x09 && Screen changed && Room == 0x1C && Screen == 0x02"
+  - name: Neutral area 5 start
+    when: "Area == 0x11 && Room == 0x10 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Neutral area 5 3
+    when: "Area == 0x11 && Screen changed && Room == 0x3F && Screen == 0x00"
+  - name: Neutral area 5 4
+    when: "Area == 0x11 && Room changed && Room == 0x15 && Screen == 0x01"
+  - name: Neutral area 4 start
+    when: "Area == 0x10 && Room == 0x0F && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Neutral area 4 2
+    when: "Area == 0x10 && Room changed && Room == 0x3D && Screen == 0x01"
+    levels: easy
+  - name: Neutral area 3 start
+    when: "Area == 0x0F && Room == 0x0E && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Neutral area 3 2
+    when: "Area == 0x0F && Screen changed && Room == 0x0E && Screen == 0x02"
+    levels: easy
+  - name: Neutral area 3 6
+    when: "Area == 0x0F && Screen changed && Room == 0x3C && Screen == 0x01"
+  - name: Neutral area 3 8
+    when: "Area == 0x0F && Screen changed && Room == 0x15 && Screen == 0x00"
+  - name: Neutral area 6 start
+    when: "Area == 0x12 && Room == 0x11 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Neutral area 6 2
+    when: "Area == 0x12 && Screen changed && Room == 0x11 && Screen == 0x02"
+    levels: easy
+  - name: Neutral area 6 3
+    when: "Area == 0x12 && Screen changed && Room == 0x11 && Screen == 0x03"
+  - name: Neutral area 6 4
+    when: "Area == 0x12 && Room changed && Room == 0x42 && Screen == 0x03"
+    levels: easy medium
+  - name: Area 7 start
+    when: "Area == 0x07 && Room == 0x06 && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 7 2
+    when: "Area == 0x07 && Screen changed && Room == 0x06 && Screen == 0x02"
+    levels: easy
+  - name: Area 7 3
+    when: "Area == 0x07 && Screen changed && Room == 0x06 && Screen == 0x03"
+  - name: Area 7 boss room
+    when: "Area == 0x07 && Screen changed && Room == 0x1B && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 7 6
+    when: "Area == 0x07 && Screen changed && Room == 0x1B && Screen == 0x02"
+  - name: Area 7 11
+    when: "Area == 0x07 && Screen changed && Room == 0x6C && Screen == 0x00"
+  - name: Area 10 start
+    when: "Area == 0x0A && Room == 0x09 && Screen == 0x05 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 10 3
+    when: "Area == 0x0A && Screen changed && Room == 0x09 && Screen == 0x06"
+    levels: easy
+  - name: Area 10 4
+    when: "Area == 0x0A && Screen changed && Room == 0x09 && Screen == 0x07"
+  - name: Area 10 5
+    when: "Area == 0x0A && Screen changed && Room == 0x09 && Screen == 0x03"
+  - name: Area 10 7
+    when: "Area == 0x0A && Screen changed && Room == 0x09 && Screen == 0x01"
+    levels: easy medium
+  - name: Area 10 boss room
+    when: "Area == 0x0A && Screen changed && Room == 0x1D && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 11 start
+    when: "Area == 0x0B && Room == 0x0A && Screen == 0x01 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 11 3
+    when: "Area == 0x0B && Screen changed && Room == 0x0A && Screen == 0x03"
+    levels: easy
+  - name: Area 11 5
+    when: "Area == 0x0B && Screen changed && Room == 0x0A && Screen == 0x05"
+  - name: Area 11 boss room
+    when: "Area == 0x0B && Screen changed && Room == 0x1E && Screen == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Area 12 start
+    when: "Area == 0x0C && Room == 0x0B && Screen == 0x02 && Mode was 0x0D && Mode == 0x0E"
+    start: yes
+  - name: Area 12 5
+    when: "Area == 0x0C && Screen changed && Room == 0x64 && Screen == 0x03"
+  - name: Area 12 8
+    when: "Area == 0x0C && Screen changed && Room == 0x63 && Screen == 0x01"
+  - name: Area 12 10
+    when: "Area == 0x0C && Screen changed && Room == 0x65 && Screen == 0x00"
+  - name: Area 12 12
+    when: "Area == 0x0C && Screen changed && Room == 0x60 && Screen == 0x00"
+  - name: Area 12 13
+    when: "Area == 0x0C && Screen changed && Room == 0x60 && Screen == 0x02"
+    levels: easy
+  - name: Area 12 14
+    when: "Area == 0x0C && Screen changed && Room == 0x60 && Screen == 0x03"
+  - name: Area 12 17
+    when: "Area == 0x0C && Screen changed && Room == 0x61 && Screen == 0x01"
+  - name: Area 12 18
+    when: "Area == 0x0C && Room changed && Room == 0x62 && Screen == 0x01"
+    levels: easy medium

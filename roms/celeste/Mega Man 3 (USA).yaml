@@ -1,0 +1,1230 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 2439M (Pike, Tiancaiwhr), on Rockman 3 - Dr. Wily no Saigo! (Japan), header-less MD5 4f168c40ef35e5a0f4256d707067526f, replayed in FCEUX 2.6.6.
+variables:
+  0x0016: Pad
+  0x0022: Stage
+  0x0030: Move
+  0x00A2: Health
+  0x00AE: Lives
+  0x00B3: BossBar
+  0x0380: Screen
+  0x04FE: BossHealth2
+  0x04FF: BossHealth
+name: Mega Man 3 (USA)
+rom: nes/Mega Man 3 (USA).nes
+hit:
+  - "Move changed && Move == 0x0E"
+  - "Health decreased"
+  - "Lives decreased"
+lives: Lives
+input: Pad
+input_bits: right left down up start select b a
+patches:
+  - name: all weapons and the Doc Robot stages
+    button: select
+    when: "0x0060 != 0x09"
+    patch: "set 0x0060 to 0x09; set 0x0061 to 0x00; set 0x00A3 to 0x9C; set 0x00A4 to 0x9C; set 0x00A5 to 0x9C; set 0x00A6 to 0x9C; set 0x00A7 to 0x9C; set 0x00A8 to 0x9C; set 0x00A9 to 0x9C; set 0x00AA to 0x9C; set 0x00AB to 0x9C; set 0x00AC to 0x9C; set 0x00AD to 0x9C"
+  - name: all weapons and Break Man in the centre
+    button: select
+    when: "0x0060 == 0x09"
+    patch: "set 0x0060 to 0x12; set 0x00A3 to 0x9C; set 0x00A4 to 0x9C; set 0x00A5 to 0x9C; set 0x00A6 to 0x9C; set 0x00A7 to 0x9C; set 0x00A8 to 0x9C; set 0x00A9 to 0x9C; set 0x00AA to 0x9C; set 0x00AB to 0x9C; set 0x00AC to 0x9C; set 0x00AD to 0x9C"
+keep:
+  - 0x00C0-0x00E3
+  - 0x0700-0x077F
+song: 0x00C5-0x00C6
+mode: checkpoints
+checkpoints:
+  - name: Top Man start
+    when: "Stage == 0x04 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Top Man 3
+    when: "Stage == 0x04 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Top Man 5
+    when: "Stage == 0x04 && Screen changed && Screen == 0x04"
+    wait: 0
+  - name: Top Man 6
+    when: "Stage == 0x04 && Screen changed && Screen == 0x05"
+    wait: 0
+  - name: Top Man 7
+    when: "Stage == 0x04 && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Top Man 8
+    when: "Stage == 0x04 && Screen changed && Screen == 0x07"
+    wait: 0
+  - name: Top Man 10
+    when: "Stage == 0x04 && Screen changed && Screen == 0x09"
+    levels: easy
+  - name: Top Man 11
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Top Man 12
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Top Man 13
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0C"
+    wait: 0
+  - name: Top Man 14
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0D"
+    levels: easy
+  - name: Top Man 15
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Top Man 16
+    when: "Stage == 0x04 && Screen changed && Screen == 0x0F"
+    wait: 0
+  - name: Top Man 17
+    when: "Stage == 0x04 && Screen changed && Screen == 0x10"
+    wait: 0
+  - name: Top Man 18
+    when: "Stage == 0x04 && Screen changed && Screen == 0x11"
+    levels: easy medium
+  - name: Top Man 19
+    when: "Stage == 0x04 && Screen changed && Screen == 0x12"
+    levels: easy medium
+  - name: Top Man 20
+    when: "Stage == 0x04 && Screen changed && Screen == 0x13"
+    levels: easy
+  - name: Top Man corridor
+    when: "Stage == 0x04 && Screen changed && Screen == 0x14"
+    wait: 0
+  - name: Top Man boss room
+    when: "Stage == 0x04 && Screen changed && Screen == 0x15"
+    wait: 0
+    no_rewind: easy
+  - name: Top Man boss 75%
+    when: "Stage == 0x04 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Top Man boss 50%
+    when: "Stage == 0x04 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Top Man boss 25%
+    when: "Stage == 0x04 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Shadow Man start
+    when: "Stage == 0x07 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Shadow Man 2
+    when: "Stage == 0x07 && Screen changed && Screen == 0x01"
+    wait: 0
+  - name: Shadow Man 3
+    when: "Stage == 0x07 && Screen changed && Screen == 0x02"
+    wait: 0
+  - name: Shadow Man 4
+    when: "Stage == 0x07 && Screen changed && Screen == 0x03"
+    wait: 0
+  - name: Shadow Man 6
+    when: "Stage == 0x07 && Screen changed && Screen == 0x05"
+    wait: 0
+  - name: Shadow Man 7
+    when: "Stage == 0x07 && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Shadow Man 8
+    when: "Stage == 0x07 && Screen changed && Screen == 0x07"
+    levels: easy
+  - name: Shadow Man 9
+    when: "Stage == 0x07 && Screen changed && Screen == 0x08"
+    levels: easy medium
+  - name: Shadow Man 10
+    when: "Stage == 0x07 && Screen changed && Screen == 0x09"
+    levels: easy medium
+  - name: Shadow Man 11
+    when: "Stage == 0x07 && Screen changed && Screen == 0x0A"
+    levels: easy medium
+  - name: Shadow Man 12
+    when: "Stage == 0x07 && Screen changed && Screen == 0x0B"
+    levels: easy medium
+  - name: Shadow Man 13
+    when: "Stage == 0x07 && Screen changed && Screen == 0x0C"
+    levels: easy
+  - name: Shadow Man 14
+    when: "Stage == 0x07 && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Shadow Man 15
+    when: "Stage == 0x07 && Screen changed && Screen == 0x0E"
+    levels: easy
+  - name: Shadow Man 17
+    when: "Stage == 0x07 && Screen changed && Screen == 0x10"
+    levels: easy medium
+  - name: Shadow Man 18
+    when: "Stage == 0x07 && Screen changed && Screen == 0x11"
+    levels: easy
+  - name: Shadow Man 19
+    when: "Stage == 0x07 && Screen changed && Screen == 0x12"
+    levels: easy medium
+  - name: Shadow Man 20
+    when: "Stage == 0x07 && Screen changed && Screen == 0x13"
+    levels: easy
+  - name: Shadow Man corridor
+    when: "Stage == 0x07 && Screen changed && Screen == 0x15"
+    wait: 0
+  - name: Shadow Man boss room
+    when: "Stage == 0x07 && Screen changed && Screen == 0x16"
+    wait: 0
+    no_rewind: easy
+  - name: Shadow Man boss 75%
+    when: "Stage == 0x07 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Shadow Man boss 50%
+    when: "Stage == 0x07 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Shadow Man boss 25%
+    when: "Stage == 0x07 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Snake Man start
+    when: "Stage == 0x05 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Snake Man 3
+    when: "Stage == 0x05 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Snake Man 4
+    when: "Stage == 0x05 && Screen changed && Screen == 0x03"
+    levels: easy
+  - name: Snake Man 5
+    when: "Stage == 0x05 && Screen changed && Screen == 0x04"
+    wait: 0
+  - name: Snake Man 6
+    when: "Stage == 0x05 && Screen changed && Screen == 0x05"
+    wait: 0
+  - name: Snake Man 7
+    when: "Stage == 0x05 && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Snake Man 8
+    when: "Stage == 0x05 && Screen changed && Screen == 0x07"
+    levels: easy
+  - name: Snake Man 9
+    when: "Stage == 0x05 && Screen changed && Screen == 0x08"
+    wait: 0
+  - name: Snake Man 10
+    when: "Stage == 0x05 && Screen changed && Screen == 0x09"
+    levels: easy
+  - name: Snake Man 12
+    when: "Stage == 0x05 && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Snake Man 13
+    when: "Stage == 0x05 && Screen changed && Screen == 0x0C"
+    wait: 0
+  - name: Snake Man 14
+    when: "Stage == 0x05 && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Snake Man 15
+    when: "Stage == 0x05 && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Snake Man 16
+    when: "Stage == 0x05 && Screen changed && Screen == 0x0F"
+    wait: 0
+  - name: Snake Man 18
+    when: "Stage == 0x05 && Screen changed && Screen == 0x11"
+    levels: easy
+  - name: Snake Man 19
+    when: "Stage == 0x05 && Screen changed && Screen == 0x12"
+    wait: 0
+  - name: Snake Man 20
+    when: "Stage == 0x05 && Screen changed && Screen == 0x13"
+    wait: 0
+  - name: Snake Man 21
+    when: "Stage == 0x05 && Screen changed && Screen == 0x14"
+    levels: easy
+  - name: Snake Man 22
+    when: "Stage == 0x05 && Screen changed && Screen == 0x15"
+    levels: easy medium
+  - name: Snake Man 23
+    when: "Stage == 0x05 && Screen changed && Screen == 0x16"
+    levels: easy medium
+  - name: Snake Man 24
+    when: "Stage == 0x05 && Screen changed && Screen == 0x17"
+    levels: easy
+  - name: Snake Man corridor
+    when: "Stage == 0x05 && Screen changed && Screen == 0x18"
+    wait: 0
+  - name: Snake Man boss room
+    when: "Stage == 0x05 && Screen changed && Screen == 0x19"
+    wait: 0
+    no_rewind: easy
+  - name: Snake Man boss 75%
+    when: "Stage == 0x05 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Snake Man boss 50%
+    when: "Stage == 0x05 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Snake Man boss 25%
+    when: "Stage == 0x05 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Magnet Man start
+    when: "Stage == 0x01 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Magnet Man 3
+    when: "Stage == 0x01 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Magnet Man 4
+    when: "Stage == 0x01 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Magnet Man 5
+    when: "Stage == 0x01 && Screen changed && Screen == 0x04"
+    levels: easy
+  - name: Magnet Man 6
+    when: "Stage == 0x01 && Screen changed && Screen == 0x05"
+    wait: 0
+  - name: Magnet Man 7
+    when: "Stage == 0x01 && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Magnet Man 8
+    when: "Stage == 0x01 && Screen changed && Screen == 0x07"
+    levels: easy
+  - name: Magnet Man 9
+    when: "Stage == 0x01 && Screen changed && Screen == 0x08"
+    wait: 0
+  - name: Magnet Man 10
+    when: "Stage == 0x01 && Screen changed && Screen == 0x09"
+    wait: 0
+  - name: Magnet Man 11
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0A"
+    levels: easy
+  - name: Magnet Man 12
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Magnet Man 13
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0C"
+    wait: 0
+  - name: Magnet Man 14
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0D"
+    levels: easy
+  - name: Magnet Man 15
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0E"
+    levels: easy medium
+  - name: Magnet Man 16
+    when: "Stage == 0x01 && Screen changed && Screen == 0x0F"
+    levels: easy medium
+  - name: Magnet Man 17
+    when: "Stage == 0x01 && Screen changed && Screen == 0x10"
+    wait: 0
+  - name: Magnet Man 18
+    when: "Stage == 0x01 && Screen changed && Screen == 0x11"
+    wait: 0
+  - name: Magnet Man 19
+    when: "Stage == 0x01 && Screen changed && Screen == 0x12"
+    wait: 0
+  - name: Magnet Man corridor
+    when: "Stage == 0x01 && Screen changed && Screen == 0x13"
+    wait: 0
+  - name: Magnet Man boss room
+    when: "Stage == 0x01 && Screen changed && Screen == 0x14"
+    wait: 0
+    no_rewind: easy
+  - name: Magnet Man boss 75%
+    when: "Stage == 0x01 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Magnet Man boss 50%
+    when: "Stage == 0x01 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Magnet Man boss 25%
+    when: "Stage == 0x01 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Hard Man start
+    when: "Stage == 0x03 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Hard Man 3
+    when: "Stage == 0x03 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Hard Man 4
+    when: "Stage == 0x03 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Hard Man 5
+    when: "Stage == 0x03 && Screen changed && Screen == 0x04"
+    levels: easy medium
+  - name: Hard Man 6
+    when: "Stage == 0x03 && Screen changed && Screen == 0x05"
+    levels: easy
+  - name: Hard Man 7
+    when: "Stage == 0x03 && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Hard Man 8
+    when: "Stage == 0x03 && Screen changed && Screen == 0x07"
+    wait: 0
+  - name: Hard Man 9
+    when: "Stage == 0x03 && Screen changed && Screen == 0x08"
+    levels: easy medium
+  - name: Hard Man 10
+    when: "Stage == 0x03 && Screen changed && Screen == 0x09"
+    levels: easy
+  - name: Hard Man 11
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Hard Man 12
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Hard Man 13
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0C"
+    wait: 0
+  - name: Hard Man 14
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0D"
+    levels: easy
+  - name: Hard Man 15
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0E"
+    levels: easy medium
+  - name: Hard Man 16
+    when: "Stage == 0x03 && Screen changed && Screen == 0x0F"
+    levels: easy
+  - name: Hard Man 17
+    when: "Stage == 0x03 && Screen changed && Screen == 0x10"
+    wait: 0
+  - name: Hard Man 18
+    when: "Stage == 0x03 && Screen changed && Screen == 0x11"
+    wait: 0
+  - name: Hard Man 20
+    when: "Stage == 0x03 && Screen changed && Screen == 0x13"
+    wait: 0
+  - name: Hard Man 21
+    when: "Stage == 0x03 && Screen changed && Screen == 0x14"
+    wait: 0
+  - name: Hard Man 22
+    when: "Stage == 0x03 && Screen changed && Screen == 0x15"
+    wait: 0
+  - name: Hard Man corridor
+    when: "Stage == 0x03 && Screen changed && Screen == 0x16"
+    wait: 0
+  - name: Hard Man boss room
+    when: "Stage == 0x03 && Screen changed && Screen == 0x17"
+    wait: 0
+    no_rewind: easy
+  - name: Hard Man boss 75%
+    when: "Stage == 0x03 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Hard Man boss 50%
+    when: "Stage == 0x03 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Hard Man boss 25%
+    when: "Stage == 0x03 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Spark Man start
+    when: "Stage == 0x06 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Spark Man 2
+    when: "Stage == 0x06 && Screen changed && Screen == 0x01"
+    wait: 0
+  - name: Spark Man 3
+    when: "Stage == 0x06 && Screen changed && Screen == 0x02"
+    levels: easy
+  - name: Spark Man 4
+    when: "Stage == 0x06 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Spark Man 5
+    when: "Stage == 0x06 && Screen changed && Screen == 0x04"
+    levels: easy
+  - name: Spark Man 6
+    when: "Stage == 0x06 && Screen changed && Screen == 0x05"
+    wait: 0
+  - name: Spark Man 7
+    when: "Stage == 0x06 && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Spark Man 8
+    when: "Stage == 0x06 && Screen changed && Screen == 0x07"
+    levels: easy
+  - name: Spark Man 9
+    when: "Stage == 0x06 && Screen changed && Screen == 0x08"
+    levels: easy medium
+  - name: Spark Man 10
+    when: "Stage == 0x06 && Screen changed && Screen == 0x09"
+    wait: 0
+  - name: Spark Man 11
+    when: "Stage == 0x06 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Spark Man 12
+    when: "Stage == 0x06 && Screen changed && Screen == 0x0B"
+    levels: easy
+  - name: Spark Man 13
+    when: "Stage == 0x06 && Screen changed && Screen == 0x0C"
+    wait: 0
+  - name: Spark Man 14
+    when: "Stage == 0x06 && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Spark Man 15
+    when: "Stage == 0x06 && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Spark Man 16
+    when: "Stage == 0x06 && Screen changed && Screen == 0x0F"
+    wait: 0
+  - name: Spark Man 18
+    when: "Stage == 0x06 && Screen changed && Screen == 0x11"
+    levels: easy
+  - name: Spark Man 19
+    when: "Stage == 0x06 && Screen changed && Screen == 0x12"
+    wait: 0
+  - name: Spark Man 20
+    when: "Stage == 0x06 && Screen changed && Screen == 0x13"
+    levels: easy
+  - name: Spark Man 21
+    when: "Stage == 0x06 && Screen changed && Screen == 0x14"
+    levels: easy medium
+  - name: Spark Man 22
+    when: "Stage == 0x06 && Screen changed && Screen == 0x15"
+    levels: easy
+  - name: Spark Man corridor
+    when: "Stage == 0x06 && Screen changed && Screen == 0x16"
+    wait: 0
+  - name: Spark Man boss room
+    when: "Stage == 0x06 && Screen changed && Screen == 0x17"
+    wait: 0
+    no_rewind: easy
+  - name: Spark Man boss 75%
+    when: "Stage == 0x06 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Spark Man boss 50%
+    when: "Stage == 0x06 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Spark Man boss 25%
+    when: "Stage == 0x06 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Gemini Man start
+    when: "Stage == 0x02 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Gemini Man 2
+    when: "Stage == 0x02 && Screen changed && Screen == 0x01"
+    levels: easy
+  - name: Gemini Man 3
+    when: "Stage == 0x02 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Gemini Man 4
+    when: "Stage == 0x02 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Gemini Man 5
+    when: "Stage == 0x02 && Screen changed && Screen == 0x04"
+    levels: easy
+  - name: Gemini Man 6
+    when: "Stage == 0x02 && Screen changed && Screen == 0x05"
+    levels: easy medium
+  - name: Gemini Man 7
+    when: "Stage == 0x02 && Screen changed && Screen == 0x06"
+    levels: easy medium
+  - name: Gemini Man 8
+    when: "Stage == 0x02 && Screen changed && Screen == 0x07"
+    levels: easy medium
+  - name: Gemini Man 9
+    when: "Stage == 0x02 && Screen changed && Screen == 0x08"
+    levels: easy medium
+  - name: Gemini Man 10
+    when: "Stage == 0x02 && Screen changed && Screen == 0x09"
+    wait: 0
+  - name: Gemini Man 11
+    when: "Stage == 0x02 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Gemini Man 13
+    when: "Stage == 0x02 && Screen changed && Screen == 0x0C"
+    levels: easy
+  - name: Gemini Man 14
+    when: "Stage == 0x02 && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Gemini Man 15
+    when: "Stage == 0x02 && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Gemini Man 17
+    when: "Stage == 0x02 && Screen changed && Screen == 0x10"
+    levels: easy medium
+  - name: Gemini Man 18
+    when: "Stage == 0x02 && Screen changed && Screen == 0x11"
+    levels: easy
+  - name: Gemini Man 19
+    when: "Stage == 0x02 && Screen changed && Screen == 0x12"
+    levels: easy
+  - name: Gemini Man 20
+    when: "Stage == 0x02 && Screen changed && Screen == 0x13"
+    wait: 0
+  - name: Gemini Man 21
+    when: "Stage == 0x02 && Screen changed && Screen == 0x14"
+    wait: 0
+  - name: Gemini Man 22
+    when: "Stage == 0x02 && Screen changed && Screen == 0x15"
+    levels: easy
+  - name: Gemini Man 23
+    when: "Stage == 0x02 && Screen changed && Screen == 0x16"
+    levels: easy medium
+  - name: Gemini Man 24
+    when: "Stage == 0x02 && Screen changed && Screen == 0x17"
+    levels: easy medium
+  - name: Gemini Man 25
+    when: "Stage == 0x02 && Screen changed && Screen == 0x18"
+    levels: easy medium
+  - name: Gemini Man 26
+    when: "Stage == 0x02 && Screen changed && Screen == 0x19"
+    levels: easy medium
+  - name: Gemini Man 27
+    when: "Stage == 0x02 && Screen changed && Screen == 0x1A"
+    wait: 0
+  - name: Gemini Man 28
+    when: "Stage == 0x02 && Screen changed && Screen == 0x1B"
+    wait: 0
+  - name: Gemini Man corridor
+    when: "Stage == 0x02 && Screen changed && Screen == 0x1C"
+    wait: 0
+  - name: Gemini Man boss room
+    when: "Stage == 0x02 && Screen changed && Screen == 0x1D"
+    wait: 0
+    no_rewind: easy
+  - name: Gemini Man boss 75%
+    when: "Stage == 0x02 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Gemini Man boss 50%
+    when: "Stage == 0x02 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Gemini Man boss 25%
+    when: "Stage == 0x02 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Needle Man start
+    when: "Stage == 0x00 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Needle Man 3
+    when: "Stage == 0x00 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Needle Man 4
+    when: "Stage == 0x00 && Screen changed && Screen == 0x03"
+    wait: 0
+  - name: Needle Man 6
+    when: "Stage == 0x00 && Screen changed && Screen == 0x05"
+    levels: easy medium
+  - name: Needle Man 7
+    when: "Stage == 0x00 && Screen changed && Screen == 0x06"
+    levels: easy
+  - name: Needle Man 8
+    when: "Stage == 0x00 && Screen changed && Screen == 0x07"
+    levels: easy medium
+  - name: Needle Man 9
+    when: "Stage == 0x00 && Screen changed && Screen == 0x08"
+    levels: easy
+  - name: Needle Man 10
+    when: "Stage == 0x00 && Screen changed && Screen == 0x09"
+    levels: easy medium
+  - name: Needle Man 11
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Needle Man 12
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0B"
+    levels: easy medium
+  - name: Needle Man 13
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0C"
+    levels: easy
+  - name: Needle Man 14
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Needle Man 15
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Needle Man 16
+    when: "Stage == 0x00 && Screen changed && Screen == 0x0F"
+    wait: 0
+  - name: Needle Man 17
+    when: "Stage == 0x00 && Screen changed && Screen == 0x10"
+    levels: easy
+  - name: Needle Man corridor
+    when: "Stage == 0x00 && Screen changed && Screen == 0x11"
+    wait: 0
+  - name: Needle Man boss room
+    when: "Stage == 0x00 && Screen changed && Screen == 0x12"
+    wait: 0
+    no_rewind: easy
+  - name: Needle Man boss 75%
+    when: "Stage == 0x00 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Needle Man boss 50%
+    when: "Stage == 0x00 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Needle Man boss 25%
+    when: "Stage == 0x00 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Doc Robot (Shadow) start
+    when: "Stage == 0x0B && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Doc Robot (Shadow) 2
+    when: "Stage == 0x0B && Screen changed && Screen == 0x01"
+    wait: 0
+  - name: Doc Robot (Shadow) 3
+    when: "Stage == 0x0B && Screen changed && Screen == 0x02"
+    wait: 0
+  - name: Doc Robot (Shadow) 4
+    when: "Stage == 0x0B && Screen changed && Screen == 0x03"
+    wait: 0
+  - name: Doc Robot (Shadow) 5
+    when: "Stage == 0x0B && Screen changed && Screen == 0x04"
+    levels: easy
+  - name: Doc Robot (Shadow) 6
+    when: "Stage == 0x0B && Screen changed && Screen == 0x05"
+    wait: 0
+  - name: Doc Robot (Shadow) 7
+    when: "Stage == 0x0B && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Doc Robot (Shadow) 8
+    when: "Stage == 0x0B && Screen changed && Screen == 0x07"
+    levels: easy
+  - name: Doc Robot (Shadow) 9
+    when: "Stage == 0x0B && Screen changed && Screen == 0x08"
+    levels: easy medium
+  - name: Doc Robot (Shadow) 10
+    when: "Stage == 0x0B && Screen changed && Screen == 0x09"
+    levels: easy medium
+  - name: Doc Robot (Shadow) 11
+    when: "Stage == 0x0B && Screen changed && Screen == 0x0A"
+    levels: easy
+  - name: Doc Robot (Shadow) 12
+    when: "Stage == 0x0B && Screen changed && Screen == 0x0B"
+    levels: easy medium
+  - name: Doc Robot (Shadow) 13
+    when: "Stage == 0x0B && Screen changed && Screen == 0x0C"
+    levels: easy
+  - name: Doc Robot (Shadow) 14
+    when: "Stage == 0x0B && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Doc Robot (Shadow) corridor
+    when: "Stage == 0x0B && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Doc Robot (Shadow) boss room
+    when: "Stage == 0x0B && Screen changed && Screen == 0x0F"
+    wait: 0
+    no_rewind: easy
+  - name: Doc Robot (Shadow) 17
+    when: "Stage == 0x0B && Screen changed && Screen == 0x10"
+    wait: 0
+  - name: Doc Robot (Shadow) 18
+    when: "Stage == 0x0B && Screen changed && Screen == 0x11"
+    levels: easy
+  - name: Doc Robot (Shadow) 19
+    when: "Stage == 0x0B && Screen changed && Screen == 0x12"
+    levels: easy
+  - name: Doc Robot (Shadow) 20
+    when: "Stage == 0x0B && Screen changed && Screen == 0x13"
+    wait: 0
+  - name: Doc Robot (Shadow) 21
+    when: "Stage == 0x0B && Screen changed && Screen == 0x14"
+    levels: easy
+  - name: Doc Robot (Shadow) 22
+    when: "Stage == 0x0B && Screen changed && Screen == 0x15"
+    levels: easy medium
+  - name: Doc Robot (Shadow) 24
+    when: "Stage == 0x0B && Screen changed && Screen == 0x17"
+    wait: 0
+  - name: Doc Robot (Shadow) 25
+    when: "Stage == 0x0B && Screen changed && Screen == 0x18"
+    wait: 0
+  - name: Doc Robot (Shadow) 26
+    when: "Stage == 0x0B && Screen changed && Screen == 0x19"
+    wait: 0
+  - name: Doc Robot (Shadow) boss 75%
+    when: "Stage == 0x0B && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Doc Robot (Shadow) boss 50%
+    when: "Stage == 0x0B && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Doc Robot (Shadow) boss 25%
+    when: "Stage == 0x0B && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Doc Robot (Gemini) start
+    when: "Stage == 0x09 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Doc Robot (Gemini) 3
+    when: "Stage == 0x09 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Doc Robot (Gemini) 4
+    when: "Stage == 0x09 && Screen changed && Screen == 0x03"
+    levels: easy
+  - name: Doc Robot (Gemini) 5
+    when: "Stage == 0x09 && Screen changed && Screen == 0x04"
+    levels: easy medium
+  - name: Doc Robot (Gemini) 6
+    when: "Stage == 0x09 && Screen changed && Screen == 0x05"
+    levels: easy
+  - name: Doc Robot (Gemini) 7
+    when: "Stage == 0x09 && Screen changed && Screen == 0x06"
+    levels: easy medium
+  - name: Doc Robot (Gemini) 8
+    when: "Stage == 0x09 && Screen changed && Screen == 0x07"
+    levels: easy medium
+  - name: Doc Robot (Gemini) 9
+    when: "Stage == 0x09 && Screen changed && Screen == 0x08"
+    levels: easy
+  - name: Doc Robot (Gemini) 10
+    when: "Stage == 0x09 && Screen changed && Screen == 0x09"
+    wait: 0
+  - name: Doc Robot (Gemini) 11
+    when: "Stage == 0x09 && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Doc Robot (Gemini) 12
+    when: "Stage == 0x09 && Screen changed && Screen == 0x0B"
+    levels: easy
+  - name: Doc Robot (Gemini) 14
+    when: "Stage == 0x09 && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Doc Robot (Gemini) 15
+    when: "Stage == 0x09 && Screen changed && Screen == 0x0E"
+    levels: easy medium
+  - name: Doc Robot (Gemini) 16
+    when: "Stage == 0x09 && Screen changed && Screen == 0x0F"
+    levels: easy
+  - name: Doc Robot (Gemini) corridor
+    when: "Stage == 0x09 && Screen changed && Screen == 0x10"
+    wait: 0
+  - name: Doc Robot (Gemini) boss room
+    when: "Stage == 0x09 && Screen changed && Screen == 0x11"
+    wait: 0
+    no_rewind: easy
+  - name: Doc Robot (Gemini) 19
+    when: "Stage == 0x09 && Screen changed && Screen == 0x12"
+    wait: 0
+  - name: Doc Robot (Gemini) 20
+    when: "Stage == 0x09 && Screen changed && Screen == 0x13"
+    levels: easy
+  - name: Doc Robot (Gemini) 21
+    when: "Stage == 0x09 && Screen changed && Screen == 0x14"
+    wait: 0
+  - name: Doc Robot (Gemini) 22
+    when: "Stage == 0x09 && Screen changed && Screen == 0x15"
+    levels: easy medium
+  - name: Doc Robot (Gemini) 23
+    when: "Stage == 0x09 && Screen changed && Screen == 0x16"
+    levels: easy
+  - name: Doc Robot (Gemini) 24
+    when: "Stage == 0x09 && Screen changed && Screen == 0x17"
+    wait: 0
+  - name: Doc Robot (Gemini) 25
+    when: "Stage == 0x09 && Screen changed && Screen == 0x18"
+    wait: 0
+  - name: Doc Robot (Gemini) 26
+    when: "Stage == 0x09 && Screen changed && Screen == 0x19"
+    levels: easy
+  - name: Doc Robot (Gemini) 27
+    when: "Stage == 0x09 && Screen changed && Screen == 0x1A"
+    levels: easy
+  - name: Doc Robot (Gemini) 28
+    when: "Stage == 0x09 && Screen changed && Screen == 0x1B"
+    wait: 0
+  - name: Doc Robot (Gemini) 29
+    when: "Stage == 0x09 && Screen changed && Screen == 0x1C"
+    wait: 0
+  - name: Doc Robot (Gemini) 30
+    when: "Stage == 0x09 && Screen changed && Screen == 0x1D"
+    wait: 0
+  - name: Doc Robot (Gemini) 31
+    when: "Stage == 0x09 && Screen changed && Screen == 0x1E"
+    wait: 0
+  - name: Doc Robot (Gemini) boss 75%
+    when: "Stage == 0x09 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Doc Robot (Gemini) boss 50%
+    when: "Stage == 0x09 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Doc Robot (Gemini) boss 25%
+    when: "Stage == 0x09 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Doc Robot (Spark) start
+    when: "Stage == 0x0A && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Doc Robot (Spark) 2
+    when: "Stage == 0x0A && Screen changed && Screen == 0x01"
+    wait: 0
+  - name: Doc Robot (Spark) 3
+    when: "Stage == 0x0A && Screen changed && Screen == 0x02"
+    wait: 0
+  - name: Doc Robot (Spark) 4
+    when: "Stage == 0x0A && Screen changed && Screen == 0x03"
+    levels: easy
+  - name: Doc Robot (Spark) 5
+    when: "Stage == 0x0A && Screen changed && Screen == 0x04"
+    levels: easy medium
+  - name: Doc Robot (Spark) 6
+    when: "Stage == 0x0A && Screen changed && Screen == 0x05"
+    levels: easy
+  - name: Doc Robot (Spark) 7
+    when: "Stage == 0x0A && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Doc Robot (Spark) 8
+    when: "Stage == 0x0A && Screen changed && Screen == 0x07"
+    wait: 0
+  - name: Doc Robot (Spark) 9
+    when: "Stage == 0x0A && Screen changed && Screen == 0x08"
+    levels: easy
+  - name: Doc Robot (Spark) corridor
+    when: "Stage == 0x0A && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Doc Robot (Spark) boss room
+    when: "Stage == 0x0A && Screen changed && Screen == 0x0B"
+    wait: 0
+    no_rewind: easy
+  - name: Doc Robot (Spark) 13
+    when: "Stage == 0x0A && Screen changed && Screen == 0x0C"
+    wait: 0
+  - name: Doc Robot (Spark) 14
+    when: "Stage == 0x0A && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Doc Robot (Spark) 15
+    when: "Stage == 0x0A && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Doc Robot (Spark) 16
+    when: "Stage == 0x0A && Screen changed && Screen == 0x0F"
+    wait: 0
+  - name: Doc Robot (Spark) 17
+    when: "Stage == 0x0A && Screen changed && Screen == 0x10"
+    wait: 0
+  - name: Doc Robot (Spark) 19
+    when: "Stage == 0x0A && Screen changed && Screen == 0x12"
+    levels: easy
+  - name: Doc Robot (Spark) 20
+    when: "Stage == 0x0A && Screen changed && Screen == 0x13"
+    levels: easy medium
+  - name: Doc Robot (Spark) 21
+    when: "Stage == 0x0A && Screen changed && Screen == 0x14"
+    levels: easy
+  - name: Doc Robot (Spark) 22
+    when: "Stage == 0x0A && Screen changed && Screen == 0x15"
+    wait: 0
+  - name: Doc Robot (Spark) 23
+    when: "Stage == 0x0A && Screen changed && Screen == 0x16"
+    levels: easy
+  - name: Doc Robot (Spark) 25
+    when: "Stage == 0x0A && Screen changed && Screen == 0x18"
+    wait: 0
+  - name: Doc Robot (Spark) 26
+    when: "Stage == 0x0A && Screen changed && Screen == 0x19"
+    wait: 0
+  - name: Doc Robot (Spark) boss 75%
+    when: "Stage == 0x0A && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Doc Robot (Spark) boss 50%
+    when: "Stage == 0x0A && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Doc Robot (Spark) boss 25%
+    when: "Stage == 0x0A && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Doc Robot (Needle) start
+    when: "Stage == 0x08 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Doc Robot (Needle) 2
+    when: "Stage == 0x08 && Screen changed && Screen == 0x01"
+    levels: easy
+  - name: Doc Robot (Needle) 3
+    when: "Stage == 0x08 && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Doc Robot (Needle) 4
+    when: "Stage == 0x08 && Screen changed && Screen == 0x03"
+    wait: 0
+  - name: Doc Robot (Needle) 5
+    when: "Stage == 0x08 && Screen changed && Screen == 0x04"
+    levels: easy
+  - name: Doc Robot (Needle) 6
+    when: "Stage == 0x08 && Screen changed && Screen == 0x05"
+    levels: easy medium
+  - name: Doc Robot (Needle) 7
+    when: "Stage == 0x08 && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Doc Robot (Needle) 8
+    when: "Stage == 0x08 && Screen changed && Screen == 0x07"
+    wait: 0
+  - name: Doc Robot (Needle) 9
+    when: "Stage == 0x08 && Screen changed && Screen == 0x08"
+    wait: 0
+  - name: Doc Robot (Needle) corridor
+    when: "Stage == 0x08 && Screen changed && Screen == 0x09"
+    wait: 0
+  - name: Doc Robot (Needle) boss room
+    when: "Stage == 0x08 && Screen changed && Screen == 0x0A"
+    wait: 0
+    no_rewind: easy
+  - name: Doc Robot (Needle) 12
+    when: "Stage == 0x08 && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Doc Robot (Needle) 13
+    when: "Stage == 0x08 && Screen changed && Screen == 0x0C"
+    levels: easy
+  - name: Doc Robot (Needle) 14
+    when: "Stage == 0x08 && Screen changed && Screen == 0x0D"
+    levels: easy medium
+  - name: Doc Robot (Needle) 15
+    when: "Stage == 0x08 && Screen changed && Screen == 0x0E"
+    levels: easy
+  - name: Doc Robot (Needle) 16
+    when: "Stage == 0x08 && Screen changed && Screen == 0x0F"
+    levels: easy medium
+  - name: Doc Robot (Needle) 17
+    when: "Stage == 0x08 && Screen changed && Screen == 0x10"
+    levels: easy medium
+  - name: Doc Robot (Needle) 18
+    when: "Stage == 0x08 && Screen changed && Screen == 0x11"
+    levels: easy medium
+  - name: Doc Robot (Needle) 19
+    when: "Stage == 0x08 && Screen changed && Screen == 0x12"
+    levels: easy
+  - name: Doc Robot (Needle) 20
+    when: "Stage == 0x08 && Screen changed && Screen == 0x13"
+    wait: 0
+  - name: Doc Robot (Needle) 21
+    when: "Stage == 0x08 && Screen changed && Screen == 0x14"
+    wait: 0
+  - name: Doc Robot (Needle) 22
+    when: "Stage == 0x08 && Screen changed && Screen == 0x15"
+    wait: 0
+  - name: Doc Robot (Needle) 23
+    when: "Stage == 0x08 && Screen changed && Screen == 0x16"
+    wait: 0
+  - name: Doc Robot (Needle) 25
+    when: "Stage == 0x08 && Screen changed && Screen == 0x18"
+    levels: easy medium
+  - name: Doc Robot (Needle) 26
+    when: "Stage == 0x08 && Screen changed && Screen == 0x19"
+    levels: easy
+  - name: Doc Robot (Needle) 27
+    when: "Stage == 0x08 && Screen changed && Screen == 0x1A"
+    wait: 0
+  - name: Doc Robot (Needle) 28
+    when: "Stage == 0x08 && Screen changed && Screen == 0x1B"
+    wait: 0
+  - name: Doc Robot (Needle) 29
+    when: "Stage == 0x08 && Screen changed && Screen == 0x1C"
+    levels: easy
+  - name: Doc Robot (Needle) 30
+    when: "Stage == 0x08 && Screen changed && Screen == 0x1D"
+    wait: 0
+  - name: Doc Robot (Needle) 31
+    when: "Stage == 0x08 && Screen changed && Screen == 0x1E"
+    wait: 0
+  - name: Doc Robot (Needle) boss 75%
+    when: "Stage == 0x08 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Doc Robot (Needle) boss 50%
+    when: "Stage == 0x08 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Doc Robot (Needle) boss 25%
+    when: "Stage == 0x08 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Hard Man start
+    when: "Stage == 0x03 && Screen == 0x18 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Wily 1 start
+    when: "Stage == 0x0C && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Wily 1 3
+    when: "Stage == 0x0C && Screen changed && Screen == 0x02"
+    levels: easy medium
+  - name: Wily 1 4
+    when: "Stage == 0x0C && Screen changed && Screen == 0x03"
+    levels: easy
+  - name: Wily 1 5
+    when: "Stage == 0x0C && Screen changed && Screen == 0x04"
+    wait: 0
+  - name: Wily 1 7
+    when: "Stage == 0x0C && Screen changed && Screen == 0x06"
+    levels: easy medium
+  - name: Wily 1 8
+    when: "Stage == 0x0C && Screen changed && Screen == 0x07"
+    levels: easy
+  - name: Wily 1 9
+    when: "Stage == 0x0C && Screen changed && Screen == 0x08"
+    wait: 0
+  - name: Wily 1 10
+    when: "Stage == 0x0C && Screen changed && Screen == 0x09"
+    wait: 0
+  - name: Wily 1 11
+    when: "Stage == 0x0C && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Wily 1 12
+    when: "Stage == 0x0C && Screen changed && Screen == 0x0B"
+    levels: easy medium
+  - name: Wily 1 13
+    when: "Stage == 0x0C && Screen changed && Screen == 0x0C"
+    levels: easy medium
+  - name: Wily 1 14
+    when: "Stage == 0x0C && Screen changed && Screen == 0x0D"
+    wait: 0
+  - name: Wily 1 15
+    when: "Stage == 0x0C && Screen changed && Screen == 0x0E"
+    wait: 0
+  - name: Wily 1 corridor
+    when: "Stage == 0x0C && Screen changed && Screen == 0x0F"
+    wait: 0
+  - name: Wily 1 boss room
+    when: "Stage == 0x0C && Screen changed && Screen == 0x10"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 1 boss 75%
+    when: "Stage == 0x0C && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 1 boss 50%
+    when: "Stage == 0x0C && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 1 boss 25%
+    when: "Stage == 0x0C && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Wily 2 start
+    when: "Stage == 0x0D && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Wily 2 2
+    when: "Stage == 0x0D && Screen changed && Screen == 0x01"
+    wait: 0
+  - name: Wily 2 3
+    when: "Stage == 0x0D && Screen changed && Screen == 0x02"
+    wait: 0
+  - name: Wily 2 4
+    when: "Stage == 0x0D && Screen changed && Screen == 0x03"
+    wait: 0
+  - name: Wily 2 5
+    when: "Stage == 0x0D && Screen changed && Screen == 0x04"
+    levels: easy
+  - name: Wily 2 6
+    when: "Stage == 0x0D && Screen changed && Screen == 0x05"
+    levels: easy medium
+  - name: Wily 2 7
+    when: "Stage == 0x0D && Screen changed && Screen == 0x06"
+    levels: easy
+  - name: Wily 2 8
+    when: "Stage == 0x0D && Screen changed && Screen == 0x07"
+    levels: easy medium
+  - name: Wily 2 9
+    when: "Stage == 0x0D && Screen changed && Screen == 0x08"
+    levels: easy medium
+  - name: Wily 2 10
+    when: "Stage == 0x0D && Screen changed && Screen == 0x09"
+    levels: easy
+  - name: Wily 2 boss room
+    when: "Stage == 0x0D && Screen changed && Screen == 0x0A"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 2 boss 75%
+    when: "Stage == 0x0D && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 2 boss 50%
+    when: "Stage == 0x0D && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 2 boss 25%
+    when: "Stage == 0x0D && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Wily 3 start
+    when: "Stage == 0x0E && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Wily 3 2
+    when: "Stage == 0x0E && Screen changed && Screen == 0x01"
+    wait: 0
+  - name: Wily 3 3
+    when: "Stage == 0x0E && Screen changed && Screen == 0x02"
+    wait: 0
+  - name: Wily 3 4
+    when: "Stage == 0x0E && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Wily 3 5
+    when: "Stage == 0x0E && Screen changed && Screen == 0x04"
+    levels: easy medium
+  - name: Wily 3 7
+    when: "Stage == 0x0E && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Wily 3 8
+    when: "Stage == 0x0E && Screen changed && Screen == 0x07"
+    wait: 0
+  - name: Wily 3 9
+    when: "Stage == 0x0E && Screen changed && Screen == 0x08"
+    levels: easy
+  - name: Wily 3 10
+    when: "Stage == 0x0E && Screen changed && Screen == 0x09"
+    wait: 0
+  - name: Wily 3 11
+    when: "Stage == 0x0E && Screen changed && Screen == 0x0A"
+    wait: 0
+  - name: Wily 3 12
+    when: "Stage == 0x0E && Screen changed && Screen == 0x0B"
+    wait: 0
+  - name: Wily 3 boss room
+    when: "Stage == 0x0E && Screen changed && Screen == 0x0C"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 3 boss 75%
+    when: "Stage == 0x0E && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 3 boss 50%
+    when: "Stage == 0x0E && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 3 boss 25%
+    when: "Stage == 0x0E && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Wily 4 start
+    when: "Stage == 0x0F && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Wily 4 2
+    when: "Stage == 0x0F && Screen changed && Screen == 0x01"
+    wait: 0
+  - name: Wily 4 3
+    when: "Stage == 0x0F && Screen changed && Screen == 0x02"
+    wait: 0
+  - name: Wily 4 4
+    when: "Stage == 0x0F && Screen changed && Screen == 0x03"
+    wait: 0
+  - name: Wily 4 5
+    when: "Stage == 0x0F && Screen changed && Screen == 0x04"
+    wait: 0
+  - name: Wily 4 6
+    when: "Stage == 0x0F && Screen changed && Screen == 0x05"
+    wait: 0
+  - name: Wily 4 corridor
+    when: "Stage == 0x0F && Screen changed && Screen == 0x06"
+    wait: 0
+  - name: Wily 4 9
+    when: "Stage == 0x0F && Screen changed && Screen == 0x08"
+    wait: 0
+  - name: Wily 4 boss room
+    when: "Stage == 0x0F && Screen changed && Screen == 0x14"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 4 11
+    when: "Stage == 0x0F && Screen changed && Screen == 0x0A"
+    levels: easy medium
+  - name: Wily 4 12
+    when: "Stage == 0x0F && Screen changed && Screen == 0x0E"
+    levels: easy
+  - name: Wily 4 14
+    when: "Stage == 0x0F && Screen changed && Screen == 0x12"
+    levels: easy medium
+  - name: Wily 4 15
+    when: "Stage == 0x0F && Screen changed && Screen == 0x0C"
+    levels: easy
+  - name: Wily 4 16
+    when: "Stage == 0x0F && Screen changed && Screen == 0x16"
+    levels: easy medium
+  - name: Wily 4 18
+    when: "Stage == 0x0F && Screen changed && Screen == 0x09"
+    wait: 0
+  - name: Wily 4 boss 75%
+    when: "Stage == 0x0F && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 4 boss 50%
+    when: "Stage == 0x0F && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 4 boss 25%
+    when: "Stage == 0x0F && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Wily 5 start
+    when: "Stage == 0x10 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Wily 5 boss room
+    when: "Stage == 0x10 && Screen changed && Screen == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 5 boss 75%
+    when: "Stage == 0x10 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 5 boss 50%
+    when: "Stage == 0x10 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 5 boss 25%
+    when: "Stage == 0x10 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
+  - name: Wily 6 start
+    when: "Stage == 0x11 && Screen == 0x00 && Move was 0x04 && Move == 0x00"
+    start: yes
+  - name: Wily 6 corridor
+    when: "Stage == 0x11 && Screen changed && Screen == 0x01"
+    wait: 0
+  - name: Wily 6 boss room
+    when: "Stage == 0x11 && Screen changed && Screen == 0x02"
+    wait: 0
+    no_rewind: easy
+  - name: Wily 6 boss 75%
+    when: "Stage == 0x11 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x15 && BossHealth was != 0xFF && BossHealth <= 0x15"
+    levels: medium
+  - name: Wily 6 boss 50%
+    when: "Stage == 0x11 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x0E && BossHealth was != 0xFF && BossHealth <= 0x0E"
+    levels: medium hard
+  - name: Wily 6 boss 25%
+    when: "Stage == 0x11 && BossBar == 0x8E && BossBar was == 0x8E && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
+    levels: medium
