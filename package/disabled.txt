@@ -1,4 +1,3 @@
-Ninja Gaiden (USA).yaml
 Bionic Commando (USA).yaml
 Ghosts'n Goblins (USA).yaml
 Super C (USA).yaml
