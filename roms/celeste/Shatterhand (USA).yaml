@@ -18,7 +18,7 @@ input: Pad
 mode: checkpoints
 checkpoints:
   - name: Level 0 start
-    when: "Level == 0x00 && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x00 && Scene changed && Scene == 0x00"
     start: yes
   - name: Level 0 4
     when: "Level == 0x00 && Screen changed && Screen == 0x13"
@@ -48,7 +48,7 @@ checkpoints:
     when: "Level == 0x00 && Screen changed && Screen == 0x7C"
     levels: easy
   - name: Level 8 start
-    when: "Level == 0x08 && Screen == 0x7C && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x08 && Scene changed && Scene == 0x00 || Level == 0x08 && Level changed && Scene == 0x00"
     start: yes
     no_rewind: easy
   - name: Level 8 boss room
@@ -65,7 +65,7 @@ checkpoints:
     when: "Level == 0x08 && Level == 0x08 && Level was == 0x08 && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
     levels: medium
   - name: Level 10 start
-    when: "Level == 0x0A && Screen == 0x1D && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x0A && Scene changed && Scene == 0x00 || Level == 0x0A && Level changed && Scene == 0x00"
     start: yes
   - name: Level 10 5
     when: "Level == 0x0A && Screen changed && Screen == 0x14"
@@ -77,7 +77,7 @@ checkpoints:
     when: "Level == 0x0A && Screen changed && Screen == 0x17"
     levels: easy
   - name: Level 11 start
-    when: "Level == 0x0B && Screen == 0x18 && Scene was 0x39 && Scene == 0x00"
+    when: "Level == 0x0B && Scene changed && Scene == 0x00 || Level == 0x0B && Level changed && Scene == 0x00"
     start: yes
   - name: Level 11 3
     when: "Level == 0x0B && Screen changed && Screen == 0x41"
@@ -96,7 +96,7 @@ checkpoints:
     when: "Level == 0x0B && Screen changed && Screen == 0x66"
     levels: easy
   - name: Level 14 start
-    when: "Level == 0x0E && Screen == 0x67 && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x0E && Scene changed && Scene == 0x00 || Level == 0x0E && Level changed && Scene == 0x00"
     start: yes
     no_rewind: easy
   - name: Level 14 boss room
@@ -113,7 +113,7 @@ checkpoints:
     when: "Level == 0x0E && Level == 0x0E && Level was == 0x0E && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
     levels: medium
   - name: Level 4 start
-    when: "Level == 0x04 && Screen == 0x34 && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x04 && Scene changed && Scene == 0x00 || Level == 0x04 && Level changed && Scene == 0x00"
     start: yes
   - name: Level 4 4
     when: "Level == 0x04 && Screen changed && Screen == 0x23"
@@ -134,7 +134,7 @@ checkpoints:
     when: "Level == 0x04 && Screen changed && Screen == 0x39"
     levels: easy medium
   - name: Level 5 start
-    when: "Level == 0x05 && Screen == 0x3A && Scene was 0x39 && Scene == 0x00"
+    when: "Level == 0x05 && Scene changed && Scene == 0x00 || Level == 0x05 && Level changed && Scene == 0x00"
     start: yes
   - name: Level 5 6
     when: "Level == 0x05 && Screen changed && Screen == 0x74"
@@ -145,7 +145,7 @@ checkpoints:
     when: "Level == 0x05 && Screen changed && Screen == 0x78"
     levels: easy
   - name: Level 17 start
-    when: "Level == 0x11 && Screen == 0x68 && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x11 && Scene changed && Scene == 0x00 || Level == 0x11 && Level changed && Scene == 0x00"
     start: yes
     no_rewind: easy
   - name: Level 17 boss room
@@ -162,7 +162,7 @@ checkpoints:
     when: "Level == 0x11 && Level == 0x11 && Level was == 0x11 && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
     levels: medium
   - name: Level 1 start
-    when: "Level == 0x01 && Screen == 0x6C && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x01 && Scene changed && Scene == 0x00 || Level == 0x01 && Level changed && Scene == 0x00"
     start: yes
   - name: Level 1 4
     when: "Level == 0x01 && Screen changed && Screen == 0x16"
@@ -178,7 +178,7 @@ checkpoints:
     when: "Level == 0x01 && Screen changed && Screen == 0x4D"
     levels: easy
   - name: Level 2 start
-    when: "Level == 0x02 && Screen == 0x4E && Scene was 0x39 && Scene == 0x00"
+    when: "Level == 0x02 && Scene changed && Scene == 0x00 || Level == 0x02 && Level changed && Scene == 0x00"
     start: yes
   - name: Level 2 4
     when: "Level == 0x02 && Screen changed && Screen == 0xE3"
@@ -209,7 +209,7 @@ checkpoints:
   - name: Level 2 15
     when: "Level == 0x02 && Screen changed && Screen == 0x44"
   - name: Level 13 start
-    when: "Level == 0x0D && Screen == 0x45 && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x0D && Scene changed && Scene == 0x00 || Level == 0x0D && Level changed && Scene == 0x00"
     start: yes
     no_rewind: easy
   - name: Level 13 boss room
@@ -228,7 +228,7 @@ checkpoints:
     when: "Level == 0x0D && Level == 0x0D && Level was == 0x0D && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
     levels: medium
   - name: Level 6 start
-    when: "Level == 0x06 && Screen == 0xC5 && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x06 && Scene changed && Scene == 0x00 || Level == 0x06 && Level changed && Scene == 0x00"
     start: yes
   - name: Level 6 6
     when: "Level == 0x06 && Screen changed && Screen == 0x15"
@@ -245,7 +245,7 @@ checkpoints:
     when: "Level == 0x06 && Screen changed && Screen == 0x1A"
     levels: easy
   - name: Level 7 start
-    when: "Level == 0x07 && Screen == 0x1C && Scene was 0x39 && Scene == 0x00"
+    when: "Level == 0x07 && Scene changed && Scene == 0x00 || Level == 0x07 && Level changed && Scene == 0x00"
     start: yes
   - name: Level 7 3
     when: "Level == 0x07 && Screen changed && Screen == 0x52"
@@ -269,7 +269,7 @@ checkpoints:
     when: "Level == 0x07 && Screen changed && Screen == 0x67"
     levels: easy medium
   - name: Level 12 start
-    when: "Level == 0x0C && Screen == 0x68 && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x0C && Scene changed && Scene == 0x00 || Level == 0x0C && Level changed && Scene == 0x00"
     start: yes
     no_rewind: easy
   - name: Level 12 boss room
@@ -286,7 +286,7 @@ checkpoints:
     when: "Level == 0x0C && Level == 0x0C && Level was == 0x0C && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
     levels: medium
   - name: Level 3 start
-    when: "Level == 0x03 && Screen == 0x6B && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x03 && Scene changed && Scene == 0x00 || Level == 0x03 && Level changed && Scene == 0x00"
     start: yes
   - name: Level 3 5
     when: "Level == 0x03 && Screen changed && Screen == 0x14"
@@ -297,7 +297,7 @@ checkpoints:
     when: "Level == 0x03 && Screen changed && Screen == 0x18"
     levels: easy
   - name: Level 9 start
-    when: "Level == 0x09 && Screen == 0x19 && Scene was 0x39 && Scene == 0x00"
+    when: "Level == 0x09 && Scene changed && Scene == 0x00 || Level == 0x09 && Level changed && Scene == 0x00"
     start: yes
   - name: Level 9 4
     when: "Level == 0x09 && Screen changed && Screen == 0x43"
@@ -317,7 +317,7 @@ checkpoints:
     when: "Level == 0x09 && Screen changed && Screen == 0x49"
     levels: easy medium
   - name: Level 18 start
-    when: "Level == 0x12 && Screen == 0x49 && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x12 && Scene changed && Scene == 0x00 || Level == 0x12 && Level changed && Scene == 0x00"
     start: yes
     no_rewind: easy
   - name: Level 18 boss room
@@ -334,7 +334,7 @@ checkpoints:
     when: "Level == 0x12 && Level == 0x12 && Level was == 0x12 && BossHealth was > 0x14 && BossHealth was != 0xFF && BossHealth <= 0x14"
     levels: medium
   - name: Level 15 start
-    when: "Level == 0x0F && Screen == 0x1C && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x0F && Scene changed && Scene == 0x00 || Level == 0x0F && Level changed && Scene == 0x00"
     start: yes
   - name: Level 15 4
     when: "Level == 0x0F && Screen changed && Screen == 0x53"
@@ -395,7 +395,7 @@ checkpoints:
     when: "Level == 0x0F && Level == 0x0F && Level was == 0x0F && BossHealth was > 0x08 && BossHealth was != 0xFF && BossHealth <= 0x08"
     levels: medium
   - name: Level 16 start
-    when: "Level == 0x10 && Screen == 0x6A && Level changed && Scene == 0x00"
+    when: "Level == 0x10 && Level changed && Scene == 0x00 || Level == 0x10 && Scene changed && Scene == 0x00"
     start: yes
   - name: Level 16 4
     when: "Level == 0x10 && Screen changed && Screen == 0x5C"
@@ -411,7 +411,7 @@ checkpoints:
     when: "Level == 0x10 && Screen changed && Screen == 0x1C"
     levels: easy
   - name: Level 19 start
-    when: "Level == 0x13 && Screen == 0x1C && Scene was 0x3F && Scene == 0x00"
+    when: "Level == 0x13 && Scene changed && Scene == 0x00 || Level == 0x13 && Level changed && Scene == 0x00"
     start: yes
     no_rewind: easy
   - name: Level 19 boss room

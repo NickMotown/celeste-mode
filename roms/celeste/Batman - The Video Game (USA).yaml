@@ -18,7 +18,7 @@ input: Pad
 mode: checkpoints
 checkpoints:
   - name: Stage 1-1 start
-    when: "Stage == 0x00 && Screen == 0x00 && GameState was 0x00 && GameState == 0x01"
+    when: "Stage == 0x00 && GameState was 0x00 && GameState == 0x01 || Stage == 0x00 && Stage changed"
     start: yes
   - name: Stage 1-1 4
     when: "Stage == 0x00 && Screen changed && Screen == 0x03"
@@ -27,7 +27,7 @@ checkpoints:
     when: "Stage == 0x00 && Screen changed && Screen == 0x05"
     levels: easy
   - name: Stage 1-2 start
-    when: "Stage == 0x02 && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x02 && Stage changed || Stage == 0x02 && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 1-2 3
     when: "Stage == 0x02 && Screen changed && Screen == 0x02"
@@ -35,7 +35,7 @@ checkpoints:
   - name: Stage 1-2 4
     when: "Stage == 0x02 && Screen changed && Screen == 0x03"
   - name: Stage 1-3 (Boss Fight) start
-    when: "Stage == 0x04 && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x04 && Stage changed || Stage == 0x04 && GameState was 0x00 && GameState == 0x01"
     start: yes
     no_rewind: easy
   - name: Stage 1-3 (Boss Fight) boss 75%
@@ -48,7 +48,7 @@ checkpoints:
     when: "Stage == 0x04 && Stage == 0x04 && Stage was == 0x04 && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
     levels: medium
   - name: Stage 2-1 start
-    when: "Stage == 0x06 && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x06 && Stage changed || Stage == 0x06 && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 2-1 3
     when: "Stage == 0x06 && Screen changed && Screen == 0x02"
@@ -59,7 +59,7 @@ checkpoints:
     when: "Stage == 0x06 && Screen changed && Screen == 0x05"
     levels: easy medium
   - name: Stage 2-2 start
-    when: "Stage == 0x08 && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x08 && Stage changed || Stage == 0x08 && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 2-2 2
     when: "Stage == 0x08 && Screen changed && Screen == 0x01"
@@ -78,12 +78,12 @@ checkpoints:
     when: "Stage == 0x08 && Screen changed && Screen == 0x06"
     levels: easy
   - name: Stage 2-3 start
-    when: "Stage == 0x0A && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x0A && Stage changed || Stage == 0x0A && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 2-3 3
     when: "Stage == 0x0A && Screen changed && Screen == 0x02"
   - name: Stage 2-4 (Boss Fight) start
-    when: "Stage == 0x0C && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x0C && Stage changed || Stage == 0x0C && GameState was 0x00 && GameState == 0x01"
     start: yes
     no_rewind: easy
   - name: Stage 2-4 (Boss Fight) boss 75%
@@ -96,7 +96,7 @@ checkpoints:
     when: "Stage == 0x0C && Stage == 0x0C && Stage was == 0x0C && BossHealth was > 0x04 && BossHealth was != 0xFF && BossHealth <= 0x04"
     levels: medium
   - name: Stage 3-1 start
-    when: "Stage == 0x0E && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x0E && Stage changed || Stage == 0x0E && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 3-1 3
     when: "Stage == 0x0E && Screen changed && Screen == 0x02"
@@ -107,18 +107,18 @@ checkpoints:
     when: "Stage == 0x0E && Screen changed && Screen == 0x06"
     levels: easy
   - name: Stage 3-2 start
-    when: "Stage == 0x10 && Screen == 0x05 && Stage changed"
+    when: "Stage == 0x10 && Stage changed || Stage == 0x10 && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 3-2 3
     when: "Stage == 0x10 && Screen changed && Screen == 0x04"
     levels: easy medium
   - name: Stage 3-3 start
-    when: "Stage == 0x12 && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x12 && Stage changed || Stage == 0x12 && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 3-3 2
     when: "Stage == 0x12 && Screen changed && Screen == 0x01"
   - name: Stage 3-4 (Boss Fight) start
-    when: "Stage == 0x14 && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x14 && Stage changed || Stage == 0x14 && GameState was 0x00 && GameState == 0x01"
     start: yes
     no_rewind: easy
   - name: Stage 3-4 (Boss Fight) boss 75%
@@ -131,7 +131,7 @@ checkpoints:
     when: "Stage == 0x14 && Stage == 0x14 && Stage was == 0x14 && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
     levels: medium
   - name: Stage 4-1 start
-    when: "Stage == 0x16 && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x16 && Stage changed || Stage == 0x16 && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 4-1 3
     when: "Stage == 0x16 && Screen changed && Screen == 0x02"
@@ -142,7 +142,7 @@ checkpoints:
     when: "Stage == 0x16 && Screen changed && Screen == 0x05"
     levels: easy
   - name: Stage 4-2 start
-    when: "Stage == 0x18 && Screen == 0x01 && Stage changed"
+    when: "Stage == 0x18 && Stage changed || Stage == 0x18 && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 4-2 3
     when: "Stage == 0x18 && Screen changed && Screen == 0x03"
@@ -153,12 +153,12 @@ checkpoints:
   - name: Stage 4-2 6
     when: "Stage == 0x18 && Screen changed && Screen == 0x06"
   - name: Stage 4-3 start
-    when: "Stage == 0x1A && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x1A && Stage changed || Stage == 0x1A && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 4-3 3
     when: "Stage == 0x1A && Screen changed && Screen == 0x02"
   - name: Stage 4-4 (Boss Fight) start
-    when: "Stage == 0x1C && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x1C && Stage changed || Stage == 0x1C && GameState was 0x00 && GameState == 0x01"
     start: yes
     no_rewind: easy
   - name: Stage 4-4 (Boss Fight) boss 75%
@@ -171,12 +171,12 @@ checkpoints:
     when: "Stage == 0x1C && Stage == 0x1C && Stage was == 0x1C && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
     levels: medium
   - name: Stage 5-1 start
-    when: "Stage == 0x1E && Screen == 0x00 && Stage changed"
+    when: "Stage == 0x1E && Stage changed || Stage == 0x1E && GameState was 0x00 && GameState == 0x01"
     start: yes
   - name: Stage 5-1 3
     when: "Stage == 0x1E && Screen changed && Screen == 0x05"
   - name: Stage 5-2 (Boss Fight) start
-    when: "Stage == 0x20 && Screen == 0x01 && Stage changed"
+    when: "Stage == 0x20 && Stage changed || Stage == 0x20 && GameState was 0x00 && GameState == 0x01"
     start: yes
     no_rewind: easy
   - name: Stage 5-2 (Boss Fight) boss 75%
@@ -189,7 +189,7 @@ checkpoints:
     when: "Stage == 0x20 && Stage == 0x20 && Stage was == 0x20 && BossHealth was > 0x18 && BossHealth was != 0xFF && BossHealth <= 0x18"
     levels: medium
   - name: Stage 5-3 (Jocker Fight) start
-    when: "Stage == 0x22 && Screen == 0x01 && Stage changed"
+    when: "Stage == 0x22 && Stage changed || Stage == 0x22 && GameState was 0x00 && GameState == 0x01"
     start: yes
     no_rewind: easy
   - name: Stage 5-3 (Jocker Fight) boss 75%

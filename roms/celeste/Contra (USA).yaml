@@ -28,7 +28,7 @@ song: Song
 mode: checkpoints
 checkpoints:
   - name: Stage 1 (Jungle) start
-    when: "Stage == 0x00 && Screen == 0x00 && Routine was 0x03 && Routine == 0x04"
+    when: "Stage == 0x00 && Routine was 0x03 && Routine == 0x04"
     start: yes
   - name: Stage 1 (Jungle) 4
     when: "Stage == 0x00 && Screen changed && Screen == 0x03"
@@ -111,7 +111,7 @@ checkpoints:
     levels: easy medium
     group: Stage 1 (Jungle) boss parts
   - name: Stage 2 (Base 1) start
-    when: "Stage == 0x01 && Screen == 0x00 && Routine was 0x03 && Routine == 0x04"
+    when: "Stage == 0x01 && Routine was 0x03 && Routine == 0x04"
     start: yes
   - name: Stage 2 (Base 1) 2
     when: "Stage == 0x01 && Screen changed && Screen == 0x01"
@@ -253,7 +253,7 @@ checkpoints:
     levels: easy medium
     group: Stage 2 (Base 1) boss parts
   - name: Stage 3 (Waterfall) start
-    when: "Stage == 0x02 && Screen == 0x00 && Routine was 0x03 && Routine == 0x04"
+    when: "Stage == 0x02 && Routine was 0x03 && Routine == 0x04"
     start: yes
   - name: Stage 3 (Waterfall) 2
     when: "Stage == 0x02 && Screen changed && Screen == 0x01"
@@ -339,7 +339,7 @@ checkpoints:
     levels: easy medium
     group: Stage 3 (Waterfall) boss parts
   - name: Stage 4 (Base 2) start
-    when: "Stage == 0x03 && Screen == 0x00 && Routine was 0x03 && Routine == 0x04"
+    when: "Stage == 0x03 && Routine was 0x03 && Routine == 0x04"
     start: yes
   - name: Stage 4 (Base 2) 2
     when: "Stage == 0x03 && Screen changed && Screen == 0x01"
@@ -486,7 +486,7 @@ checkpoints:
     levels: easy medium
     group: Stage 4 (Base 2) boss parts
   - name: Stage 5 (Snow Field) start
-    when: "Stage == 0x04 && Screen == 0x00 && Routine was 0x03 && Routine == 0x04"
+    when: "Stage == 0x04 && Routine was 0x03 && Routine == 0x04"
     start: yes
   - name: Stage 5 (Snow Field) 2
     when: "Stage == 0x04 && Screen changed && Screen == 0x01"
@@ -540,7 +540,7 @@ checkpoints:
     when: "Stage == 0x04 && Screen changed && Screen == 0x14"
     levels: easy medium
   - name: Stage 6 (Energy Zone) start
-    when: "Stage == 0x05 && Screen == 0x00 && Routine was 0x03 && Routine == 0x04"
+    when: "Stage == 0x05 && Routine was 0x03 && Routine == 0x04"
     start: yes
   - name: Stage 6 (Energy Zone) 3
     when: "Stage == 0x05 && Screen changed && Screen == 0x02"
@@ -559,7 +559,7 @@ checkpoints:
     when: "Stage == 0x05 && Screen changed && Screen == 0x0B"
     levels: easy medium
   - name: Stage 7 (Hangar) start
-    when: "Stage == 0x06 && Screen == 0x00 && Routine was 0x03 && Routine == 0x04"
+    when: "Stage == 0x06 && Routine was 0x03 && Routine == 0x04"
     start: yes
   - name: Stage 7 (Hangar) 3
     when: "Stage == 0x06 && Screen changed && Screen == 0x02"
@@ -653,7 +653,7 @@ checkpoints:
     levels: easy medium
     group: Stage 7 (Hangar) boss parts
   - name: Stage 8 (Alien's Lair) start
-    when: "Stage == 0x07 && Screen == 0x00 && Routine was 0x03 && Routine == 0x04"
+    when: "Stage == 0x07 && Routine was 0x03 && Routine == 0x04"
     start: yes
   - name: Stage 8 (Alien's Lair) 2
     when: "Stage == 0x07 && Screen changed && Screen == 0x01"

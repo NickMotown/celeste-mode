@@ -20,7 +20,7 @@ input_bits: right left down up start select b a
 mode: checkpoints
 checkpoints:
   - name: Liquidator start
-    when: "Level == 0x02 && Screen == 0x00 && State was 0x09 && State != 0x09"
+    when: "Level == 0x02 && State was 0x09 && State != 0x09"
     start: yes
   - name: Liquidator 2
     when: "Level == 0x02 && Screen changed && Screen == 0x01"
@@ -73,7 +73,7 @@ checkpoints:
     when: "Level == 0x02 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
     levels: medium
   - name: Quackerjack start
-    when: "Level == 0x00 && Screen == 0x33 && State was 0x09 && State != 0x09"
+    when: "Level == 0x00 && State was 0x09 && State != 0x09"
     start: yes
   - name: Quackerjack 2
     when: "Level == 0x00 && Screen changed && Screen == 0x34"
@@ -128,7 +128,7 @@ checkpoints:
     when: "Level == 0x00 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
     levels: medium
   - name: Wolfduck start
-    when: "Level == 0x01 && Screen == 0x33 && State was 0x09 && State != 0x09"
+    when: "Level == 0x01 && State was 0x09 && State != 0x09"
     start: yes
   - name: Wolfduck 2
     when: "Level == 0x01 && Screen changed && Screen == 0x34"
@@ -178,7 +178,7 @@ checkpoints:
     when: "Level == 0x01 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
     levels: medium
   - name: Bushroot start
-    when: "Level == 0x04 && Screen == 0x00 && State was 0x09 && State != 0x09"
+    when: "Level == 0x04 && State was 0x09 && State != 0x09"
     start: yes
   - name: Bushroot 2
     when: "Level == 0x04 && Screen changed && Screen == 0x01"
@@ -236,7 +236,7 @@ checkpoints:
     when: "Level == 0x04 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
     levels: medium
   - name: Megavolt start
-    when: "Level == 0x05 && Screen == 0x00 && State was 0x09 && State != 0x09"
+    when: "Level == 0x05 && State was 0x09 && State != 0x09"
     start: yes
   - name: Megavolt 2
     when: "Level == 0x05 && Screen changed && Screen == 0x01"
@@ -297,7 +297,7 @@ checkpoints:
     when: "Level == 0x05 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
     levels: medium
   - name: Moliarty start
-    when: "Level == 0x03 && Screen == 0x6E && State was 0x09 && State != 0x09"
+    when: "Level == 0x03 && State was 0x09 && State != 0x09"
     start: yes
   - name: Moliarty 2
     when: "Level == 0x03 && Screen changed && Screen == 0x6F"
@@ -357,7 +357,7 @@ checkpoints:
     when: "Level == 0x03 && Music == 0x0F && Music was == 0x0F && BossHits was < 0x0C && BossHits >= 0x0C"
     levels: medium
   - name: Steelbeak start
-    when: "Level == 0x06 && Screen == 0x00 && State was 0x09 && State != 0x09"
+    when: "Level == 0x06 && State was 0x09 && State != 0x09"
     start: yes
   - name: Steelbeak 2
     when: "Level == 0x06 && Screen changed && Screen == 0x01"

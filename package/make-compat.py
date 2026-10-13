@@ -76,7 +76,11 @@ def table() -> str:
         for row in csv.DictReader(f):
             sums[row["rule"]] = row["md5"]
     rows: list[tuple[str, str, str, str, dict[str, bool]]] = []
+    # games out of the release for now (disabled.txt beside this file)
+    off = set((HERE / "disabled.txt").read_text("utf-8").split("\n")) if (HERE / "disabled.txt").exists() else set()
     for rule in sorted(GAMES.glob("*.yaml")):
+        if rule.name in off:
+            continue
         if rule.name not in sums:
             raise SystemExit(f"make-compat: {rule.name} is not in {CSV.name}: run celeste.sh package")
         name, cps, feats = features(rule)

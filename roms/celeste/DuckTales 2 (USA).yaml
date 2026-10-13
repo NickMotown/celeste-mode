@@ -20,7 +20,7 @@ input: Pad
 mode: checkpoints
 checkpoints:
   - name: Niagara start
-    when: "Stage == 0x00 && ScreenX == 0x00 && ScreenY == 0x03 && Area == 0x0C && Health was 0x00 && Health != 0x00"
+    when: "Stage == 0x00 && Health was 0x00 && Health != 0x00 || Stage == 0x00 && Event was 0x02 && Event == 0x00"
     start: yes
   - name: Niagara 2
     when: "Stage == 0x00 && Area changed && ScreenX == 0x00 && ScreenY == 0x03 && Area == 0x00"
@@ -86,7 +86,7 @@ checkpoints:
     when: "Stage == 0x00 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
     levels: medium
   - name: Bermuda start
-    when: "Stage == 0x01 && ScreenX == 0x00 && ScreenY == 0x02 && Area == 0x00 && Event was 0x02 && Event == 0x00"
+    when: "Stage == 0x01 && Event was 0x02 && Event == 0x00 || Stage == 0x01 && Health was 0x00 && Health != 0x00"
     start: yes
   - name: Bermuda 3
     when: "Stage == 0x01 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x02 && Area == 0x00"
@@ -140,7 +140,7 @@ checkpoints:
     when: "Stage == 0x01 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
     levels: medium
   - name: Egypt start
-    when: "Stage == 0x02 && ScreenX == 0x00 && ScreenY == 0x03 && Area == 0x00 && Event was 0x02 && Event == 0x00"
+    when: "Stage == 0x02 && Event was 0x02 && Event == 0x00 || Stage == 0x02 && Health was 0x00 && Health != 0x00"
     start: yes
   - name: Egypt 6
     when: "Stage == 0x02 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x04 && Area == 0x0A"
@@ -185,7 +185,7 @@ checkpoints:
     when: "Stage == 0x02 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
     levels: medium
   - name: Mu start
-    when: "Stage == 0x03 && ScreenX == 0x00 && ScreenY == 0x01 && Area == 0x06 && Event was 0x02 && Event == 0x00"
+    when: "Stage == 0x03 && Event was 0x02 && Event == 0x00 || Stage == 0x03 && Health was 0x00 && Health != 0x00"
     start: yes
   - name: Mu 4
     when: "Stage == 0x03 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x01 && Area == 0x04"
@@ -241,7 +241,7 @@ checkpoints:
     when: "Stage == 0x03 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
     levels: medium
   - name: Scotland start
-    when: "Stage == 0x04 && ScreenX == 0x00 && ScreenY == 0x04 && Area == 0x02 && Event was 0x02 && Event == 0x00"
+    when: "Stage == 0x04 && Event was 0x02 && Event == 0x00 || Stage == 0x04 && Health was 0x00 && Health != 0x00"
     start: yes
   - name: Scotland 4
     when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x03 && Area == 0x02"
@@ -297,7 +297,7 @@ checkpoints:
     when: "Stage == 0x04 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
     levels: medium
   - name: Scotland 2 start
-    when: "Stage == 0x05 && ScreenX == 0x00 && ScreenY == 0x01 && Area == 0x02 && Event was 0x02 && Event == 0x00"
+    when: "Stage == 0x05 && Event was 0x02 && Event == 0x00 || Stage == 0x05 && Health was 0x00 && Health != 0x00"
     start: yes
   - name: Scotland 2 4
     when: "Stage == 0x05 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x01 && Area == 0x02"
@@ -328,7 +328,7 @@ checkpoints:
     when: "Stage == 0x05 && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x01 && BossHealth was != 0xFF && BossHealth <= 0x01"
     levels: medium
   - name: Bermuda 2 start
-    when: "Stage == 0x06 && ScreenX == 0x00 && ScreenY == 0x02 && Area == 0x00 && Event was 0x02 && Event == 0x00"
+    when: "Stage == 0x06 && Event was 0x02 && Event == 0x00 || Stage == 0x06 && Health was 0x00 && Health != 0x00"
     start: yes
   - name: Bermuda 2 6
     when: "Stage == 0x06 && ScreenY changed && ScreenX == 0x03 && ScreenY == 0x01 && Area == 0x02"

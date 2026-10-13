@@ -35,7 +35,7 @@ song: 0x00C5-0x00C6
 mode: checkpoints
 checkpoints:
   - name: Wind Man start
-    when: "Stage == 0x01 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x01 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Wind Man 2
     when: "Stage == 0x01 && Screen changed && Screen == 0x01"
@@ -105,7 +105,7 @@ checkpoints:
     when: "Stage == 0x01 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Flame Man start
-    when: "Stage == 0x03 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x03 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Flame Man 2
     when: "Stage == 0x03 && Screen changed && Screen == 0x01"
@@ -184,7 +184,7 @@ checkpoints:
     when: "Stage == 0x03 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Blizzard Man start
-    when: "Stage == 0x00 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Blizzard Man 2
     when: "Stage == 0x00 && Screen changed && Screen == 0x01"
@@ -240,7 +240,7 @@ checkpoints:
     when: "Stage == 0x00 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Plant Man start
-    when: "Stage == 0x02 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x02 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Plant Man 2
     when: "Stage == 0x02 && Screen changed && Screen == 0x01"
@@ -304,7 +304,7 @@ checkpoints:
     when: "Stage == 0x02 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Tomahawk Man start
-    when: "Stage == 0x05 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x05 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Tomahawk Man 2
     when: "Stage == 0x05 && Screen changed && Screen == 0x01"
@@ -380,7 +380,7 @@ checkpoints:
     when: "Stage == 0x05 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Yamato Man start
-    when: "Stage == 0x04 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x04 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Yamato Man 2
     when: "Stage == 0x04 && Screen changed && Screen == 0x01"
@@ -435,7 +435,7 @@ checkpoints:
     when: "Stage == 0x04 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Knight Man start
-    when: "Stage == 0x06 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x06 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Knight Man 2
     when: "Stage == 0x06 && Screen changed && Screen == 0x01"
@@ -514,7 +514,7 @@ checkpoints:
     when: "Stage == 0x06 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Centaur Man start
-    when: "Stage == 0x07 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x07 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Centaur Man 2
     when: "Stage == 0x07 && Screen changed && Screen == 0x01"
@@ -587,7 +587,7 @@ checkpoints:
     when: "Stage == 0x07 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Mr. X 1 start
-    when: "Stage == 0x08 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x08 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Mr. X 1 2
     when: "Stage == 0x08 && Screen changed && Screen == 0x01"
@@ -630,7 +630,7 @@ checkpoints:
     when: "Stage == 0x08 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Mr. X 2 start
-    when: "Stage == 0x09 && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x09 && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Mr. X 2 2
     when: "Stage == 0x09 && Screen changed && Screen == 0x01"
@@ -694,7 +694,7 @@ checkpoints:
     when: "Stage == 0x09 && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Mr. X 3 start
-    when: "Stage == 0x0A && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x0A && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Mr. X 3 2
     when: "Stage == 0x0A && Screen changed && Screen == 0x01"
@@ -755,7 +755,7 @@ checkpoints:
     when: "Stage == 0x0A && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Mr. X 4 start
-    when: "Stage == 0x0B && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x0B && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Mr. X 4 2
     when: "Stage == 0x0B && Screen changed && Screen == 0x01"
@@ -816,7 +816,7 @@ checkpoints:
     when: "Stage == 0x0B && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Wily 1 start
-    when: "Stage == 0x0C && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x0C && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Wily 1 2
     when: "Stage == 0x0C && Screen changed && Screen == 0x01"
@@ -862,7 +862,7 @@ checkpoints:
     when: "Stage == 0x0C && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Wily 2 start
-    when: "Stage == 0x0D && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x0D && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Wily 2 5
     when: "Stage == 0x0D && Screen changed && Screen == 0x04"
@@ -899,7 +899,7 @@ checkpoints:
     when: "Stage == 0x0D && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Wily 3 start
-    when: "Stage == 0x0E && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x0E && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Wily 3 2
     when: "Stage == 0x0E && Screen changed && Screen == 0x01"
@@ -942,7 +942,7 @@ checkpoints:
     when: "Stage == 0x0E && BossFight == 0x01 && BossFight was == 0x01 && BossHealth was > 0x06 && BossHealth was != 0xFF && BossHealth <= 0x06"
     levels: medium
   - name: Wily 4 start
-    when: "Stage == 0x0F && Screen == 0x00 && StageIntro was 0x03 && StageIntro == 0xFF"
+    when: "Stage == 0x0F && StageIntro was 0x03 && StageIntro == 0xFF"
     start: yes
   - name: Wily 4 3
     when: "Stage == 0x0F && Screen changed && Screen == 0x02"

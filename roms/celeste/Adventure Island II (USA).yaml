@@ -21,7 +21,7 @@ input: Pad
 mode: checkpoints
 checkpoints:
   - name: World 1-1 start
-    when: "Stage == 0x15 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x15 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 1-1 3
     when: "Stage == 0x15 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x01"
@@ -35,7 +35,7 @@ checkpoints:
     when: "Stage == 0x15 && ScreenX changed && ScreenX == 0x0B && ScreenY == 0x01"
     levels: easy medium
   - name: World 1-2 start
-    when: "Stage == 0x37 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x37 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 1-2 3
     when: "Stage == 0x37 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x01"
@@ -49,7 +49,7 @@ checkpoints:
     when: "Stage == 0x37 && ScreenX changed && ScreenX == 0x0A && ScreenY == 0x01"
     levels: easy
   - name: World 2-1 start
-    when: "Stage == 0x14 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x14 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 2-1 3
     when: "Stage == 0x14 && ScreenY changed && ScreenX == 0x01 && ScreenY == 0x00"
@@ -67,7 +67,7 @@ checkpoints:
     when: "Stage == 0x14 && ScreenX changed && ScreenX == 0x0B && ScreenY == 0x01"
     levels: easy medium
   - name: World 2-2 start
-    when: "Stage == 0x30 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x30 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 2-2 3
     when: "Stage == 0x30 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x01"
@@ -94,7 +94,7 @@ checkpoints:
     when: "Stage == 0x30 && ScreenY changed && ScreenX == 0x0E && ScreenY == 0x00"
     wait: 0
   - name: World 2-3 start
-    when: "Stage == 0x19 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x19 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 2-3 3
     when: "Stage == 0x19 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -114,7 +114,7 @@ checkpoints:
     when: "Stage == 0x19 && ScreenX changed && ScreenX == 0x07 && ScreenY == 0x00"
     levels: easy
   - name: World 2-4 start
-    when: "Stage == 0x31 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x31 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 2-4 4
     when: "Stage == 0x31 && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x00"
@@ -135,7 +135,7 @@ checkpoints:
     when: "Stage == 0x31 && ScreenY changed && ScreenX == 0x0B && ScreenY == 0x01"
     wait: 0
   - name: World 2-5 start
-    when: "Stage == 0x23 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x23 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 2-5 4
     when: "Stage == 0x23 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x00"
@@ -146,7 +146,7 @@ checkpoints:
     when: "Stage == 0x23 && ScreenX changed && ScreenX == 0x08 && ScreenY == 0x00"
     levels: easy
   - name: World 2-6 start
-    when: "Stage == 0x4E && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x4E && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 2-6 3
     when: "Stage == 0x4E && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -168,13 +168,13 @@ checkpoints:
     when: "Stage == 0x4E && ScreenX changed && ScreenX == 0x0A && ScreenY == 0x00"
     levels: easy
   - name: World 2 boss start
-    when: "Stage == 0x51 && ScreenX == 0x00 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x51 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 2 boss 2
     when: "Stage == 0x51 && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x00"
     levels: easy medium
   - name: World 3-1 start
-    when: "Stage == 0x3D && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x3D && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 3-1 4
     when: "Stage == 0x3D && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x01"
@@ -191,7 +191,7 @@ checkpoints:
     when: "Stage == 0x3D && ScreenX changed && ScreenX == 0x0D && ScreenY == 0x01"
     wait: 0
   - name: World 3-2 start
-    when: "Stage == 0x21 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x21 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 3-2 3
     when: "Stage == 0x21 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -208,7 +208,7 @@ checkpoints:
     when: "Stage == 0x21 && ScreenX changed && ScreenX == 0x08 && ScreenY == 0x00"
     levels: easy
   - name: World 4-1 start
-    when: "Stage == 0x08 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x08 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 4-1 4
     when: "Stage == 0x08 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -238,7 +238,7 @@ checkpoints:
     when: "Stage == 0x08 && ScreenY changed && ScreenX == 0x0E && ScreenY == 0x01"
     wait: 0
   - name: World 4-2 start
-    when: "Stage == 0x3E && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x3E && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 4-2 4
     when: "Stage == 0x3E && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x01"
@@ -259,7 +259,7 @@ checkpoints:
     when: "Stage == 0x3E && ScreenX changed && ScreenX == 0x0D && ScreenY == 0x01"
     wait: 0
   - name: World 4-3 start
-    when: "Stage == 0x27 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x27 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 4-3 4
     when: "Stage == 0x27 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x00"
@@ -276,7 +276,7 @@ checkpoints:
     when: "Stage == 0x27 && ScreenX changed && ScreenX == 0x09 && ScreenY == 0x00"
     levels: easy medium
   - name: World 4-4 start
-    when: "Stage == 0x1E && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x1E && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 4-4 3
     when: "Stage == 0x1E && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -295,7 +295,7 @@ checkpoints:
     when: "Stage == 0x1E && ScreenX changed && ScreenX == 0x08 && ScreenY == 0x00"
     levels: easy medium
   - name: World 4-5 start
-    when: "Stage == 0x48 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x48 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 4-5 4
     when: "Stage == 0x48 && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x00"
@@ -322,13 +322,13 @@ checkpoints:
     when: "Stage == 0x48 && ScreenX changed && ScreenX == 0x0D && ScreenY == 0x01"
     levels: easy
   - name: World 4 boss start
-    when: "Stage == 0x53 && ScreenX == 0x00 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x53 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 4 boss 2
     when: "Stage == 0x53 && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x00"
     levels: easy medium
   - name: World 5-1 start
-    when: "Stage == 0x24 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x24 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 5-1 4
     when: "Stage == 0x24 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x00"
@@ -345,7 +345,7 @@ checkpoints:
     when: "Stage == 0x24 && ScreenX changed && ScreenX == 0x09 && ScreenY == 0x00"
     levels: easy
   - name: World 5-2 start
-    when: "Stage == 0x32 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x32 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 5-2 3
     when: "Stage == 0x32 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x01"
@@ -368,7 +368,7 @@ checkpoints:
     when: "Stage == 0x32 && ScreenY changed && ScreenX == 0x0E && ScreenY == 0x00"
     wait: 0
   - name: World 5-3 start
-    when: "Stage == 0x22 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x22 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 5-3 3
     when: "Stage == 0x22 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -380,7 +380,7 @@ checkpoints:
     when: "Stage == 0x22 && ScreenX changed && ScreenX == 0x05 && ScreenY == 0x00"
     levels: easy
   - name: World 6-1 start
-    when: "Stage == 0x35 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x35 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 6-1 4
     when: "Stage == 0x35 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -404,7 +404,7 @@ checkpoints:
     when: "Stage == 0x35 && ScreenX changed && ScreenX == 0x0C && ScreenY == 0x00"
     levels: easy medium
   - name: World 6-2 start
-    when: "Stage == 0x1D && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x1D && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 6-2 3
     when: "Stage == 0x1D && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -418,7 +418,7 @@ checkpoints:
     when: "Stage == 0x1D && ScreenX changed && ScreenX == 0x08 && ScreenY == 0x00"
     levels: easy medium
   - name: World 6-3 start
-    when: "Stage == 0x04 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x04 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 6-3 3
     when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -440,7 +440,7 @@ checkpoints:
     when: "Stage == 0x04 && ScreenX changed && ScreenX == 0x0D && ScreenY == 0x00"
     levels: easy medium
   - name: World 6-4 start
-    when: "Stage == 0x4C && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x4C && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 6-4 5
     when: "Stage == 0x4C && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x00"
@@ -454,7 +454,7 @@ checkpoints:
     when: "Stage == 0x4C && ScreenX changed && ScreenX == 0x09 && ScreenY == 0x00"
     levels: easy
   - name: World 6-5 start
-    when: "Stage == 0x05 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x05 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 6-5 3
     when: "Stage == 0x05 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -476,7 +476,7 @@ checkpoints:
     when: "Stage == 0x05 && ScreenX changed && ScreenX == 0x0D && ScreenY == 0x00"
     levels: easy
   - name: World 6-6 start
-    when: "Stage == 0x2D && ScreenX == 0x01 && ScreenY == 0x07 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x2D && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 6-6 3
     when: "Stage == 0x2D && ScreenY changed && ScreenX == 0x00 && ScreenY == 0x06"
@@ -500,7 +500,7 @@ checkpoints:
     when: "Stage == 0x2D && ScreenY changed && ScreenX == 0x00 && ScreenY == 0x00"
     wait: 0
   - name: World 6-7 start
-    when: "Stage == 0x4D && ScreenX == 0x01 && ScreenY == 0x07 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x4D && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 6-7 4
     when: "Stage == 0x4D && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x06"
@@ -530,12 +530,12 @@ checkpoints:
     when: "Stage == 0x4D && ScreenY changed && ScreenX == 0x00 && ScreenY == 0x00"
     wait: 0
   - name: World 6 boss start
-    when: "Stage == 0x55 && ScreenX == 0x00 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x55 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 6 boss 2
     when: "Stage == 0x55 && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x00"
   - name: World 7-1 start
-    when: "Stage == 0x0B && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x0B && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 7-1 3
     when: "Stage == 0x0B && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -560,7 +560,7 @@ checkpoints:
     when: "Stage == 0x0B && ScreenX changed && ScreenX == 0x0C && ScreenY == 0x00"
     levels: easy medium
   - name: World 7-2 start
-    when: "Stage == 0x3C && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x3C && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 7-2 3
     when: "Stage == 0x3C && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x01"
@@ -583,7 +583,7 @@ checkpoints:
     when: "Stage == 0x3C && ScreenY changed && ScreenX == 0x0E && ScreenY == 0x00"
     wait: 0
   - name: World 7-3 start
-    when: "Stage == 0x26 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x26 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 7-3 4
     when: "Stage == 0x26 && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x00"
@@ -600,7 +600,7 @@ checkpoints:
     when: "Stage == 0x26 && ScreenX changed && ScreenX == 0x09 && ScreenY == 0x00"
     levels: easy medium
   - name: World 7-4 start
-    when: "Stage == 0x0A && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x0A && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 7-4 4
     when: "Stage == 0x0A && ScreenX changed && ScreenX == 0x03 && ScreenY == 0x01"
@@ -620,7 +620,7 @@ checkpoints:
     when: "Stage == 0x0A && ScreenY changed && ScreenX == 0x0E && ScreenY == 0x01"
     wait: 0
   - name: World 7-5 start
-    when: "Stage == 0x4F && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x4F && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 7-5 3
     when: "Stage == 0x4F && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -636,13 +636,13 @@ checkpoints:
     when: "Stage == 0x4F && ScreenX changed && ScreenX == 0x0C && ScreenY == 0x00"
     levels: easy medium
   - name: World 7 boss start
-    when: "Stage == 0x56 && ScreenX == 0x00 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x56 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 7 boss 2
     when: "Stage == 0x56 && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x00"
     levels: easy
   - name: World 8-1 start
-    when: "Stage == 0x42 && ScreenX == 0x01 && ScreenY == 0x01 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x42 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 8-1 4
     when: "Stage == 0x42 && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x00"
@@ -670,7 +670,7 @@ checkpoints:
     when: "Stage == 0x42 && ScreenX changed && ScreenX == 0x0D && ScreenY == 0x00"
     levels: easy
   - name: World 8-2 start
-    when: "Stage == 0x1B && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x1B && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 8-2 3
     when: "Stage == 0x1B && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -691,7 +691,7 @@ checkpoints:
     when: "Stage == 0x1B && ScreenX changed && ScreenX == 0x08 && ScreenY == 0x00"
     levels: easy medium
   - name: World 8-3 start
-    when: "Stage == 0x28 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x28 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 8-3 3
     when: "Stage == 0x28 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -713,7 +713,7 @@ checkpoints:
     when: "Stage == 0x28 && ScreenX changed && ScreenX == 0x09 && ScreenY == 0x00"
     levels: easy
   - name: World 8-4 start
-    when: "Stage == 0x47 && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x47 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 8-4 3
     when: "Stage == 0x47 && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -731,7 +731,7 @@ checkpoints:
     when: "Stage == 0x47 && ScreenX changed && ScreenX == 0x09 && ScreenY == 0x00"
     levels: easy medium
   - name: World 8-5 start
-    when: "Stage == 0x3B && ScreenX == 0x01 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x3B && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 8-5 3
     when: "Stage == 0x3B && ScreenX changed && ScreenX == 0x02 && ScreenY == 0x00"
@@ -750,7 +750,7 @@ checkpoints:
     when: "Stage == 0x3B && ScreenX changed && ScreenX == 0x0C && ScreenY == 0x00"
     levels: easy
   - name: World 8 boss start
-    when: "Stage == 0x57 && ScreenX == 0x00 && ScreenY == 0x00 && LevelEnd was 0x03 && LevelEnd == 0x00"
+    when: "Stage == 0x57 && LevelEnd was 0x03 && LevelEnd == 0x00"
     start: yes
   - name: World 8 boss 2
     when: "Stage == 0x57 && ScreenX changed && ScreenX == 0x01 && ScreenY == 0x00"

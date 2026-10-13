@@ -231,14 +231,28 @@ namespace Celeste
         // clauses: a death marker ("0x0580 changed && 0x0580 == 0x41") may
         // move all the time (Mega Man 2's player flags, Ghosts'n Goblins'
         // pose); the starting point only waits while it shows its value.
+        // "||" between alternatives, each a chain of "&&" clauses (&& binds
+        // tighter): a stage's start can fire on its change or on play
+        // beginning in it, the first stage of a game included (Ninja Gaiden
+        // III's area 0 is the power-on value: no change ever started it).
         public static Condition Compile(string src, ISet<int> addrs, ISet<int> steady = null, IList<int[]> markers = null)
         {
-            var clauses = new List<Condition>();
-            foreach (string part in src.Split(new[] { "&&" }, StringSplitOptions.None)) clauses.Add(Clause(part.Trim(), src, addrs, steady, markers));
+            var alternatives = new List<List<Condition>>();
+            foreach (string alt in src.Split(new[] { "||" }, StringSplitOptions.None))
+            {
+                var clauses = new List<Condition>();
+                foreach (string part in alt.Split(new[] { "&&" }, StringSplitOptions.None)) clauses.Add(Clause(part.Trim(), src, addrs, steady, markers));
+                alternatives.Add(clauses);
+            }
             return delegate(IDictionary<int, int> cur, IDictionary<int, int> prev)
             {
-                foreach (Condition c in clauses) if (!c(cur, prev)) return false;
-                return true;
+                foreach (List<Condition> clauses in alternatives)
+                {
+                    bool all = true;
+                    foreach (Condition c in clauses) if (!c(cur, prev)) { all = false; break; }
+                    if (all) return true;
+                }
+                return false;
             };
         }
 

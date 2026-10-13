@@ -32,7 +32,7 @@ checkpoints:
     when: "Mission == 0x00 && Screen changed && Screen == 0x01 && Room == 0x01"
     levels: easy
   - name: Mission 2 start
-    when: "Mission == 0x01 && Screen == 0x00 && Room == 0x00 && Mission changed"
+    when: "Mission == 0x01 && Mission changed || Mission == 0x01 && Lives was 0x00 && Lives == 0x02"
     start: yes
   - name: Mission 2 2
     when: "Mission == 0x01 && Screen changed && Screen == 0x01 && Room == 0x00"
@@ -41,7 +41,7 @@ checkpoints:
   - name: Mission 2 4
     when: "Mission == 0x01 && Screen changed && Screen == 0x03 && Room == 0x00"
   - name: Mission 3 start
-    when: "Mission == 0x02 && Screen == 0x00 && Room == 0x00 && Mission changed"
+    when: "Mission == 0x02 && Mission changed || Mission == 0x02 && Lives was 0x00 && Lives == 0x02"
     start: yes
   - name: Mission 3 2
     when: "Mission == 0x02 && Screen changed && Screen == 0x01 && Room == 0x00"
@@ -74,7 +74,7 @@ checkpoints:
     when: "Mission == 0x02 && Screen changed && Screen == 0x01 && Room == 0x03"
     levels: easy
   - name: Mission 4 start
-    when: "Mission == 0x03 && Screen == 0x00 && Room == 0x00 && Mission changed"
+    when: "Mission == 0x03 && Mission changed || Mission == 0x03 && Lives was 0x00 && Lives == 0x02"
     start: yes
   - name: Mission 4 2
     when: "Mission == 0x03 && Screen changed && Screen == 0x01 && Room == 0x00"

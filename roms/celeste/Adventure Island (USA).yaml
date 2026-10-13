@@ -21,7 +21,7 @@ input: Pad
 mode: checkpoints
 checkpoints:
   - name: Area 1-1 start
-    when: "Round == 0x00 && Area == 0x00 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x00 && Area == 0x00 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x00 && Area == 0x00 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 1-1 9
     when: "Round == 0x00 && Area == 0x00 && Screen changed && Screen == 0x09"
@@ -32,7 +32,7 @@ checkpoints:
     when: "Round == 0x00 && Area == 0x00 && Screen changed && Screen == 0x19"
     levels: easy
   - name: Area 1-2 start
-    when: "Round == 0x01 && Area == 0x00 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x01 && Area == 0x00 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x01 && Area == 0x00 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 1-2 6
     when: "Round == 0x01 && Area == 0x00 && Screen changed && Screen == 0x06"
@@ -43,7 +43,7 @@ checkpoints:
     when: "Round == 0x01 && Area == 0x00 && Screen changed && Screen == 0x19"
     levels: easy medium
   - name: Area 1-3 start
-    when: "Round == 0x02 && Area == 0x00 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x02 && Area == 0x00 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x02 && Area == 0x00 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 1-3 6
     when: "Round == 0x02 && Area == 0x00 && Screen changed && Screen == 0x06"
@@ -54,7 +54,7 @@ checkpoints:
     when: "Round == 0x02 && Area == 0x00 && Screen changed && Screen == 0x1B"
     levels: easy
   - name: Area 1-4 start
-    when: "Round == 0x03 && Area == 0x00 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x03 && Area == 0x00 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x03 && Area == 0x00 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 1-4 10
     when: "Round == 0x03 && Area == 0x00 && Screen changed && Screen == 0x0A"
@@ -71,7 +71,7 @@ checkpoints:
     when: "Round == 0x03 && Area == 0x00 && Screen changed && Screen == 0x20"
     levels: easy medium
   - name: Area 2-1 start
-    when: "Round == 0x00 && Area == 0x01 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x00 && Area == 0x01 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x00 && Area == 0x01 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 2-1 10
     when: "Round == 0x00 && Area == 0x01 && Screen changed && Screen == 0x0A"
@@ -88,7 +88,7 @@ checkpoints:
     when: "Round == 0x00 && Area == 0x01 && Screen changed && Screen == 0x1B"
     levels: easy medium
   - name: Area 2-2 start
-    when: "Round == 0x01 && Area == 0x01 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x01 && Area == 0x01 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x01 && Area == 0x01 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 2-2 6
     when: "Round == 0x01 && Area == 0x01 && Screen changed && Screen == 0x06"
@@ -99,7 +99,7 @@ checkpoints:
     when: "Round == 0x01 && Area == 0x01 && Screen changed && Screen == 0x18"
     levels: easy medium
   - name: Area 2-3 start
-    when: "Round == 0x02 && Area == 0x01 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x02 && Area == 0x01 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x02 && Area == 0x01 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 2-3 7
     when: "Round == 0x02 && Area == 0x01 && Screen changed && Screen == 0x07"
@@ -108,10 +108,10 @@ checkpoints:
     when: "Round == 0x02 && Area == 0x01 && Screen changed && Screen == 0x0B"
     levels: easy medium
   - name: Area 2-3 start
-    when: "Round == 0x02 && Area == 0x01 && Bonus changed && Bonus == 0x00"
+    when: "Round == 0x02 && Area == 0x01 && Bonus changed && Bonus == 0x00 || Round == 0x02 && Area == 0x01 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
     start: yes
   - name: Area 2-4 start
-    when: "Round == 0x03 && Area == 0x01 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x03 && Area == 0x01 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x03 && Area == 0x01 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 2-4 9
     when: "Round == 0x03 && Area == 0x01 && Screen changed && Screen == 0x09"
@@ -125,7 +125,7 @@ checkpoints:
     when: "Round == 0x03 && Area == 0x01 && Screen changed && Screen == 0x1D"
     levels: easy medium
   - name: Area 3-1 start
-    when: "Round == 0x00 && Area == 0x02 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x00 && Area == 0x02 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x00 && Area == 0x02 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 3-1 2
     when: "Round == 0x00 && Area == 0x02 && Screen changed && Screen == 0x02"
@@ -147,7 +147,7 @@ checkpoints:
     when: "Round == 0x00 && Area == 0x02 && Screen changed && Screen == 0x1C"
     levels: easy medium
   - name: Area 3-2 start
-    when: "Round == 0x01 && Area == 0x02 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x01 && Area == 0x02 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x01 && Area == 0x02 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 3-2 7
     when: "Round == 0x01 && Area == 0x02 && Screen changed && Screen == 0x07"
@@ -158,7 +158,7 @@ checkpoints:
     when: "Round == 0x01 && Area == 0x02 && Screen changed && Screen == 0x16"
     levels: easy medium
   - name: Area 3-3 start
-    when: "Round == 0x02 && Area == 0x02 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x02 && Area == 0x02 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x02 && Area == 0x02 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 3-3 7
     when: "Round == 0x02 && Area == 0x02 && Screen changed && Screen == 0x07"
@@ -169,7 +169,7 @@ checkpoints:
     when: "Round == 0x02 && Area == 0x02 && Screen changed && Screen == 0x18"
     levels: easy medium
   - name: Area 3-4 start
-    when: "Round == 0x03 && Area == 0x02 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x03 && Area == 0x02 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x03 && Area == 0x02 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 3-4 6
     when: "Round == 0x03 && Area == 0x02 && Screen changed && Screen == 0x06"
@@ -185,7 +185,7 @@ checkpoints:
     when: "Round == 0x03 && Area == 0x02 && Screen changed && Screen == 0x20"
     levels: easy
   - name: Area 4-1 start
-    when: "Round == 0x00 && Area == 0x03 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x00 && Area == 0x03 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x00 && Area == 0x03 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 4-1 11
     when: "Round == 0x00 && Area == 0x03 && Screen changed && Screen == 0x0B"
@@ -196,7 +196,7 @@ checkpoints:
     when: "Round == 0x00 && Area == 0x03 && Screen changed && Screen == 0x1B"
     levels: easy medium
   - name: Area 4-2 start
-    when: "Round == 0x01 && Area == 0x03 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x01 && Area == 0x03 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x01 && Area == 0x03 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 4-2 4
     when: "Round == 0x01 && Area == 0x03 && Screen changed && Screen == 0x04"
@@ -216,7 +216,7 @@ checkpoints:
     when: "Round == 0x01 && Area == 0x03 && Screen changed && Screen == 0x1C"
     levels: easy
   - name: Area 4-3 start
-    when: "Round == 0x02 && Area == 0x03 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x02 && Area == 0x03 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x02 && Area == 0x03 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 4-3 10
     when: "Round == 0x02 && Area == 0x03 && Screen changed && Screen == 0x0A"
@@ -227,7 +227,7 @@ checkpoints:
     when: "Round == 0x02 && Area == 0x03 && Screen changed && Screen == 0x18"
     levels: easy medium
   - name: Area 4-4 start
-    when: "Round == 0x03 && Area == 0x03 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x03 && Area == 0x03 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x03 && Area == 0x03 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 4-4 8
     when: "Round == 0x03 && Area == 0x03 && Screen changed && Screen == 0x08"
@@ -243,7 +243,7 @@ checkpoints:
     when: "Round == 0x03 && Area == 0x03 && Screen changed && Screen == 0x20"
     levels: easy
   - name: Area 5-1 start
-    when: "Round == 0x00 && Area == 0x04 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x00 && Area == 0x04 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x00 && Area == 0x04 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 5-1 6
     when: "Round == 0x00 && Area == 0x04 && Screen changed && Screen == 0x06"
@@ -263,7 +263,7 @@ checkpoints:
     when: "Round == 0x00 && Area == 0x04 && Screen changed && Screen == 0x1B"
     levels: easy medium
   - name: Area 5-2 start
-    when: "Round == 0x01 && Area == 0x04 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x01 && Area == 0x04 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x01 && Area == 0x04 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 5-2 6
     when: "Round == 0x01 && Area == 0x04 && Screen changed && Screen == 0x06"
@@ -279,7 +279,7 @@ checkpoints:
     when: "Round == 0x01 && Area == 0x04 && Screen changed && Screen == 0x1C"
     levels: easy
   - name: Area 5-3 start
-    when: "Round == 0x02 && Area == 0x04 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x02 && Area == 0x04 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x02 && Area == 0x04 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 5-3 5
     when: "Round == 0x02 && Area == 0x04 && Screen changed && Screen == 0x05"
@@ -295,7 +295,7 @@ checkpoints:
     when: "Round == 0x02 && Area == 0x04 && Screen changed && Screen == 0x1A"
     levels: easy
   - name: Area 5-4 start
-    when: "Round == 0x03 && Area == 0x04 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x03 && Area == 0x04 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x03 && Area == 0x04 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 5-4 7
     when: "Round == 0x03 && Area == 0x04 && Screen changed && Screen == 0x07"
@@ -311,7 +311,7 @@ checkpoints:
     when: "Round == 0x03 && Area == 0x04 && Screen changed && Screen == 0x20"
     levels: easy
   - name: Area 6-1 start
-    when: "Round == 0x00 && Area == 0x05 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x00 && Area == 0x05 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x00 && Area == 0x05 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 6-1 6
     when: "Round == 0x00 && Area == 0x05 && Screen changed && Screen == 0x06"
@@ -327,7 +327,7 @@ checkpoints:
     when: "Round == 0x00 && Area == 0x05 && Screen changed && Screen == 0x1B"
     levels: easy medium
   - name: Area 6-2 start
-    when: "Round == 0x01 && Area == 0x05 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x01 && Area == 0x05 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x01 && Area == 0x05 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 6-2 7
     when: "Round == 0x01 && Area == 0x05 && Screen changed && Screen == 0x07"
@@ -338,7 +338,7 @@ checkpoints:
     when: "Round == 0x01 && Area == 0x05 && Screen changed && Screen == 0x1B"
     levels: easy
   - name: Area 6-3 start
-    when: "Round == 0x02 && Area == 0x05 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x02 && Area == 0x05 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x02 && Area == 0x05 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 6-3 4
     when: "Round == 0x02 && Area == 0x05 && Screen changed && Screen == 0x04"
@@ -354,7 +354,7 @@ checkpoints:
     when: "Round == 0x02 && Area == 0x05 && Screen changed && Screen == 0x1B"
     levels: easy
   - name: Area 6-4 start
-    when: "Round == 0x03 && Area == 0x05 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x03 && Area == 0x05 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x03 && Area == 0x05 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 6-4 6
     when: "Round == 0x03 && Area == 0x05 && Screen changed && Screen == 0x06"
@@ -373,7 +373,7 @@ checkpoints:
     when: "Round == 0x03 && Area == 0x05 && Screen changed && Screen == 0x20"
     levels: easy
   - name: Area 7-1 start
-    when: "Round == 0x00 && Area == 0x06 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x00 && Area == 0x06 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x00 && Area == 0x06 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 7-1 10
     when: "Round == 0x00 && Area == 0x06 && Screen changed && Screen == 0x0A"
@@ -387,7 +387,7 @@ checkpoints:
     when: "Round == 0x00 && Area == 0x06 && Screen changed && Screen == 0x1B"
     levels: easy medium
   - name: Area 7-2 start
-    when: "Round == 0x01 && Area == 0x06 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x01 && Area == 0x06 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x01 && Area == 0x06 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 7-2 7
     when: "Round == 0x01 && Area == 0x06 && Screen changed && Screen == 0x07"
@@ -406,7 +406,7 @@ checkpoints:
     when: "Round == 0x01 && Area == 0x06 && Screen changed && Screen == 0x1D"
     levels: easy medium
   - name: Area 7-3 start
-    when: "Round == 0x02 && Area == 0x06 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x02 && Area == 0x06 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x02 && Area == 0x06 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 7-3 7
     when: "Round == 0x02 && Area == 0x06 && Screen changed && Screen == 0x07"
@@ -417,7 +417,7 @@ checkpoints:
     when: "Round == 0x02 && Area == 0x06 && Screen changed && Screen == 0x11"
     levels: easy
   - name: Area 7-4 start
-    when: "Round == 0x03 && Area == 0x06 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x03 && Area == 0x06 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x03 && Area == 0x06 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 7-4 7
     when: "Round == 0x03 && Area == 0x06 && Screen changed && Screen == 0x07"
@@ -433,7 +433,7 @@ checkpoints:
     when: "Round == 0x03 && Area == 0x06 && Screen changed && Screen == 0x20"
     levels: easy medium
   - name: Area 8-1 start
-    when: "Round == 0x00 && Area == 0x07 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x00 && Area == 0x07 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x00 && Area == 0x07 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 8-1 4
     when: "Round == 0x00 && Area == 0x07 && Screen changed && Screen == 0x04"
@@ -452,7 +452,7 @@ checkpoints:
     when: "Round == 0x00 && Area == 0x07 && Screen changed && Screen == 0x1B"
     levels: easy
   - name: Area 8-2 start
-    when: "Round == 0x01 && Area == 0x07 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x01 && Area == 0x07 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x01 && Area == 0x07 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 8-2 5
     when: "Round == 0x01 && Area == 0x07 && Screen changed && Screen == 0x05"
@@ -468,7 +468,7 @@ checkpoints:
     when: "Round == 0x01 && Area == 0x07 && Screen changed && Screen == 0x19"
     levels: easy medium
   - name: Area 8-3 start
-    when: "Round == 0x02 && Area == 0x07 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x02 && Area == 0x07 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x02 && Area == 0x07 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 8-3 6
     when: "Round == 0x02 && Area == 0x07 && Screen changed && Screen == 0x06"
@@ -487,7 +487,7 @@ checkpoints:
     when: "Round == 0x02 && Area == 0x07 && Screen changed && Screen == 0x1C"
     levels: easy
   - name: Area 8-4 start
-    when: "Round == 0x03 && Area == 0x07 && Control was 0x00 && Control == 0x1E && Screen == 0x01"
+    when: "Round == 0x03 && Area == 0x07 && Control was 0x00 && Control == 0x1E && Screen == 0x01 || Round == 0x03 && Area == 0x07 && Bonus changed && Bonus == 0x00"
     start: yes
   - name: Area 8-4 6
     when: "Round == 0x03 && Area == 0x07 && Screen changed && Screen == 0x06"

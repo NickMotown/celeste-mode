@@ -21,7 +21,7 @@ input: Pad
 mode: checkpoints
 checkpoints:
   - name: Area 1 start
-    when: "Area == 0x08 && PlayerState was 0x00 && PlayerState != 0x00"
+    when: "Area == 0x08 && PlayerState was 0x00 && PlayerState != 0x00 || Area == 0x08 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x08 && Area changed && Area < 0x08 || Area == 0x08 && Area changed && Area >= 0x08 && Room changed"
     start: yes
     group: Area 1
   - name: Area 1 4
@@ -56,7 +56,7 @@ checkpoints:
     levels: easy
     group: Area 1
   - name: Area 1 on foot start
-    when: "Area == 0x00 && Area changed && Area < 0x08"
+    when: "Area == 0x00 && Area changed && Area < 0x08 || Area == 0x00 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x00 && Area changed && Area >= 0x08 && Room changed || Area == 0x00 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 1 on foot
   - name: Area 1 on foot 4
@@ -81,11 +81,11 @@ checkpoints:
     no_rewind: easy
     group: Area 1 on foot
   - name: Area 1 on foot start
-    when: "Area == 0x00 && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x00 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x00 && Area changed && Area < 0x08 || Area == 0x00 && Area changed && Area >= 0x08 && Room changed || Area == 0x00 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 1 on foot
   - name: Area 1 start
-    when: "Area == 0x08 && Area changed && Area >= 0x08 && Room changed"
+    when: "Area == 0x08 && Area changed && Area >= 0x08 && Room changed || Area == 0x08 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x08 && Area changed && Area < 0x08 || Area == 0x08 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 1
   - name: Area 1 10
@@ -97,7 +97,7 @@ checkpoints:
     wait: 0
     group: Area 1
   - name: Area 2 start
-    when: "Area == 0x09 && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x09 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x09 && Area changed && Area < 0x08 || Area == 0x09 && Area changed && Area >= 0x08 && Room changed || Area == 0x09 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 2
   - name: Area 2 2
@@ -175,7 +175,7 @@ checkpoints:
     wait: 0
     group: Area 2
   - name: Area 2 on foot start
-    when: "Area == 0x01 && Area changed && Area < 0x08"
+    when: "Area == 0x01 && Area changed && Area < 0x08 || Area == 0x01 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x01 && Area changed && Area >= 0x08 && Room changed || Area == 0x01 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 2 on foot
   - name: Area 2 on foot 3
@@ -228,7 +228,7 @@ checkpoints:
     no_rewind: easy
     group: Area 2 on foot
   - name: Area 2 start
-    when: "Area == 0x09 && Area changed && Area >= 0x08 && Room changed"
+    when: "Area == 0x09 && Area changed && Area >= 0x08 && Room changed || Area == 0x09 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x09 && Area changed && Area < 0x08 || Area == 0x09 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 2
   - name: Area 2 4
@@ -252,7 +252,7 @@ checkpoints:
     wait: 0
     group: Area 2
   - name: Area 3 start
-    when: "Area == 0x0A && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x0A && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x0A && Area changed && Area < 0x08 || Area == 0x0A && Area changed && Area >= 0x08 && Room changed || Area == 0x0A && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 3
   - name: Area 3 4
@@ -347,7 +347,7 @@ checkpoints:
     wait: 0
     group: Area 3
   - name: Area 3 on foot start
-    when: "Area == 0x02 && Area changed && Area < 0x08"
+    when: "Area == 0x02 && Area changed && Area < 0x08 || Area == 0x02 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x02 && Area changed && Area >= 0x08 && Room changed || Area == 0x02 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 3 on foot
   - name: Area 3 on foot 3
@@ -384,7 +384,7 @@ checkpoints:
     wait: 0
     group: Area 2
   - name: Area 1 start
-    when: "Area == 0x08 && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x08 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x08 && Area changed && Area < 0x08 || Area == 0x08 && Area changed && Area >= 0x08 && Room changed || Area == 0x08 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 1
   - name: Area 1 3
@@ -423,7 +423,7 @@ checkpoints:
     wait: 0
     group: Area 1
   - name: Area 4 start
-    when: "Area == 0x0B && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x0B && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x0B && Area changed && Area < 0x08 || Area == 0x0B && Area changed && Area >= 0x08 && Room changed || Area == 0x0B && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 4
   - name: Area 4 2
@@ -459,7 +459,7 @@ checkpoints:
     levels: easy
     group: Area 4
   - name: Area 4 on foot start
-    when: "Area == 0x03 && Area changed && Area < 0x08"
+    when: "Area == 0x03 && Area changed && Area < 0x08 || Area == 0x03 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x03 && Area changed && Area >= 0x08 && Room changed || Area == 0x03 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 4 on foot
   - name: Area 4 on foot 5
@@ -490,7 +490,7 @@ checkpoints:
     no_rewind: easy
     group: Area 4 on foot
   - name: Area 4 on foot start
-    when: "Area == 0x03 && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x03 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x03 && Area changed && Area < 0x08 || Area == 0x03 && Area changed && Area >= 0x08 && Room changed || Area == 0x03 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 4 on foot
   - name: Area 4 3
@@ -502,7 +502,7 @@ checkpoints:
     wait: 0
     group: Area 4
   - name: Area 5 start
-    when: "Area == 0x0C && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x0C && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x0C && Area changed && Area < 0x08 || Area == 0x0C && Area changed && Area >= 0x08 && Room changed || Area == 0x0C && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 5
   - name: Area 5 2
@@ -545,7 +545,7 @@ checkpoints:
     wait: 0
     group: Area 5
   - name: Area 5 on foot start
-    when: "Area == 0x04 && Area changed && Area < 0x08"
+    when: "Area == 0x04 && Area changed && Area < 0x08 || Area == 0x04 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x04 && Area changed && Area >= 0x08 && Room changed || Area == 0x04 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 5 on foot
   - name: Area 5 on foot 3
@@ -581,7 +581,7 @@ checkpoints:
     wait: 0
     group: Area 5
   - name: Area 6 start
-    when: "Area == 0x0D && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x0D && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x0D && Area changed && Area < 0x08 || Area == 0x0D && Area changed && Area >= 0x08 && Room changed || Area == 0x0D && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 6
   - name: Area 6 4
@@ -679,7 +679,7 @@ checkpoints:
     levels: easy medium
     group: Area 6
   - name: Area 6 on foot start
-    when: "Area == 0x05 && Area changed && Area < 0x08"
+    when: "Area == 0x05 && Area changed && Area < 0x08 || Area == 0x05 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x05 && Area changed && Area >= 0x08 && Room changed || Area == 0x05 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 6 on foot
   - name: Area 6 on foot 5
@@ -720,7 +720,7 @@ checkpoints:
     wait: 0
     group: Area 6
   - name: Area 5 start
-    when: "Area == 0x0C && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x0C && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x0C && Area changed && Area < 0x08 || Area == 0x0C && Area changed && Area >= 0x08 && Room changed || Area == 0x0C && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 5
   - name: Area 5 3
@@ -728,7 +728,7 @@ checkpoints:
     wait: 0
     group: Area 5
   - name: Area 4 start
-    when: "Area == 0x0B && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x0B && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x0B && Area changed && Area < 0x08 || Area == 0x0B && Area changed && Area >= 0x08 && Room changed || Area == 0x0B && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 4
   - name: Area 4 3
@@ -740,7 +740,7 @@ checkpoints:
     wait: 0
     group: Area 4
   - name: Area 1 start
-    when: "Area == 0x08 && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x08 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x08 && Area changed && Area < 0x08 || Area == 0x08 && Area changed && Area >= 0x08 && Room changed || Area == 0x08 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 1
   - name: Area 2 3
@@ -772,7 +772,7 @@ checkpoints:
     wait: 0
     group: Area 2
   - name: Area 7 start
-    when: "Area == 0x0E && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x0E && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x0E && Area changed && Area < 0x08 || Area == 0x0E && Area changed && Area >= 0x08 && Room changed || Area == 0x0E && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 7
   - name: Area 7 5
@@ -828,11 +828,11 @@ checkpoints:
     levels: easy
     group: Area 7
   - name: Area 7 on foot start
-    when: "Area == 0x06 && Area changed && Area < 0x08"
+    when: "Area == 0x06 && Area changed && Area < 0x08 || Area == 0x06 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x06 && Area changed && Area >= 0x08 && Room changed || Area == 0x06 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 7 on foot
   - name: Area 7 on foot start
-    when: "Area == 0x06 && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x06 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x06 && Area changed && Area < 0x08 || Area == 0x06 && Area changed && Area >= 0x08 && Room changed || Area == 0x06 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 7 on foot
   - name: Area 7 on foot 3
@@ -876,7 +876,7 @@ checkpoints:
     levels: easy medium
     group: Area 3
   - name: Area 8 start
-    when: "Area == 0x0F && Room was 0x07 && Room != 0x07 && Room != 0x15"
+    when: "Area == 0x0F && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x0F && Area changed && Area < 0x08 || Area == 0x0F && Area changed && Area >= 0x08 && Room changed || Area == 0x0F && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 8
   - name: Area 8 3
@@ -943,7 +943,7 @@ checkpoints:
     levels: easy
     group: Area 8
   - name: Area 8 on foot start
-    when: "Area == 0x07 && Area changed && Area < 0x08"
+    when: "Area == 0x07 && Area changed && Area < 0x08 || Area == 0x07 && Room was 0x07 && Room != 0x07 && Room != 0x15 || Area == 0x07 && Area changed && Area >= 0x08 && Room changed || Area == 0x07 && PlayerState was 0x00 && PlayerState != 0x00"
     start: yes
     group: Area 8 on foot
   - name: Area 8 on foot 3
