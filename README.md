@@ -72,6 +72,7 @@ installs that one. V: the game has it, X: not yet.
 | Contra (USA) | `5a5c2f4f1cafb1f55a8dc0d5ad4550e5` | 203 / 186 / 41 | X | X | X | V | V |
 | Darkwing Duck (USA) | `eb9713d1cac3586601833d8df854114e` | 122 / 107 / 67 | V | V | X | X | X |
 | Double Dragon (USA) | `4ef4221310288831301d269993e146ec` | 34 / 32 / 27 | X | X | X | V | X |
+| Double Dragon III - The Sacred Stones (USA) | `bc5f135b34f7fcf06c4eaf72970f654b` | 96 / 62 / 43 | X | X | X | X | X |
 | DuckTales 2 (USA) | `b8592879590cddec02fe077217562d00` | 88 / 86 / 65 | V | V | X | V | X |
 | Kabuki - Quantum Fighter (USA) | `7de9c960328015874a4ce4a1e6136d46` | 49 / 53 / 34 | V | V | X | V | X |
 | Mega Man (USA) | `4de82cfceadbf1a5e693b669b1221107` | 125 / 137 / 108 | V | V | V | V | V |
