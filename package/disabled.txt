@@ -1,1 +1,7 @@
 Bionic Commando (USA).yaml
+Jackie Chan's Action Kung Fu (USA).yaml
+Kid Icarus (USA, Europe).yaml
+Kirby's Adventure (USA) (Rev A).yaml
+Little Nemo - The Dream Master (USA).yaml
+Mr. Gimmick (Europe).yaml
+Shadow of the Ninja (USA).yaml

@@ -12,6 +12,10 @@
 #                             rule file since 2026-10-12, not installed
 #   nes\more\"Mega Man 3 (USA).nes"  on disk, in no gamelist: found by its
 #                             file name, installed under the rule's name
+#   "Chip 'n Dale Rescue Rangers (USA).nes"  an apostrophe in the name: one
+#                             gamelist entry after a second install, its
+#                             &apos; duplicate (an earlier install's)
+#                             quarantined (2026-10-13)
 # The scratch folder has a NES core (es_systems.cfg + a core file: the
 # installer checks it) and a theme with art folders (the background and logo
 # go in, and come out with the uninstaller, as do the Celeste options).
@@ -31,6 +35,7 @@ New-Item -ItemType Directory -Force -Path (Join-Path $rb 'emulators\retroarch\co
 '<?xml version="1.0"?><systemList><system><name>nes</name><emulators><emulator name="libretro"><cores><core default="true">fceumm</core></cores></emulator></emulators></system></systemList>' | Set-Content (Join-Path $rb 'emulationstation\.emulationstation\es_systems.cfg')
 $src = Join-Path $RetroBat 'roms\nes'
 Copy-Item -LiteralPath (Join-Path $src 'Contra (USA).nes') -Destination $nes
+Copy-Item -LiteralPath (Join-Path $src "Chip 'n Dale Rescue Rangers (USA).nes") -Destination $nes
 Copy-Item -LiteralPath (Join-Path $src 'Mega Man 2 (USA).nes') -Destination (Join-Path $nes 'Mega Man II.nes')
 Copy-Item -LiteralPath (Join-Path $src 'Super C (USA).nes') -Destination (Join-Path $nes 'Castlevania (Europe).nes')
 New-Item -ItemType Directory -Force -Path (Join-Path $nes 'more') | Out-Null
@@ -81,7 +86,7 @@ foreach ($c in @(@('Contra (USA).yaml', 'nes/Contra (USA).nes'), @('Mega Man 2 (
 }
 if (Test-Path -LiteralPath (Join-Path $cel 'Castlevania (USA) (Rev A).yaml')) { Fail 'Castlevania installed on the wrong ROM' }
 $games = @(([xml](Get-Content (Join-Path $cel 'gamelist.xml') -Raw -Encoding UTF8)).gameList.game).Count
-if ($games -ne 4) { Fail "celeste gamelist has $games games, expected 4" }
+if ($games -ne 5) { Fail "celeste gamelist has $games games, expected 5" }
 foreach ($f in 'art\logos\celeste.png', 'art\background\celeste.jpg') { if (-not (Test-Path -LiteralPath (Join-Path $rb "emulationstation\.emulationstation\themes\T\$f"))) { Fail "theme art $f not installed" } }
 # (captured, the coloured mark and the name are two records: a line break between them)
 if (-not ($out -match 'v\s+Mega Man 3 \(USA\)' -and $out -match 'x\s+Batman')) { Fail 'the list does not show v / x per game' }
@@ -97,6 +102,21 @@ if ($es.Contains('rewind_time')) { Fail 'a rewind_time option was written' }
 if (-not $es.Contains("`r`n") -or ([regex]::Matches($es, "(?<!`r)`n")).Count) { Fail 'es_settings.cfg line endings changed' }
 foreach ($f in 'system\celeste\launch.ps1', 'system\celeste\Celeste.cs', 'system\celeste\PadAudio.cs', 'emulationstation\.emulationstation\es_systems_celeste.cfg', 'emulationstation\.emulationstation\es_features_celeste.cfg') {
   if (-not (Test-Path -LiteralPath (Join-Path $rb $f))) { Fail "$f missing" }
+}
+# A second install, after EmulationStation saved the gamelist (an apostrophe
+# as is) and with the &apos; duplicate an earlier install left: one entry
+$glPath = Join-Path $cel 'gamelist.xml'
+$gl = [IO.File]::ReadAllText($glPath)
+$chip = [regex]::Match($gl, "(?s)\t<game>\r?\n\t\t<path>\./Chip (&apos;|')n Dale[^<]*</path>.*?</game>\r?\n")
+if (-not $chip.Success) { Fail "Chip 'n Dale's entry not found" } else {
+  $plain = $chip.Value.Replace('&apos;', "'")
+  $gl = $gl.Replace($chip.Value, $plain + $plain.Replace("'", '&apos;'))
+  [IO.File]::WriteAllText($glPath, $gl)
+  $again = & (Join-Path $files 'Install-CelesteMode.ps1') -RetroBat $rb -SkipRunningCheck 6>&1 | Out-String
+  $gl = [IO.File]::ReadAllText($glPath)
+  $n = ([regex]::Matches($gl, "<path>\./Chip (&apos;|')n Dale")).Count
+  if ($n -ne 1) { Fail "Chip 'n Dale has $n gamelist entries after a second install"; $again }
+  if (@(Get-ChildItem -LiteralPath (Join-Path $cel '_quarantine') -Filter 'gamelist-duplicates-*.xml' -ErrorAction SilentlyContinue).Count -ne 1) { Fail 'the duplicate was not quarantined' }
 }
 $un = & (Join-Path $files 'Uninstall-CelesteMode.ps1') -RetroBat $rb -SkipRunningCheck -RemoveGames 6>&1 | Out-String
 $un
