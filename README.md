@@ -66,6 +66,7 @@ installs that one. V: the game has it, X: not yet.
 | Adventure Island III (USA) | `c517ca2fd6199fde0ba4b3847d9bbecf` | 114 / 69 / 52 | X | X | X | V | X |
 | Batman - The Video Game (USA) | `341f6fd28fcdc7e246ded2750dd1c1e9` | 45 / 53 / 35 | V | V | X | V | X |
 | Blaster Master (USA) | `12b0dbc4f2b22a50d0bb53c4929217f0` | 236 / 182 / 152 | X | V | X | V | X |
+| Bucky O'Hare (USA) | `2c14a62966411eef03ecd66b061156d5` | 183 / 137 / 110 | X | X | X | V | X |
 | Chip 'n Dale Rescue Rangers (USA) | `f0ed8c6d65164f761908bc892c01c65a` | 72 / 50 / 39 | X | X | X | X | X |
 | Contra (USA) | `5a5c2f4f1cafb1f55a8dc0d5ad4550e5` | 203 / 186 / 41 | X | X | X | V | V |
 | Darkwing Duck (USA) | `eb9713d1cac3586601833d8df854114e` | 122 / 107 / 67 | V | V | X | X | X |

@@ -1,0 +1,531 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 991M (AnS, FCEU 0.98.16 .fcm) converted to .fm2 by movie.py, on Bucky O'Hare (USA), replayed in FCEUX 2.6.6.
+variables:
+  0x002B: Screen
+  0x004C: Lives
+  0x0066: Section
+  0x00F7: Pad
+  0x05A0: Health
+name: Bucky O'Hare (USA)
+rom: nes/Bucky O'Hare (USA).nes
+hit:
+  - "Health decreased"
+  - "Lives decreased"
+lives: Lives
+input: Pad
+input_bits: right left down up start select b a
+mode: checkpoints
+checkpoints:
+  - name: Section 00 start
+    when: "Section == 0x00 && Screen == 0x00 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 00 2
+    when: "Section == 0x00 && Screen changed && Screen == 0x01"
+    levels: easy
+  - name: Section 00 3
+    when: "Section == 0x00 && Screen changed && Screen == 0x02"
+  - name: Section 00 6
+    when: "Section == 0x00 && Screen changed && Screen == 0x05"
+    levels: easy
+  - name: Section 01 start
+    when: "Section == 0x01 && Section changed || Section == 0x01 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 01 4
+    when: "Section == 0x01 && Screen changed && Screen == 0x0C"
+    levels: easy medium
+  - name: Section 01 7
+    when: "Section == 0x01 && Screen changed && Screen == 0x09"
+    levels: easy
+  - name: Section 02 start
+    when: "Section == 0x02 && Section changed || Section == 0x02 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 02 3
+    when: "Section == 0x02 && Screen changed && Screen == 0x12"
+    levels: easy
+  - name: Section 02 5
+    when: "Section == 0x02 && Screen changed && Screen == 0x14"
+    levels: easy medium
+  - name: Section 02 7
+    when: "Section == 0x02 && Screen changed && Screen == 0x16"
+  - name: Section 02 9
+    when: "Section == 0x02 && Screen changed && Screen == 0x18"
+    levels: easy
+  - name: Section 02 11
+    when: "Section == 0x02 && Screen changed && Screen == 0x1A"
+    levels: easy medium
+  - name: Section 03 start
+    when: "Section == 0x03 && Section changed || Section == 0x03 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 04 start
+    when: "Section == 0x04 && Section changed || Section == 0x04 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 04 4
+    when: "Section == 0x04 && Screen changed && Screen == 0x41"
+    levels: easy medium
+  - name: Section 05 start
+    when: "Section == 0x05 && Section changed || Section == 0x05 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 20 start
+    when: "Section == 0x20 && Section changed || Section == 0x20 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 20 4
+    when: "Section == 0x20 && Screen changed && Screen == 0x03"
+    levels: easy
+  - name: Section 20 6
+    when: "Section == 0x20 && Screen changed && Screen == 0x05"
+  - name: Section 20 7
+    when: "Section == 0x20 && Screen changed && Screen == 0x06"
+    levels: easy
+  - name: Section 21 start
+    when: "Section == 0x21 && Section changed || Section == 0x21 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 22 start
+    when: "Section == 0x22 && Section changed || Section == 0x22 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 23 start
+    when: "Section == 0x23 && Section changed || Section == 0x23 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 24 start
+    when: "Section == 0x24 && Section changed || Section == 0x24 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 24 3
+    when: "Section == 0x24 && Screen changed && Screen == 0x10"
+    levels: easy
+  - name: Section 25 start
+    when: "Section == 0x25 && Section changed || Section == 0x25 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 26 start
+    when: "Section == 0x26 && Section changed || Section == 0x26 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 26 3
+    when: "Section == 0x26 && Screen changed && Screen == 0x18"
+  - name: Section 27 start
+    when: "Section == 0x27 && Section changed || Section == 0x27 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 28 start
+    when: "Section == 0x28 && Section changed || Section == 0x28 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 28 3
+    when: "Section == 0x28 && Screen changed && Screen == 0x20"
+    levels: easy
+  - name: Section 29 start
+    when: "Section == 0x29 && Section changed || Section == 0x29 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 10 start
+    when: "Section == 0x10 && Section changed || Section == 0x10 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 10 5
+    when: "Section == 0x10 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Section 10 8
+    when: "Section == 0x10 && Screen changed && Screen == 0x06"
+    levels: easy
+  - name: Section 11 start
+    when: "Section == 0x11 && Section changed || Section == 0x11 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 11 5
+    when: "Section == 0x11 && Screen changed && Screen == 0x0D"
+    levels: easy medium
+  - name: Section 12 start
+    when: "Section == 0x12 && Section changed || Section == 0x12 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 12 4
+    when: "Section == 0x12 && Screen changed && Screen == 0x14"
+  - name: Section 12 6
+    when: "Section == 0x12 && Screen changed && Screen == 0x16"
+    levels: easy
+  - name: Section 13 start
+    when: "Section == 0x13 && Section changed || Section == 0x13 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 13 3
+    when: "Section == 0x13 && Screen changed && Screen == 0x1B"
+    levels: easy
+  - name: Section 13 4
+    when: "Section == 0x13 && Screen changed && Screen == 0x1C"
+    levels: easy medium
+  - name: Section 14 start
+    when: "Section == 0x14 && Section changed || Section == 0x14 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 15 start
+    when: "Section == 0x15 && Section changed || Section == 0x15 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 15 4
+    when: "Section == 0x15 && Screen changed && Screen == 0x24"
+  - name: Section 15 5
+    when: "Section == 0x15 && Screen changed && Screen == 0x23"
+    levels: easy
+  - name: Section 16 start
+    when: "Section == 0x16 && Section changed || Section == 0x16 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 16 3
+    when: "Section == 0x16 && Screen changed && Screen == 0x2A"
+    levels: easy medium
+  - name: Section 16 4
+    when: "Section == 0x16 && Screen changed && Screen == 0x2B"
+    levels: easy
+  - name: Section 16 start
+    when: "Section == 0x16 && Health was 0x00 && Health != 0x00 || Section == 0x16 && Section changed"
+    start: yes
+  - name: Section 18 start
+    when: "Section == 0x18 && Section changed || Section == 0x18 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 30 start
+    when: "Section == 0x30 && Section changed || Section == 0x30 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 30 5
+    when: "Section == 0x30 && Screen changed && Screen == 0x05"
+    levels: easy
+  - name: Section 30 7
+    when: "Section == 0x30 && Screen changed && Screen == 0x03"
+    levels: easy medium
+  - name: Section 31 start
+    when: "Section == 0x31 && Section changed || Section == 0x31 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 31 4
+    when: "Section == 0x31 && Screen changed && Screen == 0x0E"
+    levels: easy
+  - name: Section 31 5
+    when: "Section == 0x31 && Screen changed && Screen == 0x0D"
+    levels: easy medium
+  - name: Section 32 start
+    when: "Section == 0x32 && Section changed || Section == 0x32 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 32 4
+    when: "Section == 0x32 && Screen changed && Screen == 0x14"
+    levels: easy
+  - name: Section 33 start
+    when: "Section == 0x33 && Section changed || Section == 0x33 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 33 start
+    when: "Section == 0x33 && Health was 0x00 && Health != 0x00 || Section == 0x33 && Section changed"
+    start: yes
+  - name: Section 37 start
+    when: "Section == 0x37 && Section changed || Section == 0x37 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 37 4
+    when: "Section == 0x37 && Screen changed && Screen == 0xFF"
+    levels: easy
+  - name: Section 40 start
+    when: "Section == 0x40 && Section changed || Section == 0x40 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 40 5
+    when: "Section == 0x40 && Screen changed && Screen == 0x03"
+  - name: Section 49 start
+    when: "Section == 0x49 && Section changed || Section == 0x49 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 42 start
+    when: "Section == 0x42 && Section changed || Section == 0x42 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 42 3
+    when: "Section == 0x42 && Screen changed && Screen == 0x07"
+  - name: Section 42 4
+    when: "Section == 0x42 && Screen changed && Screen == 0x08"
+    levels: easy
+  - name: Section 4D start
+    when: "Section == 0x4D && Section changed || Section == 0x4D && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 44 start
+    when: "Section == 0x44 && Section changed || Section == 0x44 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 44 3
+    when: "Section == 0x44 && Screen changed && Screen == 0x0C"
+    levels: easy
+  - name: Section 4A start
+    when: "Section == 0x4A && Section changed || Section == 0x4A && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 46 start
+    when: "Section == 0x46 && Section changed || Section == 0x46 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 4E start
+    when: "Section == 0x4E && Section changed || Section == 0x4E && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 48 start
+    when: "Section == 0x48 && Section changed || Section == 0x48 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 48 4
+    when: "Section == 0x48 && Screen changed && Screen == 0x15"
+    levels: easy
+  - name: Section 4C start
+    when: "Section == 0x4C && Section changed || Section == 0x4C && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 4C 4
+    when: "Section == 0x4C && Screen changed && Screen == 0x28"
+  - name: Section 4C 5
+    when: "Section == 0x4C && Screen changed && Screen == 0x27"
+  - name: Section 4C 6
+    when: "Section == 0x4C && Screen changed && Screen == 0x26"
+  - name: Section 4C 7
+    when: "Section == 0x4C && Screen changed && Screen == 0x25"
+  - name: Section 4C 8
+    when: "Section == 0x4C && Screen changed && Screen == 0x24"
+  - name: Section 4C 9
+    when: "Section == 0x4C && Screen changed && Screen == 0x23"
+    levels: easy medium
+  - name: Section 4C 10
+    when: "Section == 0x4C && Screen changed && Screen == 0x22"
+  - name: Section 4C 11
+    when: "Section == 0x4C && Screen changed && Screen == 0x21"
+  - name: Section 4C 12
+    when: "Section == 0x4C && Screen changed && Screen == 0x20"
+  - name: Section 4C 13
+    when: "Section == 0x4C && Screen changed && Screen == 0x1F"
+    levels: easy medium
+  - name: Section 4C 14
+    when: "Section == 0x4C && Screen changed && Screen == 0x1E"
+  - name: Section 4C 15
+    when: "Section == 0x4C && Screen changed && Screen == 0x1D"
+    levels: easy
+  - name: Section 4F start
+    when: "Section == 0x4F && Section changed || Section == 0x4F && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 50 start
+    when: "Section == 0x50 && Section changed || Section == 0x50 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 51 start
+    when: "Section == 0x51 && Section changed || Section == 0x51 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 51 3
+    when: "Section == 0x51 && Screen changed && Screen == 0x06"
+    levels: easy
+  - name: Section 51 4
+    when: "Section == 0x51 && Screen changed && Screen == 0x07"
+  - name: Section 51 5
+    when: "Section == 0x51 && Screen changed && Screen == 0x08"
+    levels: easy
+  - name: Section 52 start
+    when: "Section == 0x52 && Section changed || Section == 0x52 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 52 3
+    when: "Section == 0x52 && Screen changed && Screen == 0x0C"
+    levels: easy medium
+  - name: Section 52 5
+    when: "Section == 0x52 && Screen changed && Screen == 0x0E"
+  - name: Section 52 6
+    when: "Section == 0x52 && Screen changed && Screen == 0x0F"
+    levels: easy medium
+  - name: Section 53 start
+    when: "Section == 0x53 && Section changed || Section == 0x53 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 53 3
+    when: "Section == 0x53 && Screen changed && Screen == 0x13"
+    levels: easy
+  - name: Section 54 start
+    when: "Section == 0x54 && Section changed || Section == 0x54 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 55 start
+    when: "Section == 0x55 && Section changed || Section == 0x55 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 56 start
+    when: "Section == 0x56 && Section changed || Section == 0x56 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 57 start
+    when: "Section == 0x57 && Section changed || Section == 0x57 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 58 start
+    when: "Section == 0x58 && Section changed || Section == 0x58 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 58 3
+    when: "Section == 0x58 && Screen changed && Screen == 0x29"
+    levels: easy medium
+  - name: Section 59 start
+    when: "Section == 0x59 && Section changed || Section == 0x59 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 60 start
+    when: "Section == 0x60 && Section changed || Section == 0x60 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 61 start
+    when: "Section == 0x61 && Section changed || Section == 0x61 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 62 start
+    when: "Section == 0x62 && Section changed || Section == 0x62 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 63 start
+    when: "Section == 0x63 && Section changed || Section == 0x63 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 64 start
+    when: "Section == 0x64 && Section changed || Section == 0x64 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 64 3
+    when: "Section == 0x64 && Screen changed && Screen == 0x09"
+    levels: easy medium
+  - name: Section 64 4
+    when: "Section == 0x64 && Screen changed && Screen == 0x0A"
+    levels: easy
+  - name: Section 64 6
+    when: "Section == 0x64 && Screen changed && Screen == 0x0C"
+  - name: Section 64 9
+    when: "Section == 0x64 && Screen changed && Screen == 0x0F"
+    levels: easy medium
+  - name: Section 65 start
+    when: "Section == 0x65 && Section changed || Section == 0x65 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 65 3
+    when: "Section == 0x65 && Screen changed && Screen == 0x13"
+    levels: easy medium
+  - name: Section 66 start
+    when: "Section == 0x66 && Section changed || Section == 0x66 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 66 3
+    when: "Section == 0x66 && Screen changed && Screen == 0x22"
+    levels: easy medium
+  - name: Section 66 4
+    when: "Section == 0x66 && Screen changed && Screen == 0x23"
+    levels: easy
+  - name: Section 66 5
+    when: "Section == 0x66 && Screen changed && Screen == 0x24"
+  - name: Section 66 6
+    when: "Section == 0x66 && Screen changed && Screen == 0x25"
+    levels: easy
+  - name: Section 67 start
+    when: "Section == 0x67 && Section changed || Section == 0x67 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 67 3
+    when: "Section == 0x67 && Screen changed && Screen == 0x03"
+    levels: easy
+  - name: Section 68 start
+    when: "Section == 0x68 && Section changed || Section == 0x68 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 68 3
+    when: "Section == 0x68 && Screen changed && Screen == 0x2B"
+    levels: easy
+  - name: Section 69 start
+    when: "Section == 0x69 && Section changed || Section == 0x69 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 69 3
+    when: "Section == 0x69 && Screen changed && Screen == 0x33"
+    levels: easy
+  - name: Section 6A start
+    when: "Section == 0x6A && Section changed || Section == 0x6A && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 6A 3
+    when: "Section == 0x6A && Screen changed && Screen == 0x3B"
+    levels: easy
+  - name: Section 6B start
+    when: "Section == 0x6B && Section changed || Section == 0x6B && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 6C start
+    when: "Section == 0x6C && Section changed || Section == 0x6C && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 6D start
+    when: "Section == 0x6D && Section changed || Section == 0x6D && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 6E start
+    when: "Section == 0x6E && Section changed || Section == 0x6E && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 70 start
+    when: "Section == 0x70 && Section changed || Section == 0x70 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 71 start
+    when: "Section == 0x71 && Section changed || Section == 0x71 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 71 4
+    when: "Section == 0x71 && Screen changed && Screen == 0x05"
+    levels: easy medium
+  - name: Section 71 5
+    when: "Section == 0x71 && Screen changed && Screen == 0x06"
+    levels: easy
+  - name: Section 71 6
+    when: "Section == 0x71 && Screen changed && Screen == 0x07"
+  - name: Section 71 7
+    when: "Section == 0x71 && Screen changed && Screen == 0x08"
+    levels: easy
+  - name: Section 71 8
+    when: "Section == 0x71 && Screen changed && Screen == 0x09"
+  - name: Section 71 9
+    when: "Section == 0x71 && Screen changed && Screen == 0x0A"
+    levels: easy
+  - name: Section 71 11
+    when: "Section == 0x71 && Screen changed && Screen == 0x0C"
+  - name: Section 71 12
+    when: "Section == 0x71 && Screen changed && Screen == 0x0D"
+    levels: easy medium
+  - name: Section 71 13
+    when: "Section == 0x71 && Screen changed && Screen == 0x0E"
+    levels: easy
+  - name: Section 71 14
+    when: "Section == 0x71 && Screen changed && Screen == 0x0F"
+  - name: Section 71 16
+    when: "Section == 0x71 && Screen changed && Screen == 0x11"
+    levels: easy
+  - name: Section 71 17
+    when: "Section == 0x71 && Screen changed && Screen == 0x12"
+  - name: Section 71 18
+    when: "Section == 0x71 && Screen changed && Screen == 0x13"
+    levels: easy medium
+  - name: Section 71 19
+    when: "Section == 0x71 && Screen changed && Screen == 0x14"
+    levels: easy
+  - name: Section 71 20
+    when: "Section == 0x71 && Screen changed && Screen == 0x15"
+  - name: Section 71 22
+    when: "Section == 0x71 && Screen changed && Screen == 0x17"
+    levels: easy
+  - name: Section 71 23
+    when: "Section == 0x71 && Screen changed && Screen == 0x18"
+  - name: Section 71 24
+    when: "Section == 0x71 && Screen changed && Screen == 0x19"
+    levels: easy
+  - name: Section 72 start
+    when: "Section == 0x72 && Section changed || Section == 0x72 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 72 2
+    when: "Section == 0x72 && Screen changed && Screen == 0x1B"
+  - name: Section 72 3
+    when: "Section == 0x72 && Screen changed && Screen == 0x1C"
+    levels: easy
+  - name: Section 72 4
+    when: "Section == 0x72 && Screen changed && Screen == 0x1D"
+  - name: Section 72 5
+    when: "Section == 0x72 && Screen changed && Screen == 0x1E"
+    levels: easy
+  - name: Section 72 6
+    when: "Section == 0x72 && Screen changed && Screen == 0x1F"
+    levels: easy
+  - name: Section 72 8
+    when: "Section == 0x72 && Screen changed && Screen == 0x21"
+  - name: Section 72 10
+    when: "Section == 0x72 && Screen changed && Screen == 0x23"
+    levels: easy
+  - name: Section 73 start
+    when: "Section == 0x73 && Section changed || Section == 0x73 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 73 5
+    when: "Section == 0x73 && Screen changed && Screen == 0x29"
+    levels: easy medium
+  - name: Section 73 7
+    when: "Section == 0x73 && Screen changed && Screen == 0x2B"
+  - name: Section 73 9
+    when: "Section == 0x73 && Screen changed && Screen == 0x2D"
+    levels: easy
+  - name: Section 73 11
+    when: "Section == 0x73 && Screen changed && Screen == 0x2F"
+  - name: Section 73 14
+    when: "Section == 0x73 && Screen changed && Screen == 0x32"
+    levels: easy medium
+  - name: Section 74 start
+    when: "Section == 0x74 && Section changed || Section == 0x74 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 74 5
+    when: "Section == 0x74 && Screen changed && Screen == 0x39"
+  - name: Section 74 6
+    when: "Section == 0x74 && Screen changed && Screen == 0x3A"
+  - name: Section 74 8
+    when: "Section == 0x74 && Screen changed && Screen == 0x3C"
+    levels: easy medium
+  - name: Section 75 start
+    when: "Section == 0x75 && Section changed || Section == 0x75 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 75 4
+    when: "Section == 0x75 && Screen changed && Screen == 0x43"
+    levels: easy medium
+  - name: Section 75 5
+    when: "Section == 0x75 && Screen changed && Screen == 0x44"
+  - name: Section 75 7
+    when: "Section == 0x75 && Screen changed && Screen == 0x46"
+    levels: easy
+  - name: Section 76 start
+    when: "Section == 0x76 && Section changed || Section == 0x76 && Health was 0x00 && Health != 0x00"
+    start: yes
+  - name: Section 76 4
+    when: "Section == 0x76 && Screen changed && Screen == 0x50"
+    levels: easy medium
