@@ -40,7 +40,7 @@ song: Song
 mode: checkpoints
 checkpoints:
   - name: Guts Man start
-    when: "Stage == 0x05 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x05 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Guts Man 2
     when: "Stage == 0x05 && Screen changed && Screen == 0x01"
@@ -81,7 +81,7 @@ checkpoints:
     when: "Stage == 0x05 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
     levels: medium
   - name: Cut Man start
-    when: "Stage == 0x00 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x00 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Cut Man 3
     when: "Stage == 0x00 && Screen changed && Screen == 0x02"
@@ -139,7 +139,7 @@ checkpoints:
     when: "Stage == 0x00 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
     levels: medium
   - name: Elec Man start
-    when: "Stage == 0x04 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x04 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Elec Man 2
     when: "Stage == 0x04 && Screen changed && Screen == 0x01"
@@ -215,7 +215,7 @@ checkpoints:
     when: "Stage == 0x04 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
     levels: medium
   - name: Ice Man start
-    when: "Stage == 0x01 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x01 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Ice Man 4
     when: "Stage == 0x01 && Screen changed && Screen == 0x03"
@@ -258,7 +258,7 @@ checkpoints:
     when: "Stage == 0x01 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
     levels: medium
   - name: Fire Man start
-    when: "Stage == 0x03 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x03 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Fire Man 2
     when: "Stage == 0x03 && Screen changed && Screen == 0x01"
@@ -310,7 +310,7 @@ checkpoints:
     when: "Stage == 0x03 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
     levels: medium
   - name: Bomb Man start
-    when: "Stage == 0x02 && Screen == 0x00 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x02 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Bomb Man 3
     when: "Stage == 0x02 && Screen changed && Screen == 0x02"
@@ -353,7 +353,7 @@ checkpoints:
     when: "Stage == 0x02 && BossMusic == 0x40 && BossMusic was == 0x40 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
     levels: medium
   - name: Wily 1 start
-    when: "Stage == 0x06 && Screen == 0x18 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x06 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Wily 1 4
     when: "Stage == 0x06 && Screen changed && Screen == 0x1B"
@@ -396,7 +396,7 @@ checkpoints:
     when: "Stage == 0x06 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
     levels: medium
   - name: Wily 2 start
-    when: "Stage == 0x07 && Screen == 0x18 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x07 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Wily 2 3
     when: "Stage == 0x07 && Screen changed && Screen == 0x1A"
@@ -442,7 +442,7 @@ checkpoints:
     when: "Stage == 0x07 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
     levels: medium
   - name: Wily 3 start
-    when: "Stage == 0x08 && Screen == 0x18 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x08 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Wily 3 2
     when: "Stage == 0x08 && Screen changed && Screen == 0x19"
@@ -473,7 +473,7 @@ checkpoints:
     when: "Stage == 0x08 && BossMusic == 0x17 && BossMusic was == 0x17 && BossHealth was > 0x07 && BossHealth was != 0xFF && BossHealth <= 0x07"
     levels: medium
   - name: Wily 4 start
-    when: "Stage == 0x09 && Screen == 0x14 && Sprite was 0x14 && Sprite != 0x14"
+    when: "Stage == 0x09 && Sprite was 0x14 && Sprite != 0x14"
     start: yes
   - name: Wily 4 2
     when: "Stage == 0x09 && Screen changed && Screen == 0x15"

@@ -6,7 +6,8 @@
 #   "Castlevania (Europe).nes" Super C's bytes under Castlevania's name: not
 #                             installed (no Castlevania rule file since the
 #                             rewind files were archived, 2026-10-12)
-#   "Super C.zip"             the ROM inside a zip: installed
+#   "Double Dragon.zip"       the ROM inside a zip: installed (Super C until
+#                             it left the release for a while, 2026-10-13)
 #   snes\"Mega Man X.smc"     Mega Man X behind a 512-byte copier header: no
 #                             rule file since 2026-10-12, not installed
 #   nes\more\"Mega Man 3 (USA).nes"  on disk, in no gamelist: found by its
@@ -35,15 +36,15 @@ Copy-Item -LiteralPath (Join-Path $src 'Super C (USA).nes') -Destination (Join-P
 New-Item -ItemType Directory -Force -Path (Join-Path $nes 'more') | Out-Null
 Copy-Item -LiteralPath (Join-Path $src 'Mega Man 3 (USA).nes') -Destination (Join-Path $nes 'more\Mega Man 3 (USA).nes')
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-$z = [IO.Compression.ZipFile]::Open((Join-Path $nes 'Super C.zip'), 'Create')
-$null = [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($z, (Join-Path $src 'Super C (USA).nes'), 'Super C (USA).nes'); $z.Dispose()
+$z = [IO.Compression.ZipFile]::Open((Join-Path $nes 'Double Dragon.zip'), 'Create')
+$null = [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($z, (Join-Path $src 'Double Dragon (USA).nes'), 'Double Dragon (USA).nes'); $z.Dispose()
 @'
 <?xml version="1.0"?>
 <gameList>
 	<game><path>./Contra (USA).nes</path><name>Contra</name><desc>test</desc></game>
 	<game><path>./Mega Man II.nes</path><name>Mega Man 2</name></game>
 	<game><path>./Castlevania (Europe).nes</path><name>Castlevania</name></game>
-	<game><path>./Super C.zip</path><name>Super C</name></game>
+	<game><path>./Double Dragon.zip</path><name>Double Dragon</name></game>
 </gameList>
 '@ | Set-Content (Join-Path $nes 'gamelist.xml') -Encoding UTF8
 
@@ -73,7 +74,7 @@ $cel = Join-Path $rb 'roms\celeste'
 # only the games on checkpoints are installed (2026-10-12: the rewind rule
 # files are archived, Mega Man X and Castlevania among them, so the copier
 # header and wrong-version cases have no rule file left to check)
-foreach ($c in @(@('Contra (USA).yaml', 'nes/Contra (USA).nes'), @('Mega Man 2 (USA).yaml', 'nes/Mega Man II.nes'), @('Super C (USA).yaml', 'nes/Super C.zip'), @('Mega Man 3 (USA).yaml', 'nes/more/Mega Man 3 (USA).nes'))) {
+foreach ($c in @(@('Contra (USA).yaml', 'nes/Contra (USA).nes'), @('Mega Man 2 (USA).yaml', 'nes/Mega Man II.nes'), @('Double Dragon (USA).yaml', 'nes/Double Dragon.zip'), @('Mega Man 3 (USA).yaml', 'nes/more/Mega Man 3 (USA).nes'))) {
   $f = Join-Path $cel $c[0]
   if (-not (Test-Path -LiteralPath $f)) { Fail "$($c[0]) not installed"; continue }
   if (-not (Select-String -LiteralPath $f -SimpleMatch ('rom: "' + $c[1] + '"') -Quiet)) { Fail "$($c[0]): rom is not $($c[1])" }
@@ -83,7 +84,7 @@ $games = @(([xml](Get-Content (Join-Path $cel 'gamelist.xml') -Raw -Encoding UTF
 if ($games -ne 4) { Fail "celeste gamelist has $games games, expected 4" }
 foreach ($f in 'art\logos\celeste.png', 'art\background\celeste.jpg') { if (-not (Test-Path -LiteralPath (Join-Path $rb "emulationstation\.emulationstation\themes\T\$f"))) { Fail "theme art $f not installed" } }
 # (captured, the coloured mark and the name are two records: a line break between them)
-if (-not ($out -match 'v\s+Mega Man 3 \(USA\)' -and $out -match 'x\s+Castlevania')) { Fail 'the list does not show v / x per game' }
+if (-not ($out -match 'v\s+Mega Man 3 \(USA\)' -and $out -match 'x\s+Batman')) { Fail 'the list does not show v / x per game' }
 $es = [IO.File]::ReadAllText((Join-Path $rb 'emulationstation\.emulationstation\es_settings.cfg'))
 foreach ($w in @(
   'celeste[&quot;Contra (USA).yaml&quot;].rewind_to_screen" value="2"',

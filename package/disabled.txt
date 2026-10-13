@@ -1,0 +1,9 @@
+Ninja Gaiden (USA).yaml
+Ninja Gaiden III - The Ancient Ship of Doom (USA).yaml
+Bionic Commando (USA).yaml
+Ghosts'n Goblins (USA).yaml
+Bucky O'Hare (USA).yaml
+Castlevania (USA) (Rev A).yaml
+Double Dragon III - The Sacred Stones (USA).yaml
+Super C (USA).yaml
+Little Samson (USA).yaml

@@ -16,7 +16,7 @@ input: Pad
 mode: checkpoints
 checkpoints:
   - name: Zone A start
-    when: "Zone == 0x00 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    when: "Zone == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
     start: yes
   - name: Zone A 3
     when: "Zone == 0x00 && Screen changed && Screen == 0x02 && Region == 0x00"
@@ -39,7 +39,7 @@ checkpoints:
     when: "Zone == 0x00 && Screen changed && Screen == 0x04 && Region == 0x18"
     wait: 0
   - name: Zone C start
-    when: "Zone == 0x02 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    when: "Zone == 0x02 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
     start: yes
   - name: Zone C 3
     when: "Zone == 0x02 && Screen changed && Screen == 0x02 && Region == 0x00"
@@ -68,7 +68,7 @@ checkpoints:
     when: "Zone == 0x02 && Region changed && Screen == 0x07 && Region == 0x06"
     wait: 0
   - name: Zone E start
-    when: "Zone == 0x04 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    when: "Zone == 0x04 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
     start: yes
   - name: Zone E 3
     when: "Zone == 0x04 && Screen changed && Screen == 0x02 && Region == 0x00"
@@ -103,7 +103,7 @@ checkpoints:
     when: "Zone == 0x04 && Screen changed && Screen == 0x00 && Region == 0x0A"
     wait: 0
   - name: Zone G start
-    when: "Zone == 0x06 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    when: "Zone == 0x06 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
     start: yes
   - name: Zone G 2
     when: "Zone == 0x06 && Screen changed && Screen == 0x01 && Region == 0x00"
@@ -118,7 +118,7 @@ checkpoints:
     when: "Zone == 0x06 && Region changed && Screen == 0x01 && Region == 0x19"
     wait: 0
   - name: Zone H start
-    when: "Zone == 0x07 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    when: "Zone == 0x07 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
     start: yes
   - name: Zone H 5
     when: "Zone == 0x07 && Screen changed && Screen == 0x04 && Region == 0x00"
@@ -147,7 +147,7 @@ checkpoints:
     when: "Zone == 0x07 && Region changed && Screen == 0x07 && Region == 0x11"
     wait: 0
   - name: Zone I start
-    when: "Zone == 0x08 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    when: "Zone == 0x08 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
     start: yes
   - name: Zone I 3
     when: "Zone == 0x08 && Screen changed && Screen == 0x02 && Region == 0x00"
@@ -167,7 +167,7 @@ checkpoints:
     when: "Zone == 0x08 && Region changed && Screen == 0x06 && Region == 0x19"
     wait: 0
   - name: Zone J start
-    when: "Zone == 0x09 && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    when: "Zone == 0x09 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
     start: yes
   - name: Zone J 3
     when: "Zone == 0x09 && Screen changed && Screen == 0x02 && Region == 0x00"
@@ -196,7 +196,7 @@ checkpoints:
     when: "Zone == 0x09 && Region changed && Screen == 0x07 && Region == 0x14"
     wait: 0
   - name: Zone K start
-    when: "Zone == 0x0A && Screen == 0x00 && Region == 0x00 && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
+    when: "Zone == 0x0A && InZone was 0x00 && InZone != 0x00 && Zone <= 0x0A"
     start: yes
   - name: Zone K 5
     when: "Zone == 0x0A && Screen changed && Screen == 0x04 && Region == 0x00"

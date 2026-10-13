@@ -37,7 +37,7 @@ checkpoints:
     when: "Area == 0x00 && Screen changed && Screen == 0x0D"
     levels: easy medium
   - name: Area 1 start
-    when: "Area == 0x01 && Screen == 0x0E && Area changed"
+    when: "Area == 0x01 && Area changed || Area == 0x01 && Health was 0x00 && Health == 0x0A"
     start: yes
     no_rewind: easy
   - name: Area 1 boss room
@@ -70,7 +70,7 @@ checkpoints:
     when: "Area == 0x02 && Screen changed && Screen == 0x0A"
     levels: easy
   - name: Area 3 start
-    when: "Area == 0x03 && Screen == 0x0B && Area changed"
+    when: "Area == 0x03 && Area changed || Area == 0x03 && Health was 0x00 && Health == 0x0A"
     start: yes
   - name: Area 3 4
     when: "Area == 0x03 && Screen changed && Screen == 0x01"
@@ -81,7 +81,7 @@ checkpoints:
     when: "Area == 0x03 && Screen changed && Screen == 0x03"
     levels: easy
   - name: Area 4 start
-    when: "Area == 0x04 && Screen == 0x04 && Area changed"
+    when: "Area == 0x04 && Area changed || Area == 0x04 && Health was 0x00 && Health == 0x0A"
     start: yes
     no_rewind: easy
   - name: Area 4 boss room
@@ -103,7 +103,7 @@ checkpoints:
   - name: Area 5 13
     when: "Area == 0x05 && Screen changed && Screen == 0x0B"
   - name: Area 6 start
-    when: "Area == 0x06 && Screen == 0x00 && Area changed"
+    when: "Area == 0x06 && Area changed || Area == 0x06 && Health was 0x00 && Health == 0x0A"
     start: yes
     no_rewind: easy
   - name: Area 7 start
@@ -132,7 +132,7 @@ checkpoints:
     when: "Area == 0x07 && Screen changed && Screen == 0x11"
     levels: easy medium
   - name: Area 8 start
-    when: "Area == 0x08 && Screen == 0x13 && Area changed"
+    when: "Area == 0x08 && Area changed || Area == 0x08 && Health was 0x00 && Health == 0x0A"
     start: yes
     no_rewind: easy
   - name: Area 8 boss room
@@ -168,13 +168,13 @@ checkpoints:
     when: "Area == 0x09 && Screen changed && Screen == 0x0D"
     levels: easy medium
   - name: Area 10 start
-    when: "Area == 0x0A && Screen == 0x0E && Area changed"
+    when: "Area == 0x0A && Area changed || Area == 0x0A && Health was 0x00 && Health == 0x0A"
     start: yes
   - name: Area 10 15
     when: "Area == 0x0A && Screen changed && Screen == 0x0C"
     levels: easy medium
   - name: Area 11 start
-    when: "Area == 0x0B && Screen == 0x00 && Area changed"
+    when: "Area == 0x0B && Area changed || Area == 0x0B && Health was 0x00 && Health == 0x0A"
     start: yes
     no_rewind: easy
   - name: Area 11 boss room
@@ -208,5 +208,5 @@ checkpoints:
     when: "Area == 0x0C && Area == 0x0C && Area was == 0x0C && BossHealth was > 0x18 && BossHealth was != 0xFF && BossHealth <= 0x18"
     levels: medium
   - name: Ending start
-    when: "Area == 0x0D && Screen == 0x00 && Area changed"
+    when: "Area == 0x0D && Area changed || Area == 0x0D && Health was 0x00 && Health == 0x0A"
     start: yes
