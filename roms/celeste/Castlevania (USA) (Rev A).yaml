@@ -1,0 +1,240 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 6630M (scrimpeh, no subweapons, no damage), on Castlevania (USA) (Rev A), replayed in FCEUX 2.6.6.
+variables:
+  0x0018: State
+  0x0028: Stage
+  0x002A: Lives
+  0x002F: Screen
+  0x0045: Health
+  0x0046: Floor
+  0x00F7: Pad
+  0x01A9: BossHealth
+name: Castlevania (USA) (Rev A)
+rom: nes/Castlevania (USA) (Rev A).nes
+hit:
+  - "Health decreased"
+  - "Lives decreased"
+lives: Lives
+input: Pad
+keep:
+  - 0x0080-0x00BF
+  - 0x00E0-0x00EF
+song: 0x0089
+mode: checkpoints
+checkpoints:
+  - name: Stage 1 start
+    when: "Stage == 0x00 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 2 start
+    when: "Stage == 0x01 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 2 4
+    when: "Stage == 0x01 && Screen changed && Screen == 0x02 && Floor == 0x00"
+    levels: easy medium
+  - name: Stage 3 start
+    when: "Stage == 0x02 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 3 4
+    when: "Stage == 0x02 && Screen changed && Screen == 0x01 && Floor == 0x00"
+    wait: 0
+  - name: Stage 3 6
+    when: "Stage == 0x02 && Screen changed && Screen == 0x02 && Floor == 0x01"
+    wait: 0
+  - name: Stage 4 start
+    when: "Stage == 0x03 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 4 boss room
+    when: "Stage == 0x03 && Screen changed && Screen == 0x02 && Floor == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Stage 4 boss 75%
+    when: "Stage == 0x03 && BossHealth was > 0x30 && BossHealth was != 0xFF && BossHealth <= 0x30"
+    levels: medium
+  - name: Stage 4 boss 50%
+    when: "Stage == 0x03 && BossHealth was > 0x20 && BossHealth was != 0xFF && BossHealth <= 0x20"
+    levels: medium hard
+  - name: Stage 4 boss 25%
+    when: "Stage == 0x03 && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
+    levels: medium
+  - name: Stage 5 start
+    when: "Stage == 0x04 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 5 6
+    when: "Stage == 0x04 && Screen changed && Screen == 0x02 && Floor == 0x01"
+    wait: 0
+  - name: Stage 6 start
+    when: "Stage == 0x05 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 6 6
+    when: "Stage == 0x05 && Screen changed && Screen == 0x01 && Floor == 0x01"
+    wait: 0
+  - name: Stage 7 start
+    when: "Stage == 0x06 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 7 3
+    when: "Stage == 0x06 && Screen changed && Screen == 0x00 && Floor == 0x00"
+    levels: easy
+  - name: Stage 7 6
+    when: "Stage == 0x06 && Screen changed && Screen == 0x03 && Floor == 0x01"
+    wait: 0
+  - name: Stage 7 boss room
+    when: "Stage == 0x06 && Screen changed && Screen == 0x00 && Floor == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Stage 7 boss 75%
+    when: "Stage == 0x06 && BossHealth was > 0x30 && BossHealth was != 0xFF && BossHealth <= 0x30"
+    levels: medium
+  - name: Stage 7 boss 50%
+    when: "Stage == 0x06 && BossHealth was > 0x20 && BossHealth was != 0xFF && BossHealth <= 0x20"
+    levels: medium hard
+  - name: Stage 7 boss 25%
+    when: "Stage == 0x06 && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
+    levels: medium
+  - name: Stage 8 start
+    when: "Stage == 0x07 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 8 7
+    when: "Stage == 0x07 && Screen changed && Screen == 0x01 && Floor == 0x01"
+    wait: 0
+  - name: Stage 9 start
+    when: "Stage == 0x08 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 9 6
+    when: "Stage == 0x08 && Screen changed && Screen == 0x03 && Floor == 0x01"
+    wait: 0
+  - name: Stage 10 start
+    when: "Stage == 0x09 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 10 5
+    when: "Stage == 0x09 && Screen changed && Screen == 0x04 && Floor == 0x00"
+    levels: easy medium
+  - name: Stage 10 boss room
+    when: "Stage == 0x09 && Screen changed && Screen == 0x05 && Floor == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Stage 10 boss 75%
+    when: "Stage == 0x09 && BossHealth was > 0x30 && BossHealth was != 0xFF && BossHealth <= 0x30"
+    levels: medium
+  - name: Stage 10 boss 50%
+    when: "Stage == 0x09 && BossHealth was > 0x20 && BossHealth was != 0xFF && BossHealth <= 0x20"
+    levels: medium hard
+  - name: Stage 10 boss 25%
+    when: "Stage == 0x09 && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
+    levels: medium
+  - name: Stage 11 start
+    when: "Stage == 0x0A && State changed && State == 0x05"
+    start: yes
+  - name: Stage 11 4
+    when: "Stage == 0x0A && Screen changed && Screen == 0x02 && Floor == 0x00"
+    levels: easy
+  - name: Stage 11 5
+    when: "Stage == 0x0A && Screen changed && Screen == 0x03 && Floor == 0x00"
+  - name: Stage 11 6
+    when: "Stage == 0x0A && Screen changed && Screen == 0x04 && Floor == 0x00"
+    levels: easy
+  - name: Stage 12 start
+    when: "Stage == 0x0B && State changed && State == 0x05"
+    start: yes
+  - name: Stage 12 4
+    when: "Stage == 0x0B && Screen changed && Screen == 0x03 && Floor == 0x00"
+    levels: easy
+  - name: Stage 13 start
+    when: "Stage == 0x0C && State changed && State == 0x05"
+    start: yes
+  - name: Stage 13 3
+    when: "Stage == 0x0C && Screen changed && Screen == 0x02 && Floor == 0x00"
+    levels: easy medium
+  - name: Stage 13 boss room
+    when: "Stage == 0x0C && Screen changed && Screen == 0x03 && Floor == 0x00"
+    wait: 0
+    no_rewind: easy
+  - name: Stage 13 boss 75%
+    when: "Stage == 0x0C && BossHealth was > 0x30 && BossHealth was != 0xFF && BossHealth <= 0x30"
+    levels: medium
+  - name: Stage 13 boss 50%
+    when: "Stage == 0x0C && BossHealth was > 0x20 && BossHealth was != 0xFF && BossHealth <= 0x20"
+    levels: medium hard
+  - name: Stage 13 boss 25%
+    when: "Stage == 0x0C && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
+    levels: medium
+  - name: Stage 14 start
+    when: "Stage == 0x0D && State changed && State == 0x05"
+    start: yes
+  - name: Stage 14 6
+    when: "Stage == 0x0D && Screen changed && Screen == 0x01 && Floor == 0x01"
+    wait: 0
+  - name: Stage 14 7
+    when: "Stage == 0x0D && Screen changed && Screen == 0x02 && Floor == 0x01"
+    levels: easy medium
+  - name: Stage 15 start
+    when: "Stage == 0x0E && State changed && State == 0x05"
+    start: yes
+  - name: Stage 15 4
+    when: "Stage == 0x0E && Screen changed && Screen == 0x05 && Floor == 0x01"
+    wait: 0
+  - name: Stage 15 5
+    when: "Stage == 0x0E && Screen changed && Screen == 0x02 && Floor == 0x01"
+    levels: easy
+  - name: Stage 15 6
+    when: "Stage == 0x0E && Screen changed && Screen == 0x01 && Floor == 0x01"
+  - name: Stage 15 7
+    when: "Stage == 0x0E && Screen changed && Screen == 0x00 && Floor == 0x01"
+    levels: easy
+  - name: Stage 16 start
+    when: "Stage == 0x0F && State changed && State == 0x05"
+    start: yes
+  - name: Stage 16 5
+    when: "Stage == 0x0F && Screen changed && Screen == 0x04 && Floor == 0x01"
+    wait: 0
+  - name: Stage 16 6
+    when: "Stage == 0x0F && Screen changed && Screen == 0x01 && Floor == 0x01"
+  - name: Stage 16 boss room
+    when: "Stage == 0x0F && Screen changed && Screen == 0x00 && Floor == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Stage 16 boss 75%
+    when: "Stage == 0x0F && BossHealth was > 0x30 && BossHealth was != 0xFF && BossHealth <= 0x30"
+    levels: medium
+  - name: Stage 16 boss 50%
+    when: "Stage == 0x0F && BossHealth was > 0x20 && BossHealth was != 0xFF && BossHealth <= 0x20"
+    levels: medium hard
+  - name: Stage 16 boss 25%
+    when: "Stage == 0x0F && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
+    levels: medium
+  - name: Stage 17 start
+    when: "Stage == 0x10 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 17 5
+    when: "Stage == 0x10 && Screen changed && Screen == 0x02 && Floor == 0x00"
+    levels: easy
+  - name: Stage 18 start
+    when: "Stage == 0x11 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 18 6
+    when: "Stage == 0x11 && Screen changed && Screen == 0x03 && Floor == 0x01"
+    wait: 0
+  - name: Stage 18 8
+    when: "Stage == 0x11 && Floor changed && Screen == 0x00 && Floor == 0x00"
+    wait: 0
+  - name: Stage 18 9
+    when: "Stage == 0x11 && Screen changed && Screen == 0xFF && Floor == 0x01"
+    wait: 0
+  - name: Stage 19 start
+    when: "Stage == 0x12 && State changed && State == 0x05"
+    start: yes
+  - name: Stage 19 6
+    when: "Stage == 0x12 && Screen changed && Screen == 0x03 && Floor == 0x01"
+    wait: 0
+  - name: Stage 19 boss room
+    when: "Stage == 0x12 && Screen changed && Screen == 0x00 && Floor == 0x01"
+    wait: 0
+    no_rewind: easy
+  - name: Stage 19 boss 75%
+    when: "Stage == 0x12 && BossHealth was > 0x30 && BossHealth was != 0xFF && BossHealth <= 0x30"
+    levels: medium
+  - name: Stage 19 boss 50%
+    when: "Stage == 0x12 && BossHealth was > 0x20 && BossHealth was != 0xFF && BossHealth <= 0x20"
+    levels: medium hard
+  - name: Stage 19 boss 25%
+    when: "Stage == 0x12 && BossHealth was > 0x10 && BossHealth was != 0xFF && BossHealth <= 0x10"
+    levels: medium

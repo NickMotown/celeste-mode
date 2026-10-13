@@ -1,7 +1,6 @@
 Ninja Gaiden (USA).yaml
 Bionic Commando (USA).yaml
 Ghosts'n Goblins (USA).yaml
-Castlevania (USA) (Rev A).yaml
 Double Dragon III - The Sacred Stones (USA).yaml
 Super C (USA).yaml
 Little Samson (USA).yaml
