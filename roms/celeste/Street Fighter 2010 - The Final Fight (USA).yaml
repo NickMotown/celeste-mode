@@ -21,18 +21,18 @@ input_bits: a b select start up down left right
 mode: checkpoints
 checkpoints:
   - name: Stage 1 start
-    when: "Stage == 0x00 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x00 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 1 2
     when: "Stage == 0x00 && Screen changed && Screen == 0x01"
   - name: Stage 2 start
-    when: "Stage == 0x01 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x01 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 3 start
-    when: "Stage == 0x02 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x02 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 4 start
-    when: "Stage == 0x03 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x03 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 4 2
     when: "Stage == 0x03 && Screen changed && Screen == 0x01"
@@ -55,46 +55,46 @@ checkpoints:
   - name: Stage 4 11
     when: "Stage == 0x03 && Screen changed && Screen == 0x0A"
   - name: Stage 5 start
-    when: "Stage == 0x04 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x04 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 6 start
-    when: "Stage == 0x05 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x05 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 7 start
-    when: "Stage == 0x06 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x06 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 8 start
-    when: "Stage == 0x07 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x07 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 9 start
-    when: "Stage == 0x08 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x08 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 10 start
-    when: "Stage == 0x09 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x09 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 11 start
-    when: "Stage == 0x0A && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x0A && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 12 start
-    when: "Stage == 0x0B && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x0B && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 13 start
-    when: "Stage == 0x0C && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x0C && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 13 2
     when: "Stage == 0x0C && Screen changed && Screen == 0x01"
     levels: easy
   - name: Stage 14 start
-    when: "Stage == 0x0D && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x0D && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 14 2
     when: "Stage == 0x0D && Screen changed && Screen == 0x00"
     levels: easy
   - name: Stage 15 start
-    when: "Stage == 0x0E && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x0E && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 16 start
-    when: "Stage == 0x0F && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x0F && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 16 2
     when: "Stage == 0x0F && Screen changed && Screen == 0x01"
@@ -105,50 +105,50 @@ checkpoints:
     when: "Stage == 0x0F && Screen changed && Screen == 0x03"
     levels: easy medium
   - name: Stage 17 start
-    when: "Stage == 0x10 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x10 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 18 start
-    when: "Stage == 0x11 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x11 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 19 start
-    when: "Stage == 0x12 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x12 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 20 start
-    when: "Stage == 0x13 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x13 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 21 start
-    when: "Stage == 0x14 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x14 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 22 start
-    when: "Stage == 0x15 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x15 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 23 start
-    when: "Stage == 0x16 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x16 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 24 start
-    when: "Stage == 0x17 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x17 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 24 2
     when: "Stage == 0x17 && Screen changed && Screen == 0x01"
   - name: Stage 24 3
     when: "Stage == 0x17 && Screen changed && Screen == 0x02"
   - name: Stage 25 start
-    when: "Stage == 0x18 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x18 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 26 start
-    when: "Stage == 0x19 && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x19 && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 28 start
-    when: "Stage == 0x1B && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x1B && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 28 2
     when: "Stage == 0x1B && Screen changed && Screen == 0x01"
     levels: easy medium
   - name: Stage 29 start
-    when: "Stage == 0x1C && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x1C && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 30 start
-    when: "Stage == 0x1D && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x1D && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 30 2
     when: "Stage == 0x1D && Screen changed && Screen == 0x01"
@@ -166,10 +166,10 @@ checkpoints:
     when: "Stage == 0x1D && Screen changed && Screen == 0x07"
     levels: easy medium
   - name: Stage 31 start
-    when: "Stage == 0x1E && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x1E && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 32 start
-    when: "Stage == 0x1F && Action was 0x0F && Action == 0x00"
+    when: "Stage == 0x1F && Action was 0x0F && Action != 0x0F"
     start: yes
   - name: Stage 32 2
     when: "Stage == 0x1F && Screen changed && Screen == 0x01"
