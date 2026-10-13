@@ -11,7 +11,7 @@ variables:
 name: Chip 'n Dale Rescue Rangers (USA)
 rom: nes/Chip 'n Dale Rescue Rangers (USA).nes
 hit:
-  - "Hit changed && Hit == 0x3B"
+  - "Hit was 0x00 && Hit != 0x00"
 input: Pad
 mode: checkpoints
 checkpoints:
