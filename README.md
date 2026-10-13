@@ -65,31 +65,22 @@ installs that one. V: the game has it, X: not yet.
 | Adventure Island II (USA) | `4ccf65a4f658fd237e774d29addc3a5c` | 312 / 239 / 187 | X | X | X | V | X |
 | Adventure Island III (USA) | `c517ca2fd6199fde0ba4b3847d9bbecf` | 114 / 69 / 52 | X | X | X | V | X |
 | Batman - The Video Game (USA) | `341f6fd28fcdc7e246ded2750dd1c1e9` | 45 / 53 / 35 | V | V | X | V | X |
-| Bionic Commando (USA) | `cc2e2aa46f56efa41c95ab81de7e05fd` | 95 / 74 / 62 | X | V | X | V | X |
 | Blaster Master (USA) | `12b0dbc4f2b22a50d0bb53c4929217f0` | 236 / 182 / 152 | X | V | X | V | X |
-| Bucky O'Hare (USA) | `2c14a62966411eef03ecd66b061156d5` | 183 / 137 / 110 | X | X | X | V | X |
-| Castlevania (USA) (Rev A) | `728e05f245ab8b7fe61083f6919dc485` | 53 / 64 / 48 | V | V | X | V | V |
 | Chip 'n Dale Rescue Rangers (USA) | `f0ed8c6d65164f761908bc892c01c65a` | 72 / 50 / 39 | X | X | X | X | X |
 | Contra (USA) | `5a5c2f4f1cafb1f55a8dc0d5ad4550e5` | 203 / 186 / 41 | X | X | X | V | V |
 | Darkwing Duck (USA) | `eb9713d1cac3586601833d8df854114e` | 122 / 107 / 67 | V | V | X | X | X |
 | Double Dragon (USA) | `4ef4221310288831301d269993e146ec` | 34 / 32 / 27 | X | X | X | V | X |
-| Double Dragon III - The Sacred Stones (USA) | `bc5f135b34f7fcf06c4eaf72970f654b` | 96 / 62 / 43 | X | X | X | X | X |
 | DuckTales 2 (USA) | `b8592879590cddec02fe077217562d00` | 88 / 86 / 65 | V | V | X | V | X |
-| Ghosts'n Goblins (USA) | `8c3c9b041392f8ef06f6b0c7432c589c` | 47 / 37 / 32 | X | X | X | V | X |
 | Kabuki - Quantum Fighter (USA) | `7de9c960328015874a4ce4a1e6136d46` | 49 / 53 / 34 | V | V | X | V | X |
-| Little Samson (USA) | `89dc61628d31e48497cf2eb72bde44d8` | 74 / 56 / 44 | X | X | X | V | X |
 | Mega Man (USA) | `4de82cfceadbf1a5e693b669b1221107` | 125 / 137 / 108 | V | V | V | V | V |
 | Mega Man 2 (USA) | `0527a0ee512f69e08b8db6dc97964632` | 162 / 178 / 128 | V | V | V | V | V |
 | Mega Man 3 (USA) | `4a53b6f58067d62c9a43404fe835dd5c` | 338 / 314 / 209 | V | V | V | V | V |
 | Mega Man 4 (USA) (Rev A) | `ab9ad69f29f812cb520dd49b39805491` | 283 / 266 / 157 | V | V | V | V | V |
 | Mega Man 5 (USA) | `4482fbbbc77e03266b979f5028d4b51d` | 292 / 267 / 169 | V | V | V | V | V |
 | Mega Man 6 (USA) | `00f8cbeba7db567d1083053b30a93ada` | 258 / 259 / 113 | V | V | V | V | V |
-| Ninja Gaiden (USA) | `07c1b92ae9b78f209075a8cc6d3eebf0` | 107 / 95 / 64 | V | V | X | V | X |
 | Ninja Gaiden II - The Dark Sword of Chaos (USA) | `2ec92e60e033b4d8aa5caa6b1f7838b5` | 93 / 87 / 64 | V | V | X | V | X |
-| Ninja Gaiden III - The Ancient Ship of Doom (USA) | `8e668e161d7393d8c850429d87aa4f2a` | 101 / 113 / 81 | V | V | X | V | X |
 | Shatterhand (USA) | `7cccc9ad7b1097143435fcc6afcdf157` | 121 / 115 / 76 | V | V | X | V | X |
 | Street Fighter 2010 - The Final Fight (USA) | `f5e07200389089e9b5b801a9a247dcef` | 60 / 58 / 53 | X | X | X | V | X |
-| Super C (USA) | `8782ba5a0b02aceb272757667af1066a` | 84 / 64 / 47 | X | X | X | V | V |
 
 <!-- end of the compatibility list -->
 
@@ -241,10 +232,6 @@ a hit only costs health, and a death goes back to it. The boss thresholds
 
 Every key but `name`, `rom` and `hit` is optional; the compatibility list
 above shows which games have what.
-
-## License
-
-MIT, see [LICENSE](LICENSE).
 
 ## License
 
