@@ -74,6 +74,7 @@ installs that one. V: the game has it, X: not yet.
 | Double Dragon (USA) | `4ef4221310288831301d269993e146ec` | 34 / 32 / 27 | X | X | X | V | X |
 | Double Dragon III - The Sacred Stones (USA) | `bc5f135b34f7fcf06c4eaf72970f654b` | 96 / 62 / 43 | X | X | X | X | X |
 | DuckTales 2 (USA) | `b8592879590cddec02fe077217562d00` | 88 / 86 / 65 | V | V | X | V | X |
+| Ghosts'n Goblins (USA) | `8c3c9b041392f8ef06f6b0c7432c589c` | 47 / 37 / 32 | X | X | X | V | X |
 | Kabuki - Quantum Fighter (USA) | `7de9c960328015874a4ce4a1e6136d46` | 49 / 53 / 34 | V | V | X | V | X |
 | Mega Man (USA) | `4de82cfceadbf1a5e693b669b1221107` | 125 / 137 / 108 | V | V | V | V | V |
 | Mega Man 2 (USA) | `0527a0ee512f69e08b8db6dc97964632` | 162 / 178 / 128 | V | V | V | V | V |
