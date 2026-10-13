@@ -87,6 +87,7 @@ installs that one. V: the game has it, X: not yet.
 | Ninja Gaiden III - The Ancient Ship of Doom (USA) | `8e668e161d7393d8c850429d87aa4f2a` | 103 / 115 / 82 | V | V | X | V | X |
 | Shatterhand (USA) | `7cccc9ad7b1097143435fcc6afcdf157` | 121 / 115 / 76 | V | V | X | V | X |
 | Street Fighter 2010 - The Final Fight (USA) | `f5e07200389089e9b5b801a9a247dcef` | 60 / 58 / 53 | X | X | X | V | X |
+| Super C (USA) | `8782ba5a0b02aceb272757667af1066a` | 84 / 64 / 47 | X | X | X | V | V |
 
 <!-- end of the compatibility list -->
 
