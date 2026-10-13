@@ -51,6 +51,12 @@ if (Test-Path -LiteralPath $gl) {
   $src = "<?xml version=`"1.0`"?>`n<gameList>`n</gameList>`n"
 }
 $nl = if ($src.Contains("`r`n")) { "`r`n" } else { "`n" }
+# Element text as EmulationStation writes it: & < > escaped, an apostrophe
+# left as is. SecurityElement.Escape wrote it &apos;, so "Bucky O'Hare.yaml"
+# was never found in a gamelist ES had saved, and every install added it
+# again (2026-10-13: Bucky O'Hare, Chip 'n Dale, Ghosts'n Goblins twice).
+function XmlText([string]$s) { return $s.Replace('&', '&amp;').Replace('<', '&lt;').Replace('>', '&gt;') }
+$quarantined = New-Object System.Collections.Generic.List[string]
 
 $rules = @(Get-ChildItem -LiteralPath (Join-Path $Stage 'games') -Filter *.yaml)
 if ($rules.Count -lt 1) { throw "no rule files in $Stage\games" }
@@ -74,19 +80,19 @@ foreach ($ruleFile in $rules) {
   if ($entries.Count -gt 1) { throw "$($ruleFile.Name): $($entries.Count) <game> entries with path $origPath in $origList" }
   if ($entries.Count -eq 1) { $entry = $entries[0] } else {
     $nm = [regex]::Match($text, '(?m)^name:[ \t]*"?([^"#\r\n]*?)"?[ \t]*(#.*)?\r?$')
-    $entry = ([xml]("<game><name>" + [Security.SecurityElement]::Escape($nm.Groups[1].Value) + "</name></game>")).game
+    $entry = ([xml]("<game><name>" + (XmlText $nm.Groups[1].Value) + "</name></game>")).game
   }
 
   $base = [IO.Path]::GetFileNameWithoutExtension($ruleFile.Name)
   $romBase = [IO.Path]::GetFileNameWithoutExtension($parts[-1])
   $lines = New-Object System.Collections.Generic.List[string]
-  $lines.Add("`t`t<path>./" + [Security.SecurityElement]::Escape($ruleFile.Name) + "</path>")
+  $lines.Add("`t`t<path>./" + (XmlText $ruleFile.Name) + "</path>")
   $copied = 0
   foreach ($node in $entry.ChildNodes) {
     if ($node.NodeType -ne 'Element') { continue }
     $v = $node.InnerText
     if ($textFields -contains $node.Name) {
-      $lines.Add("`t`t<$($node.Name)>" + [Security.SecurityElement]::Escape($v) + "</$($node.Name)>")
+      $lines.Add("`t`t<$($node.Name)>" + (XmlText $v) + "</$($node.Name)>")
     } elseif ($v.StartsWith('./media/')) {
       $rel = $v.Substring(2) -replace '/', '\'
       $from = Join-Path $origDir $rel
@@ -99,12 +105,32 @@ foreach ($ruleFile in $rules) {
       $to = Join-Path (Join-Path $dest $kindDir) $name
       New-Item -ItemType Directory -Force -Path (Split-Path $to) | Out-Null
       if (-not (Test-Path -LiteralPath $to)) { Copy-Item -LiteralPath $from -Destination $to; $copied++ }
-      $lines.Add("`t`t<$($node.Name)>./" + [Security.SecurityElement]::Escape(($kindDir -replace '\\', '/') + '/' + $name) + "</$($node.Name)>")
+      $lines.Add("`t`t<$($node.Name)>./" + (XmlText (($kindDir -replace '\\', '/') + '/' + $name)) + "</$($node.Name)>")
     }
   }
   "  $base`: media copied $copied"
 
-  $pathTag = "<path>./" + [Security.SecurityElement]::Escape($ruleFile.Name) + "</path>"
+  $pathTag = "<path>./" + (XmlText $ruleFile.Name) + "</path>"
+  # the &apos; spelling an earlier install wrote: beside the real entry it is
+  # that install's duplicate (no play history: ES keeps it on the first),
+  # moved out to the quarantine file below; alone, it is the entry
+  $aposTag = "<path>./" + [Security.SecurityElement]::Escape($ruleFile.Name) + "</path>"
+  if ($aposTag -ne $pathTag) {
+    while ($src.Contains($aposTag) -and $src.Contains($pathTag)) {
+      $at = $src.IndexOf($aposTag)
+      $start = $src.LastIndexOf('<game', $at)
+      $end = $src.IndexOf('</game>', $at)
+      if ($start -lt 0 -or $end -lt 0) { throw "celeste gamelist: $aposTag is in no <game>" }
+      $end += '</game>'.Length
+      $lineStart = $src.LastIndexOf("`n", $start) + 1
+      if ($src.Substring($lineStart, $start - $lineStart).Trim().Length -eq 0) { $start = $lineStart }
+      if ($src.Substring($end).StartsWith("`r`n")) { $end += 2 } elseif ($src.Substring($end).StartsWith("`n")) { $end += 1 }
+      $quarantined.Add($src.Substring($start, $end - $start))
+      $src = $src.Substring(0, $start) + $src.Substring($end)
+      "  $base`: a duplicate entry (&apos;) moved to the quarantine"
+    }
+    if (-not $src.Contains($pathTag) -and $src.Contains($aposTag)) { $pathTag = $aposTag }
+  }
   if ($src.Contains($pathTag)) {
     # kept as it is (EmulationStation's play counts, favourites), but for
     # the per-game profile <core> an install of 2026-10-09 wrote (
@@ -130,6 +156,12 @@ foreach ($ruleFile in $rules) {
 }
 [xml]$check = $src
 $count = @($check.gameList.game).Count
+if ($quarantined.Count) {
+  $q = Join-Path $dest ('_quarantine\gamelist-duplicates-' + (Get-Date -Format 'yyyyMMdd-HHmmss') + '.xml')
+  New-Item -ItemType Directory -Force -Path (Split-Path $q) | Out-Null
+  [IO.File]::WriteAllText($q, ($quarantined -join ''), $utf8)
+  "gamelist: $($quarantined.Count) duplicate entries moved to $q"
+}
 [IO.File]::WriteAllText($gl, $src, $utf8)
 "gamelist: $count games ($added added) in $gl"
 
