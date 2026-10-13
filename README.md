@@ -76,6 +76,7 @@ installs that one. V: the game has it, X: not yet.
 | DuckTales 2 (USA) | `b8592879590cddec02fe077217562d00` | 88 / 86 / 65 | V | V | X | V | X |
 | Ghosts'n Goblins (USA) | `8c3c9b041392f8ef06f6b0c7432c589c` | 47 / 37 / 32 | X | X | X | V | X |
 | Kabuki - Quantum Fighter (USA) | `7de9c960328015874a4ce4a1e6136d46` | 49 / 53 / 34 | V | V | X | V | X |
+| Little Samson (USA) | `89dc61628d31e48497cf2eb72bde44d8` | 74 / 56 / 44 | X | X | X | V | X |
 | Mega Man (USA) | `4de82cfceadbf1a5e693b669b1221107` | 125 / 137 / 108 | V | V | V | V | V |
 | Mega Man 2 (USA) | `0527a0ee512f69e08b8db6dc97964632` | 162 / 178 / 128 | V | V | V | V | V |
 | Mega Man 3 (USA) | `4a53b6f58067d62c9a43404fe835dd5c` | 338 / 314 / 209 | V | V | V | V | V |
