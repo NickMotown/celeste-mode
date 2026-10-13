@@ -79,6 +79,7 @@ installs that one. V: the game has it, X: not yet.
 | Mega Man 5 (USA) | `4482fbbbc77e03266b979f5028d4b51d` | 292 / 267 / 169 | V | V | V | V | V |
 | Mega Man 6 (USA) | `00f8cbeba7db567d1083053b30a93ada` | 258 / 259 / 113 | V | V | V | V | V |
 | Ninja Gaiden II - The Dark Sword of Chaos (USA) | `2ec92e60e033b4d8aa5caa6b1f7838b5` | 93 / 87 / 64 | V | V | X | V | X |
+| Ninja Gaiden III - The Ancient Ship of Doom (USA) | `8e668e161d7393d8c850429d87aa4f2a` | 103 / 115 / 82 | V | V | X | V | X |
 | Shatterhand (USA) | `7cccc9ad7b1097143435fcc6afcdf157` | 121 / 115 / 76 | V | V | X | V | X |
 | Street Fighter 2010 - The Final Fight (USA) | `f5e07200389089e9b5b801a9a247dcef` | 60 / 58 / 53 | X | X | X | V | X |
 
