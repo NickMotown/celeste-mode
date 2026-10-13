@@ -1,0 +1,276 @@
+# Celeste mode rule file: the bytes for a hit, the lives, the pad and the
+# music, then the checkpoints, cut from TASVideos 3409M (xipo, v4), on Double Dragon III (USA), replayed in FCEUX 2.6.6.
+variables:
+  0x0074: Character
+  0x0099: Pad
+  0x00F3: Area
+  0x00F4: Mission
+  0x00F5: Progress
+  0x045D: Health
+name: Double Dragon III - The Sacred Stones (USA)
+rom: nes/Double Dragon III - The Sacred Stones (USA).nes
+hit:
+  - "Health decreased && Character unchanged"
+input: Pad
+mode: checkpoints
+checkpoints:
+  - name: Mission 1 start
+    when: "Mission == 0x00 && Health was 0x00 && Health != 0x00 && Area == 0x00 || Mission == 0x00 && Mission changed"
+    start: yes
+  - name: Mission 1 4
+    when: "Mission == 0x00 && Progress changed && Progress == 0x03 && Area == 0x00"
+    levels: easy
+  - name: Mission 1 8
+    when: "Mission == 0x00 && Progress changed && Progress == 0x07 && Area == 0x00"
+  - name: Mission 1 13
+    when: "Mission == 0x00 && Progress changed && Progress == 0x0E && Area == 0x00"
+    levels: easy medium
+  - name: Mission 1 19
+    when: "Mission == 0x00 && Progress changed && Progress == 0x01 && Area == 0x01"
+    wait: 0
+  - name: Mission 1 24
+    when: "Mission == 0x00 && Progress changed && Progress == 0x06 && Area == 0x01"
+    levels: easy
+  - name: Mission 1 25
+    when: "Mission == 0x00 && Progress changed && Progress == 0x07 && Area == 0x01"
+    levels: easy medium
+  - name: Mission 1 27
+    when: "Mission == 0x00 && Progress changed && Progress == 0x09 && Area == 0x01"
+  - name: Mission 1 30
+    when: "Mission == 0x00 && Progress changed && Progress == 0x0F && Area == 0x01"
+    levels: easy
+  - name: Mission 1 35
+    when: "Mission == 0x00 && Progress changed && Progress == 0x15 && Area == 0x01"
+  - name: Mission 1 41
+    when: "Mission == 0x00 && Progress changed && Progress == 0x1B && Area == 0x01"
+    levels: easy medium
+  - name: Mission 1 43
+    when: "Mission == 0x00 && Progress changed && Progress == 0x20 && Area == 0x01"
+    levels: easy
+  - name: Mission 1 50
+    when: "Mission == 0x00 && Progress changed && Progress == 0x01 && Area == 0x02"
+    wait: 0
+  - name: Mission 1 55
+    when: "Mission == 0x00 && Progress changed && Progress == 0x06 && Area == 0x02"
+    levels: easy
+  - name: Mission 1 58
+    when: "Mission == 0x00 && Progress changed && Progress == 0x0C && Area == 0x02"
+    levels: easy medium
+  - name: Mission 1 62
+    when: "Mission == 0x00 && Progress changed && Progress == 0x10 && Area == 0x02"
+  - name: Mission 1 63
+    when: "Mission == 0x00 && Progress changed && Progress == 0x11 && Area == 0x02"
+    levels: easy medium
+  - name: Mission 2 start
+    when: "Mission == 0x01 && Mission changed || Mission == 0x01 && Health was 0x00 && Health != 0x00 && Area == 0x00"
+    start: yes
+  - name: Mission 2 7
+    when: "Mission == 0x01 && Progress changed && Progress == 0x05 && Area == 0x03"
+    levels: easy medium
+  - name: Mission 2 9
+    when: "Mission == 0x01 && Progress changed && Progress == 0x07 && Area == 0x03"
+  - name: Mission 2 11
+    when: "Mission == 0x01 && Progress changed && Progress == 0x09 && Area == 0x03"
+    levels: easy
+  - name: Mission 2 13
+    when: "Mission == 0x01 && Progress changed && Progress == 0x0B && Area == 0x03"
+  - name: Mission 2 14
+    when: "Mission == 0x01 && Progress changed && Progress == 0x0C && Area == 0x03"
+    levels: easy
+  - name: Mission 2 16
+    when: "Mission == 0x01 && Progress changed && Progress == 0x12 && Area == 0x03"
+    levels: easy medium
+  - name: Mission 2 23
+    when: "Mission == 0x01 && Progress changed && Progress == 0x01 && Area == 0x04"
+    wait: 0
+  - name: Mission 2 27
+    when: "Mission == 0x01 && Progress changed && Progress == 0x05 && Area == 0x04"
+    levels: easy
+  - name: Mission 2 29
+    when: "Mission == 0x01 && Progress changed && Progress == 0x07 && Area == 0x04"
+  - name: Mission 2 31
+    when: "Mission == 0x01 && Progress changed && Progress == 0x09 && Area == 0x04"
+    levels: easy medium
+  - name: Mission 2 32
+    when: "Mission == 0x01 && Progress changed && Progress == 0x0A && Area == 0x04"
+  - name: Mission 2 35
+    when: "Mission == 0x01 && Progress changed && Progress == 0x11 && Area == 0x04"
+    levels: easy
+  - name: Mission 2 39
+    when: "Mission == 0x01 && Progress changed && Progress == 0x15 && Area == 0x04"
+    levels: easy medium
+  - name: Mission 2 43
+    when: "Mission == 0x01 && Progress changed && Progress == 0x1A && Area == 0x04"
+  - name: Mission 2 45
+    when: "Mission == 0x01 && Progress changed && Progress == 0x1C && Area == 0x04"
+    levels: easy
+  - name: Mission 3 start
+    when: "Mission == 0x02 && Mission changed || Mission == 0x02 && Health was 0x00 && Health != 0x00 && Area == 0x00"
+    start: yes
+  - name: Mission 3 6
+    when: "Mission == 0x02 && Progress changed && Progress == 0x04 && Area == 0x05"
+    levels: easy
+  - name: Mission 3 8
+    when: "Mission == 0x02 && Progress changed && Progress == 0x06 && Area == 0x05"
+    levels: easy medium
+  - name: Mission 3 9
+    when: "Mission == 0x02 && Progress changed && Progress == 0x07 && Area == 0x05"
+  - name: Mission 3 11
+    when: "Mission == 0x02 && Progress changed && Progress == 0x09 && Area == 0x05"
+    levels: easy
+  - name: Mission 3 13
+    when: "Mission == 0x02 && Progress changed && Progress == 0x0B && Area == 0x05"
+  - name: Mission 3 16
+    when: "Mission == 0x02 && Progress changed && Progress == 0x12 && Area == 0x05"
+    levels: easy
+  - name: Mission 3 23
+    when: "Mission == 0x02 && Progress changed && Progress == 0x01 && Area == 0x06"
+    wait: 0
+  - name: Mission 3 29
+    when: "Mission == 0x02 && Progress changed && Progress == 0x07 && Area == 0x06"
+    levels: easy medium
+  - name: Mission 3 32
+    when: "Mission == 0x02 && Progress changed && Progress == 0x0A && Area == 0x06"
+  - name: Mission 3 36
+    when: "Mission == 0x02 && Progress changed && Progress == 0x12 && Area == 0x06"
+    levels: easy
+  - name: Mission 3 45
+    when: "Mission == 0x02 && Progress changed && Progress == 0x04 && Area == 0x07"
+    wait: 0
+  - name: Mission 3 47
+    when: "Mission == 0x02 && Progress changed && Progress == 0x06 && Area == 0x07"
+    levels: easy medium
+  - name: Mission 3 52
+    when: "Mission == 0x02 && Progress changed && Progress == 0x0B && Area == 0x07"
+  - name: Mission 3 55
+    when: "Mission == 0x02 && Progress changed && Progress == 0x12 && Area == 0x07"
+    levels: easy
+  - name: Mission 3 60
+    when: "Mission == 0x02 && Progress changed && Progress == 0x18 && Area == 0x07"
+  - name: Mission 3 65
+    when: "Mission == 0x02 && Progress changed && Progress == 0x1D && Area == 0x07"
+    levels: easy
+  - name: Mission 4 start
+    when: "Mission == 0x03 && Mission changed || Mission == 0x03 && Health was 0x00 && Health != 0x00 && Area == 0x00"
+    start: yes
+  - name: Mission 4 8
+    when: "Mission == 0x03 && Progress changed && Progress == 0x06 && Area == 0x08"
+    levels: easy
+  - name: Mission 4 9
+    when: "Mission == 0x03 && Progress changed && Progress == 0x07 && Area == 0x08"
+    levels: easy medium
+  - name: Mission 4 11
+    when: "Mission == 0x03 && Progress changed && Progress == 0x09 && Area == 0x08"
+  - name: Mission 4 14
+    when: "Mission == 0x03 && Progress changed && Progress == 0x0C && Area == 0x08"
+    levels: easy medium
+  - name: Mission 4 18
+    when: "Mission == 0x03 && Progress changed && Progress == 0x14 && Area == 0x08"
+    levels: easy
+  - name: Mission 4 25
+    when: "Mission == 0x03 && Progress changed && Progress == 0x01 && Area == 0x09"
+    wait: 0
+  - name: Mission 4 30
+    when: "Mission == 0x03 && Progress changed && Progress == 0x06 && Area == 0x09"
+    levels: easy
+  - name: Mission 4 32
+    when: "Mission == 0x03 && Progress changed && Progress == 0x08 && Area == 0x09"
+  - name: Mission 4 34
+    when: "Mission == 0x03 && Progress changed && Progress == 0x0A && Area == 0x09"
+    levels: easy
+  - name: Mission 4 36
+    when: "Mission == 0x03 && Progress changed && Progress == 0x0C && Area == 0x09"
+    levels: easy medium
+  - name: Mission 4 38
+    when: "Mission == 0x03 && Progress changed && Progress == 0x0E && Area == 0x09"
+  - name: Mission 4 41
+    when: "Mission == 0x03 && Progress changed && Progress == 0x16 && Area == 0x09"
+    levels: easy
+  - name: Mission 4 43
+    when: "Mission == 0x03 && Progress changed && Progress == 0x19 && Area == 0x09"
+  - name: Mission 5 start
+    when: "Mission == 0x04 && Mission changed || Mission == 0x04 && Health was 0x00 && Health != 0x00 && Area == 0x00"
+    start: yes
+  - name: Mission 5 5
+    when: "Mission == 0x04 && Progress changed && Progress == 0x03 && Area == 0x0A"
+    levels: easy
+  - name: Mission 5 8
+    when: "Mission == 0x04 && Progress changed && Progress == 0x06 && Area == 0x0A"
+  - name: Mission 5 10
+    when: "Mission == 0x04 && Progress changed && Progress == 0x08 && Area == 0x0A"
+    levels: easy
+  - name: Mission 5 11
+    when: "Mission == 0x04 && Progress changed && Progress == 0x09 && Area == 0x0A"
+  - name: Mission 5 13
+    when: "Mission == 0x04 && Progress changed && Progress == 0x0B && Area == 0x0A"
+    levels: easy
+  - name: Mission 5 15
+    when: "Mission == 0x04 && Progress changed && Progress == 0x0D && Area == 0x0A"
+  - name: Mission 5 17
+    when: "Mission == 0x04 && Progress changed && Progress == 0x12 && Area == 0x0A"
+    levels: easy
+  - name: Mission 5 26
+    when: "Mission == 0x04 && Progress changed && Progress == 0x03 && Area == 0x0B"
+    wait: 0
+  - name: Mission 5 28
+    when: "Mission == 0x04 && Progress changed && Progress == 0x05 && Area == 0x0B"
+    levels: easy
+  - name: Mission 5 29
+    when: "Mission == 0x04 && Progress changed && Progress == 0x06 && Area == 0x0B"
+    levels: easy
+  - name: Mission 5 30
+    when: "Mission == 0x04 && Progress changed && Progress == 0x07 && Area == 0x0B"
+  - name: Mission 5 32
+    when: "Mission == 0x04 && Progress changed && Progress == 0x09 && Area == 0x0B"
+    levels: easy medium
+  - name: Mission 5 39
+    when: "Mission == 0x04 && Progress changed && Progress == 0x04 && Area == 0x0C"
+    wait: 0
+  - name: Mission 5 41
+    when: "Mission == 0x04 && Progress changed && Progress == 0x06 && Area == 0x0C"
+    levels: easy
+  - name: Mission 5 42
+    when: "Mission == 0x04 && Progress changed && Progress == 0x07 && Area == 0x0C"
+  - name: Mission 5 44
+    when: "Mission == 0x04 && Progress changed && Progress == 0x09 && Area == 0x0C"
+    levels: easy medium
+  - name: Mission 5 45
+    when: "Mission == 0x04 && Progress changed && Progress == 0x0B && Area == 0x0C"
+    levels: easy
+  - name: Mission 5 47
+    when: "Mission == 0x04 && Progress changed && Progress == 0x11 && Area == 0x0C"
+  - name: Mission 5 52
+    when: "Mission == 0x04 && Progress changed && Progress == 0x16 && Area == 0x0C"
+    levels: easy medium
+  - name: Mission 5 65
+    when: "Mission == 0x04 && Progress changed && Progress == 0x04 && Area == 0x0D"
+    wait: 0
+  - name: Mission 5 67
+    when: "Mission == 0x04 && Progress changed && Progress == 0x06 && Area == 0x0D"
+    levels: easy
+  - name: Mission 5 69
+    when: "Mission == 0x04 && Progress changed && Progress == 0x08 && Area == 0x0D"
+  - name: Mission 5 71
+    when: "Mission == 0x04 && Progress changed && Progress == 0x0A && Area == 0x0D"
+    levels: easy
+  - name: Mission 5 74
+    when: "Mission == 0x04 && Progress changed && Progress == 0x12 && Area == 0x0D"
+  - name: Mission 5 77
+    when: "Mission == 0x04 && Progress changed && Progress == 0x15 && Area == 0x0D"
+    levels: easy
+  - name: Mission 5 78
+    when: "Mission == 0x04 && Progress changed && Progress == 0x16 && Area == 0x0D"
+    levels: easy medium
+  - name: Mission 5 93
+    when: "Mission == 0x04 && Progress changed && Progress == 0x04 && Area == 0x0E"
+    wait: 0
+  - name: Mission 5 94
+    when: "Mission == 0x04 && Progress changed && Progress == 0x05 && Area == 0x0E"
+    levels: easy
+  - name: Mission 5 98
+    when: "Mission == 0x04 && Progress changed && Progress == 0x09 && Area == 0x0E"
+  - name: Mission 5 101
+    when: "Mission == 0x04 && Progress changed && Progress == 0x0C && Area == 0x0E"
+    levels: easy
+  - name: Mission 5 102
+    when: "Mission == 0x04 && Progress changed && Progress == 0x0D && Area == 0x0E"
